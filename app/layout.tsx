@@ -25,22 +25,54 @@ export const metadata: Metadata = {
     template: "%s | OYO-Elearner",
   },
   description:
-    "Multi-tenant SaaS eLearning for K-12 schools, universities, and vocational institutes. Courses, live classes, certificates, and LMS integrations.",
+    "Multi-tenant SaaS eLearning for K-12 schools, universities, and vocational institutes. Courses, live classes, AI tutoring, certificates, and LMS integrations.",
+  keywords: [
+    "eLearning", "LMS", "Africa", "schools", "universities",
+    "SCORM", "LTI", "certificates", "online courses", "vocational",
+  ],
+  authors: [{ name: "OYO-Elearner" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: process.env.NEXT_PUBLIC_APP_URL ?? "https://oyo-elearn.vercel.app",
+    siteName: "OYO-Elearner",
+    title: "OYO-Elearner — Where Schools Teach, Students Grow",
+    description:
+      "The institutional eLearning platform built for K-12 schools, universities, and vocational centres across Africa and beyond.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "OYO-Elearner platform preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OYO-Elearner — Where Schools Teach, Students Grow",
+    description:
+      "The institutional eLearning platform built for K-12 schools, universities, and vocational centres across Africa and beyond.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   const locale = await getServerLocale();
-
   return (
-    <html lang={locale} className={`${plusJakarta.variable} ${dmSans.variable} h-full`}>
-      <body className="min-h-screen bg-background font-body text-foreground antialiased">
-        <LocaleProvider initialLocale={locale}>
-          <SessionProvider>{children}</SessionProvider>
-        </LocaleProvider>
+    <html lang={locale} className={`${plusJakarta.variable} ${dmSans.variable}`}>
+      <body>
+        <SessionProvider>
+          <LocaleProvider initialLocale={locale}>{children}</LocaleProvider>
+        </SessionProvider>
       </body>
     </html>
   );

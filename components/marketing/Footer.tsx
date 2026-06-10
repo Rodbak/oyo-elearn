@@ -22,7 +22,7 @@ export function Footer() {
             </p>
             <ul className="mt-4 space-y-2 font-body text-sm text-muted">
               <li>
-                <Link href="/pricing" className="hover:text-foreground focus-neu">
+                <Link href="/#pricing" className="hover:text-foreground focus-neu">
                   {t("nav.pricing")}
                 </Link>
               </li>
@@ -39,12 +39,12 @@ export function Footer() {
             </p>
             <ul className="mt-4 space-y-2 font-body text-sm text-muted">
               <li>
-                <Link href="/about" className="hover:text-foreground focus-neu">
+                <Link href="/#about" className="hover:text-foreground focus-neu">
                   {t("nav.about")}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-foreground focus-neu">
+                <Link href="/#contact" className="hover:text-foreground focus-neu">
                   {t("nav.contact")}
                 </Link>
               </li>

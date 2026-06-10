@@ -1,5 +1,5 @@
-import { PricingContent } from "@/components/marketing/PricingContent";
+import { redirect } from "next/navigation";
 
 export default function PricingPage() {
-  return <PricingContent />;
+  redirect("/");
 }

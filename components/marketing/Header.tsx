@@ -2,6 +2,7 @@
 
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { useLocale } from "@/components/i18n/LocaleProvider";
+import { CurrencySwitcher } from "@/components/marketing/CurrencySwitcher";
 import { NeuButton } from "@/components/neu";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -13,9 +14,9 @@ export function Header() {
 
   const links = [
     { href: "/#features", label: t("nav.features") },
-    { href: "/pricing", label: t("nav.pricing") },
-    { href: "/about", label: t("nav.about") },
-    { href: "/contact", label: t("nav.contact") },
+    { href: "/#pricing",  label: t("nav.pricing")  },
+    { href: "/#about",    label: t("nav.about")    },
+    { href: "/#contact",  label: t("nav.contact")  },
   ];
 
   return (
@@ -24,6 +25,7 @@ export function Header() {
         className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-card bg-background px-4 py-4 shadow-neu-extruded md:px-6"
         aria-label={t("nav.mainNav")}
       >
+        {/* Logo */}
         <Link
           href="/"
           className="font-display text-xl font-extrabold tracking-tight text-accent focus-neu rounded-btn shrink-0"
@@ -31,6 +33,7 @@ export function Header() {
           OYO<span className="text-foreground">-Elearner</span>
         </Link>
 
+        {/* Desktop nav links */}
         <ul className="hidden items-center gap-6 lg:flex">
           {links.map((link) => (
             <li key={link.href}>
@@ -44,7 +47,9 @@ export function Header() {
           ))}
         </ul>
 
+        {/* Desktop controls */}
         <div className="hidden items-center gap-3 md:flex">
+          <CurrencySwitcher />
           <LanguageSwitcher />
           <NeuButton variant="secondary" size="sm" asChild>
             <Link href="/login">{t("nav.login")}</Link>
@@ -54,7 +59,9 @@ export function Header() {
           </NeuButton>
         </div>
 
+        {/* Mobile controls */}
         <div className="flex items-center gap-2 md:hidden">
+          <CurrencySwitcher />
           <LanguageSwitcher />
           <button
             type="button"
@@ -68,6 +75,7 @@ export function Header() {
         </div>
       </nav>
 
+      {/* Mobile menu */}
       {open && (
         <div className="mx-auto mt-2 max-w-7xl rounded-card bg-background p-6 shadow-neu-extruded md:hidden">
           <ul className="flex flex-col gap-4">
@@ -75,14 +83,14 @@ export function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block font-body text-lg text-foreground"
+                  className="block font-body text-lg text-foreground focus-neu rounded-inner px-2 py-1"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li className="flex flex-col gap-3 pt-4">
+            <li className="flex flex-col gap-3 pt-4 border-t border-background">
               <NeuButton variant="secondary" asChild>
                 <Link href="/login">{t("nav.login")}</Link>
               </NeuButton>

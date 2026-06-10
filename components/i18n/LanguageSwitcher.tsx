@@ -34,7 +34,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           )}
           aria-pressed={locale === opt.id}
         >
-          {opt.id.toUpperCase()}
+          {t(opt.labelKey)}
         </button>
       ))}
     </div>

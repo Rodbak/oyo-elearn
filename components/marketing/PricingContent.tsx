@@ -11,7 +11,7 @@ export function PricingContent() {
   const tiers = [
     { key: "free" as const, price: "₦0", highlighted: false, href: "/register" },
     { key: "pro" as const, price: "₦49,999", highlighted: true, href: "/register?plan=pro" },
-    { key: "enterprise" as const, price: "Custom", highlighted: false, href: "/contact" },
+    { key: "enterprise" as const, price: "custom", highlighted: false, href: "/contact" },
   ];
 
   const comparison = [
@@ -45,7 +45,7 @@ export function PricingContent() {
                 {tierMeta.name}
               </p>
               <p className="mt-2 font-display text-4xl font-extrabold">
-                {tier.price}
+                {tier.key === "enterprise" ? t("pricing.enterprise.custom") : tier.price}
                 <span className="text-lg font-normal text-muted">{tierMeta.period}</span>
               </p>
               <p className="mt-2 font-body text-sm text-muted">{tierMeta.description}</p>

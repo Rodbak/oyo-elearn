@@ -1,5 +1,5 @@
-import { AboutContent } from "@/components/marketing/AboutContent";
+import { redirect } from "next/navigation";
 
 export default function AboutPage() {
-  return <AboutContent />;
+  redirect("/");
 }

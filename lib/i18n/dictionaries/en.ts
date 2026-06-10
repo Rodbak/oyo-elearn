@@ -4,6 +4,7 @@ export const dictionary = {
     english: "English",
     french: "French",
     loading: "Loading…",
+    free: "Free",
   },
   nav: {
     features: "Features",
@@ -66,11 +67,126 @@ export const dictionary = {
           "Schools, universities, and vocational centres each get branded workspaces.",
       },
     },
+    platformFeatures: "Platform features",
+    stats: {
+      students: "Students enrolled",
+      courses: "Courses live",
+      institutions: "Institutions",
+      completion: "Completion rate",
+    },
+    demo: {
+      title: "Ready to try it?",
+      subtitle: "Use one of the premade demo logins below to access the application instantly.",
+      goToLogin: "Go to login",
+      accounts: {
+        student: "Student",
+        instructor: "Instructor",
+        institutionAdmin: "Institution Admin",
+        superAdmin: "Super Admin",
+      },
+      email: "Email",
+      password: "Password",
+      portal: "Portal",
+    },
+    howItWorks: {
+      title: "Up and running in minutes",
+      step1: {
+        title: "Create your institution",
+        description:
+          "Sign up free, set your institution name, logo, and invite your first instructors in under 5 minutes.",
+      },
+      step2: {
+        title: "Upload your courses",
+        description:
+          "Drag-and-drop video lectures, SCORM packages, quizzes, and assignments — or let AI generate them from your syllabus.",
+      },
+      step3: {
+        title: "Students start learning",
+        description:
+          "Enrol students, run live classes, track attendance, and award verified certificates automatically on completion.",
+      },
+    },
+    about: {
+      title: "Built for African education — and beyond",
+      intro1:
+        "OYO-Elearner was created to bring world-class course delivery into the institutional workflows that African schools and global campuses already trust.",
+      intro2:
+        "We combine the best of modern eLearning with deep respect for how schools actually operate.",
+      mission1:
+        "Our mission is to empower every institution — from a single-room K-12 school to a 10,000-student university — to deliver blended learning, track attendance, award verifiable certificates, and integrate with existing school management systems.",
+      cards: {
+        school: {
+          title: "K-12 Schools",
+          description:
+            "Guardian visibility, attendance alerts, and age-appropriate learning tools.",
+        },
+        university: {
+          title: "Universities",
+          description:
+            "Full LMS integration, LTI 1.3, and SCORM support for academic workflows.",
+        },
+        vocational: {
+          title: "Vocational Centres",
+          description:
+            "Skills-based certificates and competency tracking for job-ready outcomes.",
+        },
+        platform: {
+          title: "Platform Operators",
+          description:
+            "SuperAdmin tools for managing multiple institutions from one dashboard.",
+        },
+      },
+    },
+    currency: {
+      label: "Currency",
+      disclaimer:
+        "Prices shown in {currency} ({code}) are approximate and may vary in your checkout currency.",
+      names: {
+        GHS: "Ghana Cedi",
+        USD: "US Dollar",
+        NGN: "Nigerian Naira",
+        KES: "Kenyan Shilling",
+        EUR: "Euro",
+        GBP: "British Pound",
+      },
+    },
+    contactSection: {
+      title: "Contact Us",
+      heading: "Let's talk about your institution",
+      description:
+        "Whether it's an enterprise deal, a partnership, or just a question — we typically respond within 24 hours.",
+      highlight1: {
+        title: "Enterprise & Partnerships",
+        description: "Custom pricing for large institutions and government programmes.",
+      },
+      highlight2: {
+        title: "Onboarding Support",
+        description:
+          "We help you migrate content and onboard your first cohort of students.",
+      },
+      highlight3: {
+        title: "Integration Help",
+        description:
+          "Our team helps you connect SCORM, LTI, and Google Classroom.",
+      },
+      sendMessage: "Send us a message",
+      receivedTitle: "Message received!",
+      receivedDescription: "We'll get back to you within 24 hours.",
+      messagePlaceholder: "Tell us about your institution and what you need...",
+    },
+    cta: {
+      title: "Ready to transform learning at your institution?",
+      subtitle:
+        "Start free today — no credit card required. Upgrade when you're ready.",
+      primary: "Create your institution — it's free",
+      secondary: "Talk to our team",
+    },
   },
   pricing: {
     title: "Simple, transparent pricing",
     subtitle:
       "Freemium for Africa — Paystack for NGN/GHS/KES, Stripe internationally.",
+    mostPopular: "Most Popular",
     free: {
       name: "Free",
       period: "forever",
@@ -88,8 +204,12 @@ export const dictionary = {
       period: "",
       description: "SSO, SLA, white-label, dedicated support",
       cta: "Contact sales",
+      custom: "Custom",
     },
     comparisonFeature: "Feature",
+    freeLabel: "Free",
+    proLabel: "Pro",
+    enterpriseLabel: "Enterprise",
     features: {
       liveClasses: "Live classes",
       aiTutoring: "AI tutoring",

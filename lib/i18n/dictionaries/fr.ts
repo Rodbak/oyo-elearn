@@ -4,6 +4,7 @@ export const dictionary = {
     english: "Anglais",
     french: "Français",
     loading: "Chargement…",
+    free: "Gratuit",
   },
   nav: {
     features: "Fonctionnalités",
@@ -66,11 +67,126 @@ export const dictionary = {
           "Écoles, universités et centres de formation disposent chacun de leur espace personnalisé.",
       },
     },
+    platformFeatures: "Fonctionnalités de la plateforme",
+    stats: {
+      students: "Élèves inscrits",
+      courses: "Cours en ligne",
+      institutions: "Institutions",
+      completion: "Taux de réussite",
+    },
+    demo: {
+      title: "Prêt à l'essayer ?",
+      subtitle: "Utilisez l'une des connexions de démonstration ci-dessous pour accéder instantanément à l'application.",
+      goToLogin: "Accéder à la connexion",
+      accounts: {
+        student: "Élève",
+        instructor: "Formateur",
+        institutionAdmin: "Administration",
+        superAdmin: "SuperAdmin",
+      },
+      email: "E-mail",
+      password: "Mot de passe",
+      portal: "Portail",
+    },
+    howItWorks: {
+      title: "Opérationnel en quelques minutes",
+      step1: {
+        title: "Créez votre institution",
+        description:
+          "Inscrivez-vous gratuitement, définissez le nom de votre institution, votre logo, et invitez vos premiers formateurs en moins de 5 minutes.",
+      },
+      step2: {
+        title: "Téléchargez vos cours",
+        description:
+          "Glissez-déposez vidéos, packages SCORM, quiz et devoirs — ou laissez l'IA les générer à partir de votre programme.",
+      },
+      step3: {
+        title: "Les élèves commencent à apprendre",
+        description:
+          "Inscrivez des élèves, organisez des cours en direct, suivez la présence et délivrez automatiquement des certificats vérifiables.",
+      },
+    },
+    about: {
+      title: "Conçu pour l'éducation africaine — et au-delà",
+      intro1:
+        "OYO-Elearner a été créé pour offrir une diffusion de cours de classe mondiale aux flux institutionnels des écoles africaines et des campus internationaux.",
+      intro2:
+        "Nous combinons le meilleur de l'eLearning moderne avec un profond respect pour la façon dont les écoles fonctionnent réellement.",
+      mission1:
+        "Notre mission est de permettre à chaque institution — d'une école K-12 d'une seule salle à une université de 10 000 étudiants — de dispenser un apprentissage mixte, suivre la présence, délivrer des certificats vérifiables et s'intégrer aux systèmes scolaires existants.",
+      cards: {
+        school: {
+          title: "Écoles K-12",
+          description:
+            "Visibilité pour les parents, alertes de présence et outils adaptés à l'âge.",
+        },
+        university: {
+          title: "Universités",
+          description:
+            "Intégration LMS complète, LTI 1.3 et prise en charge SCORM pour les flux académiques.",
+        },
+        vocational: {
+          title: "Centres de formation professionnelle",
+          description:
+            "Certificats basés sur les compétences et suivi pour des résultats adaptés à l'emploi.",
+        },
+        platform: {
+          title: "Opérateurs de plateforme",
+          description:
+            "Outils SuperAdmin pour gérer plusieurs institutions depuis un seul tableau de bord.",
+        },
+      },
+    },
+    currency: {
+      label: "Devise",
+      disclaimer:
+        "Les prix affichés en {currency} ({code}) sont approximatifs et peuvent varier dans la devise de paiement.",
+      names: {
+        GHS: "Cedi ghanéen",
+        USD: "Dollar américain",
+        NGN: "Naira nigérian",
+        KES: "Shilling kényan",
+        EUR: "Euro",
+        GBP: "Livre sterling",
+      },
+    },
+    contactSection: {
+      title: "Contactez-nous",
+      heading: "Parlons de votre institution",
+      description:
+        "Entreprise, partenariat ou question — nous répondons généralement sous 24 h.",
+      highlight1: {
+        title: "Entreprise & Partenariats",
+        description: "Tarification personnalisée pour les grandes institutions et programmes gouvernementaux.",
+      },
+      highlight2: {
+        title: "Support d'onboarding",
+        description:
+          "Nous vous aidons à migrer le contenu et à embarquer votre première cohorte d'étudiants.",
+      },
+      highlight3: {
+        title: "Aide à l'intégration",
+        description:
+          "Notre équipe vous aide à connecter SCORM, LTI et Google Classroom.",
+      },
+      sendMessage: "Envoyez-nous un message",
+      receivedTitle: "Message reçu !",
+      receivedDescription: "Nous vous répondrons dans les 24 heures.",
+      messagePlaceholder: "Parlez-nous de votre institution et de ce dont vous avez besoin...",
+    },
+    cta: {
+      title: "Prêt à transformer l'apprentissage dans votre institution ?",
+      subtitle:
+        "Commencez gratuitement aujourd'hui — aucune carte de crédit requise. Passez à l'échelle quand vous serez prêt.",
+      primary: "Créez votre institution — c'est gratuit",
+      secondary: "Parlez à notre équipe",
+    },
   },
   pricing: {
     title: "Des tarifs simples et transparents",
     subtitle:
       "Freemium pour l'Afrique — Paystack pour NGN/GHS/KES, Stripe à l'international.",
+    mostPopular: "Le plus populaire",
     free: {
       name: "Gratuit",
       period: "pour toujours",
@@ -88,8 +204,12 @@ export const dictionary = {
       period: "",
       description: "SSO, SLA, marque blanche, support dédié",
       cta: "Contacter les ventes",
+      custom: "Personnalisé",
     },
     comparisonFeature: "Fonctionnalité",
+    freeLabel: "Gratuit",
+    proLabel: "Pro",
+    enterpriseLabel: "Entreprise",
     features: {
       liveClasses: "Cours en direct",
       aiTutoring: "Tutorat IA",
