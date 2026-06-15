@@ -19,9 +19,7 @@ function RegisterForm() {
   const searchParams = useSearchParams();
   const initialPortal =
     (searchParams.get("portal") as AuthPortal | null) ?? "STUDENT";
-  const validPortal = ["STUDENT", "INSTRUCTOR", "INSTITUTION"].includes(
-    initialPortal
-  )
+  const validPortal = ["STUDENT", "INSTRUCTOR"].includes(initialPortal)
     ? initialPortal
     : "STUDENT";
 
@@ -80,10 +78,8 @@ function RegisterForm() {
 
   const portalName =
     portal === "STUDENT"
-      ? t("auth.portalStudent").toLowerCase()
-      : portal === "INSTRUCTOR"
-        ? t("auth.portalInstructor").toLowerCase()
-        : t("auth.portalInstitution").toLowerCase();
+      ? t("auth.portalLearner").toLowerCase()
+      : t("auth.portalCreator").toLowerCase();
 
   return (
     <NeuCard>

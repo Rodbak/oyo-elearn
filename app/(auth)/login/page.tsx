@@ -12,10 +12,8 @@ import { Copy, Check } from "lucide-react";
 
 /* ── Demo accounts ─────────────────────────────────────────────── */
 const DEMO_ACCOUNTS = [
-  { role: "STUDENT",      email: "student@lagos-academy.test",    password: "password123", portal: "STUDENT"      as AuthPortal },
-  { role: "INSTRUCTOR",   email: "instructor@lagos-academy.test", password: "password123", portal: "INSTRUCTOR"   as AuthPortal },
-  { role: "ADMIN",        email: "admin@lagos-academy.test",      password: "password123", portal: "INSTITUTION"  as AuthPortal },
-  { role: "SUPER ADMIN",  email: "superadmin@oyo.test",           password: "password123", portal: "INSTITUTION"  as AuthPortal },
+  { role: "Student", email: "student@lagos-academy.test", password: "password123", portal: "STUDENT" as AuthPortal },
+  { role: "Course teacher", email: "instructor@lagos-academy.test", password: "password123", portal: "INSTRUCTOR" as AuthPortal },
 ] as const;
 
 function DemoAccountCard({
@@ -121,10 +119,8 @@ function LoginForm() {
 
   const portalName =
     portal === "STUDENT"
-      ? t("auth.portalStudent").toLowerCase()
-      : portal === "INSTRUCTOR"
-        ? t("auth.portalInstructor").toLowerCase()
-        : t("auth.portalInstitution").toLowerCase();
+      ? t("auth.portalLearner").toLowerCase()
+      : t("auth.portalCreator").toLowerCase();
 
   return (
     <div className="space-y-4">

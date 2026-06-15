@@ -7,7 +7,6 @@ import type { AuthPortal } from "@/lib/roles";
 const portalKeys: { id: AuthPortal; labelKey: string }[] = [
   { id: "STUDENT", labelKey: "auth.portalLearner" },
   { id: "INSTRUCTOR", labelKey: "auth.portalCreator" },
-  { id: "INSTITUTION", labelKey: "auth.portalTeam" },
 ];
 
 export function RolePortalSelector({
