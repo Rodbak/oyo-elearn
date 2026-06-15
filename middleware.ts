@@ -1,29 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const PROTECTED = ["/dashboard"];
-const AUTH_PAGES = ["/login", "/register", "/forgot-password", "/onboarding"];
+const DEMO_MODE = process.env.NEXT_PUBLIC_DEMO_MODE !== "false";
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-  const token =
-    request.cookies.get("next-auth.session-token")?.value ??
-    request.cookies.get("__Secure-next-auth.session-token")?.value;
-
-  const isProtected = PROTECTED.some((p) => pathname.startsWith(p));
-  const isAuthPage = AUTH_PAGES.some((p) => pathname.startsWith(p));
-
-  if (isProtected && !token) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/login";
-    url.searchParams.set("callbackUrl", pathname);
-    return NextResponse.redirect(url);
-  }
-
-  if (isAuthPage && token) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/dashboard/student";
-    return NextResponse.redirect(url);
+export function middleware(_request: NextRequest) {
+  if (DEMO_MODE) {
+    return NextResponse.next();
   }
 
   return NextResponse.next();

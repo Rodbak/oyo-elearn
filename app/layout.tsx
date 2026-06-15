@@ -19,7 +19,10 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://oyo-elearn.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl),
   title: {
     default: "OYO-Elearner — Institutional eLearning for Africa & Beyond",
     template: "%s | OYO-Elearner",
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_APP_URL ?? "https://oyo-elearn.vercel.app",
+    url: appUrl,
     siteName: "OYO-Elearner",
     title: "OYO-Elearner — Where Schools Teach, Students Grow",
     description:

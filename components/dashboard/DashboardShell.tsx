@@ -29,6 +29,8 @@ export interface NavItem {
   icon: React.ComponentType<{ className?: string }>;
 }
 
+const DEMO_MODE = process.env.NEXT_PUBLIC_DEMO_MODE !== "false";
+
 export function DashboardShell({
   title,
   navItems,
@@ -45,6 +47,15 @@ export function DashboardShell({
   const { t } = useLocale();
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const handleSignOut = () => {
+    if (DEMO_MODE) {
+      window.location.assign("/");
+      return;
+    }
+
+    signOut({ callbackUrl: "/" });
+  };
 
   return (
     <div className="flex min-h-screen bg-background">
@@ -84,7 +95,7 @@ export function DashboardShell({
           </div>
           <button
             type="button"
-            onClick={() => signOut({ callbackUrl: "/" })}
+            onClick={handleSignOut}
             className="flex h-10 w-10 items-center justify-center rounded-btn shadow-neu-extruded-sm focus-neu"
             aria-label={t("dashboard.signOut")}
           >
