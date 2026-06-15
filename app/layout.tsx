@@ -24,11 +24,11 @@ const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://oyo-elearn.vercel.app
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
   title: {
-    default: "OYO-Elearner — Institutional eLearning for Africa & Beyond",
+    default: "OYO-Elearner — Create and sell online courses",
     template: "%s | OYO-Elearner",
   },
   description:
-    "Multi-tenant SaaS eLearning for K-12 schools, universities, and vocational institutes. Courses, live classes, AI tutoring, certificates, and LMS integrations.",
+    "A modern course platform for creators, teams, and learners to launch lessons, host live classes, and grow a learning business.",
   keywords: [
     "eLearning", "LMS", "Africa", "schools", "universities",
     "SCORM", "LTI", "certificates", "online courses", "vocational",

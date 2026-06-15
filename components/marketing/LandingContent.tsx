@@ -51,10 +51,10 @@ const howItWorksItems = [
 ] as const;
 
 const aboutCards = [
-  { icon: GraduationCap, titleKey: "landing.about.cards.school.title",      descKey: "landing.about.cards.school.description"      },
-  { icon: BookOpen,      titleKey: "landing.about.cards.university.title",   descKey: "landing.about.cards.university.description"   },
-  { icon: Target,        titleKey: "landing.about.cards.vocational.title",   descKey: "landing.about.cards.vocational.description"   },
-  { icon: Users,         titleKey: "landing.about.cards.platform.title",     descKey: "landing.about.cards.platform.description"     },
+  { icon: GraduationCap, titleKey: "landing.about.cards.creators.title",   descKey: "landing.about.cards.creators.description"   },
+  { icon: BookOpen,      titleKey: "landing.about.cards.courses.title",    descKey: "landing.about.cards.courses.description"    },
+  { icon: Target,        titleKey: "landing.about.cards.learning.title",   descKey: "landing.about.cards.learning.description"   },
+  { icon: Users,         titleKey: "landing.about.cards.teams.title",      descKey: "landing.about.cards.teams.description"      },
 ] as const;
 
 const contactHighlights = [
@@ -396,7 +396,7 @@ export function LandingContent() {
                   </h3>
                   <NeuInput label={t("contact.name")} name="name" required />
                   <NeuInput label={t("contact.email")} name="email" type="email" required />
-                  <NeuInput label={t("landing.contactSection.title")} name="institution" />
+                  <NeuInput label={t("landing.contactSection.courseLabel")} name="course" />
                   <div className="space-y-2">
                     <label htmlFor="message" className="font-body text-sm font-medium text-foreground">
                       {t("contact.message")}

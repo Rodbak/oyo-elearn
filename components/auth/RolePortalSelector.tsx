@@ -5,9 +5,9 @@ import { NeuTabBar } from "@/components/neu";
 import type { AuthPortal } from "@/lib/roles";
 
 const portalKeys: { id: AuthPortal; labelKey: string }[] = [
-  { id: "STUDENT", labelKey: "auth.portalStudent" },
-  { id: "INSTRUCTOR", labelKey: "auth.portalInstructor" },
-  { id: "INSTITUTION", labelKey: "auth.portalInstitution" },
+  { id: "STUDENT", labelKey: "auth.portalLearner" },
+  { id: "INSTRUCTOR", labelKey: "auth.portalCreator" },
+  { id: "INSTITUTION", labelKey: "auth.portalTeam" },
 ];
 
 export function RolePortalSelector({

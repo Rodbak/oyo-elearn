@@ -18,21 +18,21 @@ export const dictionary = {
     mainNav: "Main navigation",
   },
   landing: {
-    tagline: "THE BEST LEARNING MANAGEMENT SYSTEM",
-    heroTitle: "Teach, learn, and grow —",
-    heroTitleAccent: "together",
+    tagline: "LEARN. CREATE. SCALE.",
+    heroTitle: "Launch courses, grow learners,",
+    heroTitleAccent: "and build your learning brand",
     heroSubtitle:
-      "OYO-Elearner is a full-stack SaaS eLearning platform for K-12, universities, and vocational institutes across Africa and the world.",
+      "OYO-Elearner is a modern course platform for creators, teams, and learners who want to publish lessons, host live sessions, and deliver great learning experiences.",
     startFree: "Start free",
     viewPricing: "View pricing",
-    featuresTitle: "Everything your institution needs",
+    featuresTitle: "Everything you need to launch and grow courses",
     featuresSubtitle:
-      "From course delivery to billing — one neumorphic, accessible platform.",
-    trustedBy: "Trusted by institutions",
-    freemiumTitle: "Freemium that scales with you",
+      "From lesson delivery to live classes and AI coaching — one simple platform for modern learning.",
+    trustedBy: "Trusted by creators and learning teams",
+    freemiumTitle: "Start with one course, grow into a full learning business",
     freemiumSubtitle:
-      "Start free with 3 courses and 50 students. Upgrade to Pro for live classes, AI tutoring, and LMS integrations.",
-    createInstitution: "Create your institution",
+      "Start free with 3 courses and 50 learners. Upgrade to Pro for live classes, AI tutoring, and course tools that scale.",
+    createInstitution: "Create your course space",
     ctaTitle: "Ready to transform learning?",
     talkToTeam: "Talk to our team",
     features: {
@@ -69,9 +69,9 @@ export const dictionary = {
     },
     platformFeatures: "Platform features",
     stats: {
-      students: "Students enrolled",
+      students: "Learners enrolled",
       courses: "Courses live",
-      institutions: "Institutions",
+      institutions: "Learning teams",
       completion: "Completion rate",
     },
     demo: {
@@ -89,51 +89,51 @@ export const dictionary = {
       portal: "Portal",
     },
     howItWorks: {
-      title: "Up and running in minutes",
+      title: "Launch in minutes",
       step1: {
-        title: "Create your institution",
+        title: "Create your course space",
         description:
-          "Sign up free, set your institution name, logo, and invite your first instructors in under 5 minutes.",
+          "Sign up free, set up your brand, and publish your first lesson or workshop in minutes.",
       },
       step2: {
-        title: "Upload your courses",
+        title: "Upload your lessons",
         description:
-          "Drag-and-drop video lectures, SCORM packages, quizzes, and assignments — or let AI generate them from your syllabus.",
+          "Add video lectures, quizzes, assignments, and live sessions — or let AI help you turn your topic into a course.",
       },
       step3: {
-        title: "Students start learning",
+        title: "Learners start learning",
         description:
-          "Enrol students, run live classes, track attendance, and award verified certificates automatically on completion.",
+          "Track progress, run live classes, and issue certificates as learners complete their path.",
       },
     },
     about: {
-      title: "Built for African education — and beyond",
+      title: "Built for creators, teams, and modern learning communities",
       intro1:
-        "OYO-Elearner was created to bring world-class course delivery into the institutional workflows that African schools and global campuses already trust.",
+        "OYO-Elearner was created to bring world-class course delivery to creators, coaches, and teams who want to teach online without the usual LMS complexity.",
       intro2:
-        "We combine the best of modern eLearning with deep respect for how schools actually operate.",
+        "We combine modern learning tools with a clean experience that makes it easy to publish, track, and grow your courses.",
       mission1:
-        "Our mission is to empower every institution — from a single-room K-12 school to a 10,000-student university — to deliver blended learning, track attendance, award verifiable certificates, and integrate with existing school management systems.",
+        "Our mission is to help anyone launch learning experiences — from one-off workshops to full course programmes — with lessons, live sessions, certificates, and simple progress tracking.",
       cards: {
-        school: {
-          title: "K-12 Schools",
+        creators: {
+          title: "Course creators",
           description:
-            "Guardian visibility, attendance alerts, and age-appropriate learning tools.",
+            "Launch lessons, grow your audience, and teach with a clean, engaging course experience.",
         },
-        university: {
-          title: "Universities",
+        courses: {
+          title: "Course teams",
           description:
-            "Full LMS integration, LTI 1.3, and SCORM support for academic workflows.",
+            "Run training programmes, live sessions, and learning paths without a heavy LMS setup.",
         },
-        vocational: {
-          title: "Vocational Centres",
+        learning: {
+          title: "Learning communities",
           description:
-            "Skills-based certificates and competency tracking for job-ready outcomes.",
+            "Keep learners engaged with progress tracking, certificates, and interactive learning moments.",
         },
-        platform: {
-          title: "Platform Operators",
+        teams: {
+          title: "Teams & brands",
           description:
-            "SuperAdmin tools for managing multiple institutions from one dashboard.",
+            "Create a branded learning space for your courses, cohorts, or internal training.",
         },
       },
     },
@@ -152,9 +152,9 @@ export const dictionary = {
     },
     contactSection: {
       title: "Contact Us",
-      heading: "Let's talk about your institution",
+      heading: "Let's talk about your course idea",
       description:
-        "Whether it's an enterprise deal, a partnership, or just a question — we typically respond within 24 hours.",
+        "Whether you are launching a course, building a training programme, or growing a learning brand — we typically respond within 24 hours.",
       highlight1: {
         title: "Enterprise & Partnerships",
         description: "Custom pricing for large institutions and government programmes.",
@@ -169,16 +169,17 @@ export const dictionary = {
         description:
           "Our team helps you connect SCORM, LTI, and Google Classroom.",
       },
+      courseLabel: "Course / team",
       sendMessage: "Send us a message",
       receivedTitle: "Message received!",
       receivedDescription: "We'll get back to you within 24 hours.",
-      messagePlaceholder: "Tell us about your institution and what you need...",
+      messagePlaceholder: "Tell us about your course, learners, or learning goals...",
     },
     cta: {
-      title: "Ready to transform learning at your institution?",
+      title: "Ready to launch your next course?",
       subtitle:
         "Start free today — no credit card required. Upgrade when you're ready.",
-      primary: "Create your institution — it's free",
+      primary: "Create your course space — it's free",
       secondary: "Talk to our team",
     },
   },
@@ -252,10 +253,10 @@ export const dictionary = {
       "Empower every institution to onboard students, deliver blended learning, track attendance, award verifiable certificates, and integrate with existing school management systems — under a fair freemium model.",
     serveTitle: "Who we serve",
     serve: [
-      "K-12 schools with guardian visibility",
-      "Universities and polytechnics",
-      "Vocational and skills training centres",
-      "Platform operators (SuperAdmin tooling)",
+      "Course creators and coaches",
+      "Training teams and learning departments",
+      "Communities and cohorts",
+      "Brands building online learning experiences",
     ],
   },
   contact: {
@@ -270,7 +271,7 @@ export const dictionary = {
   },
   auth: {
     welcomeBack: "Welcome back",
-    signInSubtitle: "Choose your role, then sign in",
+    signInSubtitle: "Choose how you want to learn, teach, or manage your course space",
     signingIn: "Signing in…",
     signIn: "Sign in",
     forgotPassword: "Forgot password?",
@@ -294,9 +295,9 @@ export const dictionary = {
       "Enter your email and we will send a reset link via Resend.",
     sendReset: "Send reset link",
     backToSignIn: "Back to sign in",
-    portalStudent: "Student",
-    portalInstructor: "Instructor",
-    portalInstitution: "Institution",
+    portalLearner: "I want to take a course",
+    portalCreator: "I want to create a course",
+    portalTeam: "I want to manage courses & learners",
     sessionFailed:
       "Session could not be created. Check database connection.",
     registerFailed: "Registration failed. Is the database running?",
@@ -305,16 +306,16 @@ export const dictionary = {
   },
   footer: {
     tagline:
-      "Institutional eLearning built for African and global education — from K-12 to university and vocational training.",
+      "A modern course platform for creators, teams, and learners who want to launch and grow great learning experiences.",
     product: "Product",
     company: "Company",
     copyright: "All rights reserved.",
   },
   dashboard: {
-    student: "Student",
-    instructor: "Instructor",
-    admin: "Admin",
-    superadmin: "SuperAdmin",
+    student: "Learner",
+    instructor: "Creator",
+    admin: "Team",
+    superadmin: "Platform",
     home: "Home",
     courses: "Courses",
     assignments: "Assignments",

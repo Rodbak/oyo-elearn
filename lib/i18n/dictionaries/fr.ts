@@ -18,21 +18,21 @@ export const dictionary = {
     mainNav: "Navigation principale",
   },
   landing: {
-    tagline: "LA MEILLEURE PLATEFORME DE GESTION SCOLAIRE",
-    heroTitle: "Enseigner, apprendre et grandir —",
-    heroTitleAccent: "ensemble",
+    tagline: "APPRENDRE. CRÉER. GRANDIR.",
+    heroTitle: "Lancez des cours, formez des apprenants,",
+    heroTitleAccent: "et développez votre marque d'apprentissage",
     heroSubtitle:
-      "OYO-Elearner est une plateforme eLearning SaaS pour les écoles K-12, universités et centres de formation professionnelle en Afrique et dans le monde.",
+      "OYO-Elearner est une plateforme moderne de cours pour les créateurs, les équipes et les apprenants qui veulent publier des leçons, organiser des sessions en direct et offrir de belles expériences d'apprentissage.",
     startFree: "Commencer gratuitement",
     viewPricing: "Voir les tarifs",
-    featuresTitle: "Tout ce dont votre institution a besoin",
+    featuresTitle: "Tout ce dont vous avez besoin pour lancer et développer vos cours",
     featuresSubtitle:
-      "De la diffusion des cours à la facturation — une plateforme néomorphique et accessible.",
+      "De la diffusion des leçons aux cours en direct et au tutorat IA — une plateforme simple pour un apprentissage moderne.",
     trustedBy: "Ils nous font confiance",
-    freemiumTitle: "Un modèle freemium qui évolue avec vous",
+    freemiumTitle: "Commencez avec un cours, développez une vraie activité d'apprentissage",
     freemiumSubtitle:
-      "Commencez gratuitement avec 3 cours et 50 élèves. Passez à Pro pour les cours en direct, le tuteur IA et les intégrations LMS.",
-    createInstitution: "Créer votre institution",
+      "Commencez gratuitement avec 3 cours et 50 apprenants. Passez à Pro pour les cours en direct, le tuteur IA et les outils de cours qui grandissent avec vous.",
+    createInstitution: "Créer votre espace de cours",
     ctaTitle: "Prêt à transformer l'apprentissage ?",
     talkToTeam: "Contacter notre équipe",
     features: {
@@ -89,21 +89,21 @@ export const dictionary = {
       portal: "Portail",
     },
     howItWorks: {
-      title: "Opérationnel en quelques minutes",
+      title: "Lancez en quelques minutes",
       step1: {
-        title: "Créez votre institution",
+        title: "Créez votre espace de cours",
         description:
-          "Inscrivez-vous gratuitement, définissez le nom de votre institution, votre logo, et invitez vos premiers formateurs en moins de 5 minutes.",
+          "Inscrivez-vous gratuitement, configurez votre marque et publiez votre première leçon ou session en quelques minutes.",
       },
       step2: {
-        title: "Téléchargez vos cours",
+        title: "Ajoutez vos leçons",
         description:
-          "Glissez-déposez vidéos, packages SCORM, quiz et devoirs — ou laissez l'IA les générer à partir de votre programme.",
+          "Ajoutez des vidéos, quiz, devoirs et sessions en direct — ou laissez l'IA transformer votre sujet en cours.",
       },
       step3: {
-        title: "Les élèves commencent à apprendre",
+        title: "Les apprenants commencent à apprendre",
         description:
-          "Inscrivez des élèves, organisez des cours en direct, suivez la présence et délivrez automatiquement des certificats vérifiables.",
+          "Suivez la progression, organisez des cours en direct et délivrez des certificats au fur et à mesure de l'avancement.",
       },
     },
     about: {
@@ -169,6 +169,7 @@ export const dictionary = {
         description:
           "Notre équipe vous aide à connecter SCORM, LTI et Google Classroom.",
       },
+      courseLabel: "Cours / équipe",
       sendMessage: "Envoyez-nous un message",
       receivedTitle: "Message reçu !",
       receivedDescription: "Nous vous répondrons dans les 24 heures.",
@@ -270,7 +271,7 @@ export const dictionary = {
   },
   auth: {
     welcomeBack: "Bon retour",
-    signInSubtitle: "Choisissez votre rôle, puis connectez-vous",
+    signInSubtitle: "Choisissez comment vous voulez apprendre, enseigner ou gérer votre espace de cours",
     signingIn: "Connexion…",
     signIn: "Se connecter",
     forgotPassword: "Mot de passe oublié ?",
@@ -294,9 +295,9 @@ export const dictionary = {
       "Entrez votre e-mail et nous vous enverrons un lien via Resend.",
     sendReset: "Envoyer le lien",
     backToSignIn: "Retour à la connexion",
-    portalStudent: "Élève",
-    portalInstructor: "Formateur",
-    portalInstitution: "Institution",
+    portalLearner: "Je veux suivre un cours",
+    portalCreator: "Je veux créer un cours",
+    portalTeam: "Je veux gérer des cours et des apprenants",
     sessionFailed:
       "Impossible de créer la session. Vérifiez la connexion à la base de données.",
     registerFailed:
@@ -306,7 +307,7 @@ export const dictionary = {
   },
   footer: {
     tagline:
-      "eLearning institutionnel pour l'éducation africaine et mondiale — du K-12 à l'université et la formation professionnelle.",
+      "Une plateforme moderne de cours pour les créateurs, les équipes et les apprenants qui veulent lancer et développer de belles expériences d'apprentissage.",
     product: "Produit",
     company: "Entreprise",
     copyright: "Tous droits réservés.",
