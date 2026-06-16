@@ -12,13 +12,13 @@ const config: Config = {
       colors: {
         background: "#ffffff",
         foreground: "#1E293B",
-        muted: "#ffffff",
+        muted: "#d8d8d8",
         accent: {
           DEFAULT: "#6C63FF",
           light: "#8B84FF",
         },
         "accent-secondary": "#38B2AC",
-        "surface-border": "#ffffff",
+        "surface-border": "#d8d8d8",
       },
       borderRadius: {
         card: "12px",
