@@ -21,7 +21,7 @@ const config: Config = {
         "surface-border": "#a0a0a0",
       },
       borderRadius: {
-        card: "12px",
+        card: "15px",
         btn: "8px",
         inner: "8px",
       },
