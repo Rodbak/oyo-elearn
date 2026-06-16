@@ -10,15 +10,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#E0E5EC",
+        background: "#ffffff",
         foreground: "#1E293B",
-        muted: "#E0E5EC",
+        muted: "#ffffff",
         accent: {
           DEFAULT: "#6C63FF",
           light: "#8B84FF",
         },
         "accent-secondary": "#38B2AC",
-        "surface-border": "#E2E8F0",
+        "surface-border": "#ffffff",
       },
       borderRadius: {
         card: "12px",
