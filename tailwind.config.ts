@@ -18,6 +18,7 @@ const config: Config = {
           light: "#8B84FF",
         },
         "accent-secondary": "#38B2AC",
+        "surface-border": "#E6E9EE",
       },
       borderRadius: {
         card: "12px",
@@ -32,9 +33,6 @@ const config: Config = {
         "neu-inset-deep": "inset 2px 2px 4px rgba(0,0,0,0.04)",
         "neu-inset-sm": "inset 1px 1px 2px rgba(0,0,0,0.02)",
         elev: "0 8px 30px rgba(16,24,40,0.08)",
-      },
-      colors: {
-        "surface-border": "#E6E9EE",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],

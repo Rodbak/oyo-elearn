@@ -27,6 +27,11 @@
 
 @layer utilities {
   .focus-neu {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    outline: none;
+  }
+
+  .focus-neu:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(108,99,255,0.12);
   }
 }
