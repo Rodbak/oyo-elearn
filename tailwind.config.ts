@@ -20,23 +20,21 @@ const config: Config = {
         "accent-secondary": "#38B2AC",
       },
       borderRadius: {
-        card: "32px",
-        btn: "16px",
-        inner: "12px",
+        card: "12px",
+        btn: "8px",
+        inner: "8px",
       },
       boxShadow: {
-        "neu-extruded":
-          "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.5)",
-        "neu-extruded-hover":
-          "12px 12px 20px rgb(163,177,198,0.7), -12px -12px 20px rgba(255,255,255,0.6)",
-        "neu-extruded-sm":
-          "5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255,0.5)",
-        "neu-inset":
-          "inset 6px 6px 10px rgb(163,177,198,0.6), inset -6px -6px 10px rgba(255,255,255,0.5)",
-        "neu-inset-deep":
-          "inset 10px 10px 20px rgb(163,177,198,0.7), inset -10px -10px 20px rgba(255,255,255,0.6)",
-        "neu-inset-sm":
-          "inset 3px 3px 6px rgb(163,177,198,0.6), inset -3px -3px 6px rgba(255,255,255,0.5)",
+        "neu-extruded": "0 4px 10px rgba(16,24,40,0.06)",
+        "neu-extruded-hover": "0 6px 14px rgba(16,24,40,0.08)",
+        "neu-extruded-sm": "0 2px 6px rgba(16,24,40,0.04)",
+        "neu-inset": "inset 1px 1px 2px rgba(0,0,0,0.03)",
+        "neu-inset-deep": "inset 2px 2px 4px rgba(0,0,0,0.04)",
+        "neu-inset-sm": "inset 1px 1px 2px rgba(0,0,0,0.02)",
+        elev: "0 8px 30px rgba(16,24,40,0.08)",
+      },
+      colors: {
+        "surface-border": "#E6E9EE",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],

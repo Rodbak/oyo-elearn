@@ -23,7 +23,7 @@ export const NeuInput = forwardRef<HTMLInputElement, NeuInputProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "w-full min-h-[44px] rounded-2xl bg-background px-4 py-3 font-body text-foreground placeholder:text-muted shadow-neu-inset transition-all duration-200 focus:shadow-neu-inset-deep focus:outline-none focus:ring-2 focus:ring-accent",
+            "w-full min-h-[44px] rounded-inner bg-white px-4 py-3 font-body text-foreground placeholder:text-muted border border-surface-border transition-all duration-150 focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none",
             error && "ring-2 ring-red-400",
             className
           )}

@@ -12,14 +12,10 @@ export const NeuCard = forwardRef<HTMLDivElement, NeuCardProps>(
       <div
         ref={ref}
         className={cn(
-          "rounded-card bg-background p-6 transition-all duration-300",
+          "rounded-card bg-white p-6 transition-all duration-200",
           inset
-            ? "shadow-neu-inset-deep"
-            : cn(
-                "shadow-neu-extruded",
-                hover &&
-                  "hover:-translate-y-0.5 hover:shadow-neu-extruded-hover"
-              ),
+            ? "border border-surface-border"
+            : cn("shadow-neu-extruded", hover && "hover:shadow-neu-extruded-hover hover:-translate-y-0.5"),
           className
         )}
         {...props}
