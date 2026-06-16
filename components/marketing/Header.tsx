@@ -59,7 +59,6 @@ export function Header() {
 
         {/* Mobile controls */}
         <div className="flex items-center gap-2 md:hidden">
-          <LocaleCurrencyBar />
           <button
             type="button"
             className="flex h-11 w-11 items-center justify-center rounded-btn bg-white border border-surface-border shadow-neu-extruded-sm focus-neu"
@@ -87,7 +86,13 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li className="flex flex-col gap-3 pt-4 border-t border-background">
+            <li className="flex flex-col gap-4 pt-4 border-t border-surface-border">
+              <div className="flex flex-col gap-2">
+                <label className="font-body text-xs font-semibold text-muted uppercase">
+                  Settings
+                </label>
+                <LocaleCurrencyBar />
+              </div>
               <NeuButton variant="secondary" asChild>
                 <Link href="/login">{t("nav.login")}</Link>
               </NeuButton>
