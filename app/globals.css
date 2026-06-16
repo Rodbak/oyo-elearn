@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply min-h-full bg-[#E0E5EC] font-body text-[#3D4852] antialiased;
+    @apply min-h-full bg-white font-body text-[#3D4852] antialiased;
   }
 
   h1,

@@ -1,8 +1,7 @@
 "use client";
 
-import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { useLocale } from "@/components/i18n/LocaleProvider";
-import { CurrencySwitcher } from "@/components/marketing/CurrencySwitcher";
+import { LocaleCurrencyBar } from "@/components/marketing/LocaleCurrencyBar";
 import { NeuButton } from "@/components/neu";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -22,7 +21,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 px-4 py-4 md:px-8">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-card bg-background px-4 py-4 shadow-neu-extruded md:px-6"
+        className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-card bg-white border border-surface-border px-4 py-4 shadow-neu-extruded md:px-6"
         aria-label={t("nav.mainNav")}
       >
         {/* Logo */}
@@ -49,8 +48,7 @@ export function Header() {
 
         {/* Desktop controls */}
         <div className="hidden items-center gap-3 md:flex">
-          <CurrencySwitcher />
-          <LanguageSwitcher />
+          <LocaleCurrencyBar />
           <NeuButton variant="secondary" size="sm" asChild>
             <Link href="/login">{t("nav.login")}</Link>
           </NeuButton>
@@ -61,11 +59,10 @@ export function Header() {
 
         {/* Mobile controls */}
         <div className="flex items-center gap-2 md:hidden">
-          <CurrencySwitcher />
-          <LanguageSwitcher />
+          <LocaleCurrencyBar />
           <button
             type="button"
-            className="flex h-11 w-11 items-center justify-center rounded-btn bg-background shadow-neu-extruded-sm focus-neu"
+            className="flex h-11 w-11 items-center justify-center rounded-btn bg-white border border-surface-border shadow-neu-extruded-sm focus-neu"
             onClick={() => setOpen(!open)}
             aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
             aria-expanded={open}
@@ -77,7 +74,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="mx-auto mt-2 max-w-7xl rounded-card bg-background p-6 shadow-neu-extruded md:hidden">
+        <div className="mx-auto mt-2 max-w-7xl rounded-card bg-white border border-surface-border p-6 shadow-neu-extruded md:hidden">
           <ul className="flex flex-col gap-4">
             {links.map((link) => (
               <li key={link.href}>

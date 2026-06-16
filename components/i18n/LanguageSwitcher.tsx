@@ -15,7 +15,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex items-center gap-1 rounded-2xl bg-background p-1 shadow-neu-inset-sm",
+        "flex items-center gap-1 rounded-inner bg-transparent p-0",
         className
       )}
       role="group"
@@ -27,10 +27,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           type="button"
           onClick={() => setLocale(opt.id)}
           className={cn(
-            "min-h-[36px] rounded-btn px-3 py-1.5 font-body text-xs font-semibold transition-all focus-neu",
+            "h-9 rounded-btn px-3 py-1.5 font-body text-xs font-semibold transition-all focus-neu",
             locale === opt.id
-              ? "bg-background text-accent shadow-neu-inset"
-              : "text-muted shadow-neu-extruded-sm hover:shadow-neu-extruded"
+              ? "bg-accent text-white"
+              : "text-foreground hover:bg-neutral-50"
           )}
           aria-pressed={locale === opt.id}
         >

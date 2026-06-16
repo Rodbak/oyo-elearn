@@ -62,7 +62,7 @@ export function CurrencySwitcher() {
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-label={t("landing.currency.label")}
-        className="flex h-9 items-center gap-1.5 rounded-btn bg-background px-3 font-body text-sm font-semibold text-foreground shadow-neu-extruded-sm transition-all duration-200 hover:shadow-neu-extruded focus-neu active:shadow-neu-inset-sm"
+        className="flex h-9 items-center gap-1.5 rounded-btn bg-transparent px-3 font-body text-sm font-semibold text-foreground transition-all duration-200 hover:bg-neutral-50 focus-neu"
       >
         <span className="text-base leading-none">{currency.flag}</span>
         <span className="hidden sm:inline">{currency.symbol}</span>
@@ -85,7 +85,7 @@ export function CurrencySwitcher() {
 
       {/* Dropdown panel */}
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-2 min-w-[200px] rounded-[20px] bg-background p-2 shadow-neu-extruded">
+        <div className="absolute right-0 top-full z-50 mt-2 min-w-[200px] rounded-card bg-white border border-surface-border p-2 shadow-neu-extruded">
           {CURRENCIES.map((c) => {
             const nameKey = `landing.currency.names.${c.code}` as const;
             const isActive = currency.code === c.code;
@@ -94,10 +94,10 @@ export function CurrencySwitcher() {
                 key={c.code}
                 type="button"
                 onClick={() => { setCurrency(c); setOpen(false); }}
-                className={`flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 font-body text-sm transition-all duration-200 focus-neu ${
+                className={`flex w-full items-center gap-3 rounded-inner px-3 py-2.5 font-body text-sm transition-all duration-200 focus-neu ${
                   isActive
-                    ? "shadow-neu-inset text-accent font-semibold"
-                    : "text-foreground hover:shadow-neu-extruded-sm"
+                    ? "bg-accent text-white font-semibold"
+                    : "text-foreground hover:bg-neutral-50"
                 }`}
               >
                 <span className="text-base">{c.flag}</span>
