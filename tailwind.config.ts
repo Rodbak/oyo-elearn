@@ -11,14 +11,14 @@ const config: Config = {
     extend: {
       colors: {
         background: "#E0E5EC",
-        foreground: "#1F2937",
-        muted: "#4B5563",
+        foreground: "#1E293B",
+        muted: "#64748B",
         accent: {
           DEFAULT: "#6C63FF",
           light: "#8B84FF",
         },
         "accent-secondary": "#38B2AC",
-        "surface-border": "#D5DADC",
+        "surface-border": "#E2E8F0",
       },
       borderRadius: {
         card: "12px",
