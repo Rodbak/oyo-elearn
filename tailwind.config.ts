@@ -12,7 +12,7 @@ const config: Config = {
       colors: {
         background: "#E0E5EC",
         foreground: "#1E293B",
-        muted: "#64748B",
+        muted: "#E0E5EC",
         accent: {
           DEFAULT: "#6C63FF",
           light: "#8B84FF",
