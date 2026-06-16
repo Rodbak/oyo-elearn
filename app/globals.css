@@ -25,13 +25,13 @@
   }
 }
 
-@layer utilities {
+@layer components {
   .focus-neu {
     outline: none;
   }
 
   .focus-neu:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(108,99,255,0.12);
+    box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.12);
   }
 }
