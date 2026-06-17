@@ -4,6 +4,7 @@ import { RolePortalSelector } from "@/components/auth/RolePortalSelector";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
 import { type AuthPortal, dashboardPathForPortal } from "@/lib/roles";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -204,19 +205,27 @@ function LoginForm() {
           </svg>
         </button>
 
-        {showDemo && (
-          <div className="mt-4 space-y-2">
-            <p className="font-body text-xs text-muted mb-3">
-              {t("landing.demo.subtitle")}
-            </p>
-            {DEMO_ACCOUNTS.map((acc) => (
-              <DemoAccountCard key={acc.email} account={acc} onUse={fillDemo} />
-            ))}
-            <p className="font-body text-xs text-muted text-center pt-1">
-              Password for all accounts: <span className="font-semibold text-foreground">password123</span>
-            </p>
-          </div>
-        )}
+        <AnimatePresence>
+          {showDemo && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="mt-4 space-y-2 overflow-hidden"
+            >
+              <p className="font-body text-xs text-muted mb-3">
+                {t("landing.demo.subtitle")}
+              </p>
+              {DEMO_ACCOUNTS.map((acc) => (
+                <DemoAccountCard key={acc.email} account={acc} onUse={fillDemo} />
+              ))}
+              <p className="font-body text-xs text-muted text-center pt-1">
+                Password for all accounts: <span className="font-semibold text-foreground">password123</span>
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </NeuCard>
     </div>
   );

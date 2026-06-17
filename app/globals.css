@@ -34,4 +34,26 @@
     outline: none;
     box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.12);
   }
+
+  /* Warm, energetic gradient used behind hero/banner sections */
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, #ffe8e0 0%, #fdf1f8 45%, #e8ecfd 100%);
+  }
+
+  /* Slightly deeper variant for CTA banners / featured-course strips */
+  .bg-banner-gradient {
+    background: linear-gradient(120deg, #ffd7ce 0%, #fbc2d0 50%, #c9d6f7 100%);
+  }
+}
+
+/* Respect users who've asked for reduced motion at the OS level */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

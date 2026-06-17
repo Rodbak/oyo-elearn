@@ -3,17 +3,26 @@
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { HeroDecoration } from "@/components/marketing/HeroDecoration";
 import { useCurrency } from "@/components/marketing/CurrencySwitcher";
-import { NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
+import { Reveal, Stagger } from "@/components/motion/Reveal";
+import { NeuAvatar, NeuButton, NeuCard, NeuInput, NeuStatCard, NeuWell } from "@/components/neu";
+import { cn } from "@/lib/utils";
 import {
   Award,
   BookOpen,
+  Briefcase,
   Check,
-  Globe,
+  Code,
+  Database,
   GraduationCap,
+  Globe,
   Mail,
+  Megaphone,
   MessageSquare,
+  Palette,
   Radio,
+  Smartphone,
   Sparkles,
+  Star,
   Target,
   Users,
   Video,
@@ -71,6 +80,61 @@ const comparison = [
   { featureKey: "pricing.features.sso",            free: false, pro: false, enterprise: true  },
 ] as const;
 
+type Tone = "coral" | "amber" | "violet" | "sky" | "mint";
+
+const toneBadge: Record<Tone, string> = {
+  coral: "bg-badge-coral/10 text-badge-coral",
+  amber: "bg-badge-amber/10 text-badge-amber",
+  violet: "bg-badge-violet/10 text-badge-violet",
+  sky: "bg-badge-sky/10 text-badge-sky",
+  mint: "bg-badge-mint/10 text-badge-mint",
+};
+
+const toneThumb: Record<Tone, string> = {
+  coral: "bg-badge-coral/15 text-badge-coral",
+  amber: "bg-badge-amber/15 text-badge-amber",
+  violet: "bg-badge-violet/15 text-badge-violet",
+  sky: "bg-badge-sky/15 text-badge-sky",
+  mint: "bg-badge-mint/15 text-badge-mint",
+};
+
+const categoryItems = [
+  { key: "webDev",       icon: Code,       tone: "sky"    as Tone, count: 86 },
+  { key: "dataScience",  icon: Database,   tone: "violet" as Tone, count: 54 },
+  { key: "design",       icon: Palette,    tone: "coral"  as Tone, count: 41 },
+  { key: "business",     icon: Briefcase,  tone: "amber"  as Tone, count: 37 },
+  { key: "mobileApps",   icon: Smartphone, tone: "mint"   as Tone, count: 29 },
+  { key: "marketing",    icon: Megaphone,  tone: "sky"    as Tone, count: 22 },
+] as const;
+
+const featuredCourseItems = [
+  {
+    title: "Complete HTML, CSS & JavaScript",
+    instructor: "Amara Boateng",
+    rating: 4.8,
+    free: true,
+    tone: "sky" as Tone,
+    icon: Code,
+  },
+  {
+    title: "Data Analysis with Python",
+    instructor: "Kwame Asante",
+    rating: 4.7,
+    free: true,
+    tone: "violet" as Tone,
+    icon: Database,
+  },
+  {
+    title: "UI/UX Design Fundamentals",
+    instructor: "Naledi Dube",
+    rating: 4.9,
+    free: false,
+    price: "$49",
+    tone: "coral" as Tone,
+    icon: Palette,
+  },
+] as const;
+
 export function LandingContent() {
   const { t, dictionary } = useLocale();
   const { currency } = useCurrency();
@@ -88,38 +152,51 @@ export function LandingContent() {
       <section className="px-4 py-16 md:px-8 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-6">
-              <GraduationCap className="h-4 w-4 text-accent" />
-              <p className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
-                {t("landing.tagline")}
+            <Reveal>
+              <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-6">
+                <GraduationCap className="h-4 w-4 text-sunset" />
+                <p className="font-body text-xs font-semibold uppercase tracking-wider text-sunset">
+                  {t("landing.tagline")}
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h1 className="font-display text-5xl font-extrabold tracking-tight text-foreground md:text-7xl leading-tight">
+                {t("landing.heroTitle")}{" "}
+                <span className="text-accent-secondary">{t("landing.heroTitleAccent")}</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-6 max-w-xl font-body text-lg text-muted leading-relaxed">
+                {t("landing.heroSubtitle")}
               </p>
-            </div>
-            <h1 className="font-display text-5xl font-extrabold tracking-tight text-foreground md:text-7xl leading-tight">
-              {t("landing.heroTitle")}{" "}
-              <span className="text-accent-secondary">{t("landing.heroTitleAccent")}</span>
-            </h1>
-            <p className="mt-6 max-w-xl font-body text-lg text-muted leading-relaxed">
-              {t("landing.heroSubtitle")}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <NeuButton size="lg" asChild>
-                <Link href="/register">{t("landing.startFree")}</Link>
-              </NeuButton>
-              <NeuButton variant="secondary" size="lg" asChild>
-                <Link href="#features">{t("landing.viewPricing")}</Link>
-              </NeuButton>
-            </div>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <NeuButton size="lg" asChild>
+                  <Link href="/register">{t("landing.startFree")}</Link>
+                </NeuButton>
+                <NeuButton variant="secondary" size="lg" asChild>
+                  <Link href="#features">{t("landing.viewPricing")}</Link>
+                </NeuButton>
+              </div>
+            </Reveal>
             {/* Stats row */}
-            <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              {stats.map((s) => (
-                <div key={s.labelKey} className="rounded-2xl bg-background p-4 shadow-neu-extruded-sm text-center">
-                  <p className="font-display text-2xl font-extrabold text-accent">{s.value}</p>
-                  <p className="mt-1 font-body text-xs text-muted">{t(s.labelKey)}</p>
-                </div>
-              ))}
-            </div>
+            <Stagger
+              className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4"
+              stagger={0.08}
+            >
+              {[
+                <NeuStatCard key="students" label={t(stats[0].labelKey)} value={stats[0].value} icon={Users} tone="sky" />,
+                <NeuStatCard key="courses" label={t(stats[1].labelKey)} value={stats[1].value} icon={BookOpen} tone="violet" />,
+                <NeuStatCard key="institutions" label={t(stats[2].labelKey)} value={stats[2].value} icon={GraduationCap} tone="coral" />,
+                <NeuStatCard key="completion" label={t(stats[3].labelKey)} value={stats[3].value} icon={Award} tone="amber" />,
+              ]}
+            </Stagger>
           </div>
-          <HeroDecoration />
+          <Reveal delay={0.1}>
+            <HeroDecoration />
+          </Reveal>
         </div>
       </section>
 
@@ -142,24 +219,126 @@ export function LandingContent() {
         </div>
       </section>
 
+      {/* ── POPULAR CATEGORIES ───────────────────────────────────── */}
+      <section className="px-4 py-20 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <Reveal>
+            <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
+                  <Sparkles className="h-4 w-4 text-sunset" />
+                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-sunset">
+                    {t("landing.categories.eyebrow")}
+                  </span>
+                </div>
+                <h2 className="font-display text-4xl font-extrabold md:text-5xl text-foreground">
+                  {t("landing.categories.title")}
+                </h2>
+                <p className="mt-3 max-w-xl font-body text-muted">{t("landing.categories.subtitle")}</p>
+              </div>
+              <NeuButton variant="secondary" asChild>
+                <Link href="#pricing">{t("landing.categories.viewAll")}</Link>
+              </NeuButton>
+            </div>
+          </Reveal>
+
+          <Stagger className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6" stagger={0.06}>
+            {categoryItems.map((item) => (
+              <div
+                key={item.key}
+                className="group flex flex-col items-center gap-3 rounded-card bg-background p-6 text-center shadow-neu-extruded-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover"
+              >
+                <div className={cn("flex h-14 w-14 items-center justify-center rounded-full", toneBadge[item.tone])}>
+                  <item.icon className="h-6 w-6" aria-hidden />
+                </div>
+                <div>
+                  <p className="font-display text-sm font-bold text-foreground">
+                    {t(`landing.categories.items.${item.key}`)}
+                  </p>
+                  <p className="font-body text-xs text-muted">
+                    {item.count} {t("landing.categories.coursesLabel")}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* ── FEATURED COURSES ─────────────────────────────────────── */}
+      <section className="px-4 py-20 md:px-8">
+        <div className="mx-auto max-w-7xl rounded-card bg-banner-gradient p-8 md:p-12">
+          <Reveal>
+            <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
+                  <Video className="h-4 w-4 text-accent-secondary" />
+                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+                    {t("landing.featuredCourses.eyebrow")}
+                  </span>
+                </div>
+                <h2 className="font-display text-4xl font-extrabold md:text-5xl text-foreground">
+                  {t("landing.featuredCourses.title")}
+                </h2>
+                <p className="mt-3 max-w-xl font-body text-muted">{t("landing.featuredCourses.subtitle")}</p>
+              </div>
+              <NeuButton asChild>
+                <Link href="/register">{t("landing.featuredCourses.viewAll")}</Link>
+              </NeuButton>
+            </div>
+          </Reveal>
+
+          <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+            {featuredCourseItems.map((course) => (
+              <NeuCard
+                key={course.title}
+                className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover"
+              >
+                <div className={cn("relative flex h-36 items-center justify-center", toneThumb[course.tone])}>
+                  <course.icon className="h-12 w-12 opacity-80" aria-hidden />
+                  <span className="absolute right-3 top-3 rounded-full bg-background px-3 py-1 font-display text-xs font-bold text-foreground shadow-neu-extruded-sm">
+                    {course.free ? t("landing.featuredCourses.free") : course.price}
+                  </span>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-lg font-bold leading-snug text-foreground">{course.title}</h3>
+                  <div className="mt-3 flex items-center gap-2">
+                    <NeuAvatar name={course.instructor} />
+                    <p className="font-body text-sm text-muted">
+                      {t("landing.featuredCourses.by")} {course.instructor}
+                    </p>
+                  </div>
+                  <div className="mt-4 flex items-center gap-1 border-t border-black/5 pt-4">
+                    <Star className="h-4 w-4 fill-badge-amber text-badge-amber" aria-hidden />
+                    <span className="font-display text-sm font-bold text-foreground">{course.rating}</span>
+                  </div>
+                </div>
+              </NeuCard>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
       {/* ── FEATURES ─────────────────────────────────────────────── */}
       <section id="features" className="px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-4">
-            <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
-              <BookOpen className="h-4 w-4 text-accent-secondary" />
-              <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
-                {t("landing.platformFeatures")}
-              </span>
+          <Reveal>
+            <div className="text-center mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
+                <BookOpen className="h-4 w-4 text-accent-secondary" />
+                <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+                  {t("landing.platformFeatures")}
+                </span>
+              </div>
             </div>
-          </div>
-          <h2 className="text-center font-display text-4xl font-extrabold md:text-5xl text-foreground">
-            {t("landing.featuresTitle")}
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center font-body text-muted">
-            {t("landing.featuresSubtitle")}
-          </p>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <h2 className="text-center font-display text-4xl font-extrabold md:text-5xl text-foreground">
+              {t("landing.featuresTitle")}
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-center font-body text-muted">
+              {t("landing.featuresSubtitle")}
+            </p>
+          </Reveal>
+          <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
             {featureItems.map((f) => (
               <NeuCard
                 key={f.titleKey}
@@ -172,25 +351,27 @@ export function LandingContent() {
                 <p className="mt-2 font-body text-muted">{t(f.descKey)}</p>
               </NeuCard>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       {/* ── HOW IT WORKS ─────────────────────────────────────────── */}
       <section className="px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
-              <Target className="h-4 w-4 text-accent" />
-              <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
+          <Reveal>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
+                <Target className="h-4 w-4 text-accent" />
+                <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
+                  {t("landing.howItWorks.title")}
+                </span>
+              </div>
+              <h2 className="font-display text-4xl font-extrabold md:text-5xl text-foreground">
                 {t("landing.howItWorks.title")}
-              </span>
+              </h2>
             </div>
-            <h2 className="font-display text-4xl font-extrabold md:text-5xl text-foreground">
-              {t("landing.howItWorks.title")}
-            </h2>
-          </div>
-          <div className="grid gap-8 md:grid-cols-3">
+          </Reveal>
+          <Stagger className="grid gap-8 md:grid-cols-3" stagger={0.1}>
             {howItWorksItems.map((item) => (
               <NeuCard key={item.step}>
                 <NeuWell className="inline-flex h-14 w-14 items-center justify-center mb-4">
@@ -200,7 +381,7 @@ export function LandingContent() {
                 <p className="mt-2 font-body text-muted">{t(item.descKey)}</p>
               </NeuCard>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -208,27 +389,29 @@ export function LandingContent() {
       <section id="about" className="px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-6">
-                <GraduationCap className="h-4 w-4 text-accent-secondary" />
-                <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
-                  {t("about.title")}
-                </span>
+            <Reveal>
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-6">
+                  <GraduationCap className="h-4 w-4 text-accent-secondary" />
+                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+                    {t("about.title")}
+                  </span>
+                </div>
+                <h2 className="font-display text-4xl font-extrabold md:text-5xl text-foreground">
+                  {t("landing.about.title")}
+                </h2>
+                <p className="mt-6 font-body text-lg text-muted leading-relaxed">
+                  {t("landing.about.intro1")}
+                </p>
+                <p className="mt-4 font-body text-muted leading-relaxed">
+                  {t("landing.about.intro2")}
+                </p>
+                <p className="mt-4 font-body text-muted leading-relaxed">
+                  {t("landing.about.mission1")}
+                </p>
               </div>
-              <h2 className="font-display text-4xl font-extrabold md:text-5xl text-foreground">
-                {t("landing.about.title")}
-              </h2>
-              <p className="mt-6 font-body text-lg text-muted leading-relaxed">
-                {t("landing.about.intro1")}
-              </p>
-              <p className="mt-4 font-body text-muted leading-relaxed">
-                {t("landing.about.intro2")}
-              </p>
-              <p className="mt-4 font-body text-muted leading-relaxed">
-                {t("landing.about.mission1")}
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-6">
+            </Reveal>
+            <Stagger className="grid grid-cols-2 gap-6" stagger={0.08}>
               {aboutCards.map((item) => (
                 <NeuCard key={item.titleKey}>
                   <NeuWell className="inline-flex p-3 mb-3">
@@ -238,7 +421,7 @@ export function LandingContent() {
                   <p className="mt-1 font-body text-sm text-muted">{t(item.descKey)}</p>
                 </NeuCard>
               ))}
-            </div>
+            </Stagger>
           </div>
         </div>
       </section>
@@ -246,26 +429,28 @@ export function LandingContent() {
       {/* ── PRICING ──────────────────────────────────────────────── */}
       <section id="pricing" className="px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
-              <Award className="h-4 w-4 text-accent" />
-              <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
+          <Reveal>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
+                <Award className="h-4 w-4 text-accent" />
+                <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
+                  {t("pricing.title")}
+                </span>
+              </div>
+              <h2 className="font-display text-4xl font-extrabold md:text-5xl text-foreground">
                 {t("pricing.title")}
-              </span>
+              </h2>
+              <p className="mt-4 font-body text-lg text-muted">{t("pricing.subtitle")}</p>
+              {/* Currency indicator */}
+              <p className="mt-3 font-body text-sm text-muted">
+                {t("landing.currency.disclaimer")
+                  .replace("{currency}", t(`landing.currency.names.${currency.code}`))
+                  .replace("{code}", currency.code)}
+              </p>
             </div>
-            <h2 className="font-display text-4xl font-extrabold md:text-5xl text-foreground">
-              {t("pricing.title")}
-            </h2>
-            <p className="mt-4 font-body text-lg text-muted">{t("pricing.subtitle")}</p>
-            {/* Currency indicator */}
-            <p className="mt-3 font-body text-sm text-muted">
-              {t("landing.currency.disclaimer")
-                .replace("{currency}", t(`landing.currency.names.${currency.code}`))
-                .replace("{code}", currency.code)}
-            </p>
-          </div>
+          </Reveal>
 
-          <div className="grid gap-8 lg:grid-cols-3">
+          <Stagger className="grid gap-8 lg:grid-cols-3" stagger={0.1}>
             {tiers.map((tier) => {
               const tierMeta = dictionary.pricing[tier.key];
               const featureList = dictionary.pricing.tierFeatures[tier.key];
@@ -309,9 +494,10 @@ export function LandingContent() {
                 </NeuCard>
               );
             })}
-          </div>
+          </Stagger>
 
           {/* Comparison table */}
+          <Reveal>
           <div className="mt-16 overflow-hidden rounded-card shadow-neu-extruded">
             <table className="w-full font-body text-sm">
               <thead>
@@ -338,6 +524,7 @@ export function LandingContent() {
               </tbody>
             </table>
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -345,6 +532,7 @@ export function LandingContent() {
       <section id="contact" className="px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 items-start">
+            <Reveal>
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-6">
                 <Mail className="h-4 w-4 text-accent" />
@@ -372,7 +560,9 @@ export function LandingContent() {
                 ))}
               </div>
             </div>
+            </Reveal>
 
+            <Reveal delay={0.1}>
             <NeuCard>
               {contactSent ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
@@ -416,13 +606,15 @@ export function LandingContent() {
                 </form>
               )}
             </NeuCard>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* ── FINAL CTA ────────────────────────────────────────────── */}
       <section className="px-4 pb-20 md:px-8">
-        <div className="mx-auto max-w-7xl rounded-card bg-background p-12 shadow-neu-extruded text-center">
+        <Reveal>
+        <div className="mx-auto max-w-7xl rounded-card bg-banner-gradient p-12 text-center shadow-neu-extruded">
           <NeuWell className="mx-auto inline-flex p-4 mb-6">
             <GraduationCap className="h-10 w-10 text-accent" aria-hidden />
           </NeuWell>
@@ -441,6 +633,7 @@ export function LandingContent() {
             </NeuButton>
           </div>
         </div>
+        </Reveal>
       </section>
     </>
   );

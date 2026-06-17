@@ -19,6 +19,23 @@ const config: Config = {
         },
         "accent-secondary": "#38B2AC",
         "surface-border": "#a0a0a0",
+        // Warm highlight accent used for primary CTAs, search/notification dots,
+        // and the energetic hero/illustration moments — complements the existing
+        // purple `accent` without replacing it everywhere.
+        sunset: {
+          DEFAULT: "#FF6B6B",
+          light: "#FFA1A1",
+          dark: "#E84855",
+        },
+        // Colorful icon-badge palette for stat cards, category chips, etc.
+        // (the multi-hue circular icons seen across stat/category sections).
+        badge: {
+          coral: "#FF6B6B",
+          amber: "#FFB020",
+          violet: "#8B5CF6",
+          sky: "#3B82F6",
+          mint: "#38B2AC",
+        },
       },
       borderRadius: {
         card: "15px",
@@ -40,11 +57,27 @@ const config: Config = {
       },
       animation: {
         float: "float 3s ease-in-out infinite",
+        "float-slow": "float-slow 6s ease-in-out infinite",
+        "float-delayed": "float-delayed 5.5s ease-in-out infinite",
+        blob: "blob 11s ease-in-out infinite",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-8px)" },
+        },
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "50%": { transform: "translateY(-14px) rotate(3deg)" },
+        },
+        "float-delayed": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(10px)" },
+        },
+        blob: {
+          "0%, 100%": { transform: "translate(0,0) scale(1)" },
+          "33%": { transform: "translate(12px,-18px) scale(1.05)" },
+          "66%": { transform: "translate(-10px,10px) scale(0.97)" },
         },
       },
     },
