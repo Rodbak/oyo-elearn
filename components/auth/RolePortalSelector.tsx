@@ -32,6 +32,7 @@ export function RolePortalSelector({
         }))}
         activeId={value}
         onChange={(id) => onChange(id as AuthPortal)}
+        className="scale-[1.02]" // Enhanced active state
       />
     </div>
   );
