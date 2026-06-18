@@ -76,11 +76,6 @@ function RegisterForm() {
     router.refresh();
   }
 
-  const portalName =
-    portal === "STUDENT"
-      ? t("auth.portalLearner").toLowerCase()
-      : t("auth.portalCreator").toLowerCase();
-
   return (
     <NeuCard>
       <h1 className="font-display text-3xl font-extrabold">{t("auth.createAccount")}</h1>
@@ -119,7 +114,7 @@ function RegisterForm() {
           href={`/login?portal=${portal}`}
           className="text-accent font-semibold focus-neu"
         >
-          {t("auth.signIn")} ({portalName})
+          {t("auth.signIn")}
         </Link>
       </p>
     </NeuCard>

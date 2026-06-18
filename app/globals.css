@@ -46,7 +46,59 @@
   }
 }
 
-/* Respect users who've asked for reduced motion at the OS level */
+/* Fan carousel card dimensions */
+.fan-card {
+  width: 160px;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: absolute;
+  flex-shrink: 0;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.12);
+}
+
+@media (min-width: 640px) {
+  .fan-card {
+    width: 200px;
+    height: 280px;
+  }
+}
+
+@media (min-width: 768px) {
+  .fan-card {
+    width: 220px;
+    height: 320px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fan-card {
+    width: 260px;
+    height: 370px;
+  }
+}
+
+.fan-layout {
+  height: 280px;
+}
+
+@media (min-width: 640px) {
+  .fan-layout {
+    height: 340px;
+  }
+}
+
+@media (min-width: 768px) {
+  .fan-layout {
+    height: 390px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fan-layout {
+    height: 460px;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

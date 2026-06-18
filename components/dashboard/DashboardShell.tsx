@@ -45,8 +45,14 @@ export function DashboardShell({
     signOut({ callbackUrl: "/" });
   };
 
-  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
-  const activeItem = navItems.find((item) => isActive(item.href));
+  // Find the most specific (longest href) matching nav item so that
+  // /dashboard/student never stays "active" when on /dashboard/student/courses
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
+
+  const activeItem = [...navItems]
+    .sort((a, b) => b.href.length - a.href.length)
+    .find((item) => isActive(item.href));
 
   return (
     <div className="flex min-h-screen bg-background">
@@ -88,7 +94,7 @@ export function DashboardShell({
 
         <nav className="mt-8 flex-1 space-y-1" aria-label={t("dashboard.mobileNav")}>
           {navItems.map((item) => {
-            const active = isActive(item.href);
+            const active = item.href === activeItem?.href;
             return (
               <Link
                 key={item.href}
@@ -181,7 +187,7 @@ export function DashboardShell({
           </div>
         </header>
 
-        <main className="flex-1 px-4 py-8 md:px-8">{children}</main>
+        <main className="flex-1 px-4 py-5 md:px-8">{children}</main>
       </div>
     </div>
   );

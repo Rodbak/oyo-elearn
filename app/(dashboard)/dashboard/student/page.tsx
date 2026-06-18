@@ -21,7 +21,7 @@ const activity = [
 
 export default function StudentHomePage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-5">
       <div>
         <h1 className="font-display text-3xl font-extrabold md:text-4xl">
           My learning
@@ -49,7 +49,7 @@ export default function StudentHomePage() {
         </div>
       </section>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-2">
         <NeuCard>
           <div className="flex items-center gap-2">
             <Radio className="h-5 w-5 text-accent" aria-hidden />

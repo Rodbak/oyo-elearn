@@ -132,11 +132,11 @@ export const dictionary = {
     about: {
       title: "Built for creators, teams, and modern learning communities",
       intro1:
-        "OYO-Elearner was created to bring world-class course delivery to creators, coaches, and teams who want to teach online without the usual LMS complexity.",
+        "OYO-Elearner brings world-class course delivery to creators, coaches, and institutions — without the LMS complexity.",
       intro2:
-        "We combine modern learning tools with a clean experience that makes it easy to publish, track, and grow your courses.",
+        "One clean platform to publish lessons, run live classes, track progress, and grow your learning community.",
       mission1:
-        "Our mission is to help anyone launch learning experiences — from one-off workshops to full course programmes — with lessons, live sessions, certificates, and simple progress tracking.",
+        "Our mission: make great learning accessible to everyone — from a single workshop to a full school programme.",
       cards: {
         creators: {
           title: "Course creators",

@@ -132,11 +132,11 @@ export const dictionary = {
     about: {
       title: "Conçu pour l'éducation africaine — et au-delà",
       intro1:
-        "OYO-Elearner a été créé pour offrir une diffusion de cours de classe mondiale aux flux institutionnels des écoles africaines et des campus internationaux.",
+        "OYO-Elearner apporte une diffusion de cours de classe mondiale aux créateurs, coachs et institutions — sans la complexité d'un LMS traditionnel.",
       intro2:
-        "Nous combinons le meilleur de l'eLearning moderne avec un profond respect pour la façon dont les écoles fonctionnent réellement.",
+        "Une seule plateforme pour publier des cours, organiser des classes en direct, suivre la progression et développer votre communauté apprenante.",
       mission1:
-        "Notre mission est de permettre à chaque institution — d'une école K-12 d'une seule salle à une université de 10 000 étudiants — de dispenser un apprentissage mixte, suivre la présence, délivrer des certificats vérifiables et s'intégrer aux systèmes scolaires existants.",
+        "Notre mission : rendre l'apprentissage de qualité accessible à tous — d'un seul atelier à un programme scolaire complet.",
       cards: {
         school: {
           title: "Écoles K-12",

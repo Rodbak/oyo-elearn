@@ -4,7 +4,7 @@ import { useLocale } from "@/components/i18n/LocaleProvider";
 import { HeroDecoration } from "@/components/marketing/HeroDecoration";
 import { useCurrency } from "@/components/marketing/CurrencySwitcher";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
-import { NeuAvatar, NeuButton, NeuCard, NeuInput, NeuStatCard, NeuWell } from "@/components/neu";
+import { NeuAvatar, NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
 import { cn } from "@/lib/utils";
 import {
   Award,
@@ -181,17 +181,30 @@ export function LandingContent() {
                 </NeuButton>
               </div>
             </Reveal>
-            {/* Stats row */}
+            {/* Stats row — restyled */}
             <Stagger
               className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4"
               stagger={0.08}
             >
               {[
-                <NeuStatCard key="students" label={t(stats[0].labelKey)} value={stats[0].value} icon={Users} tone="sky" />,
-                <NeuStatCard key="courses" label={t(stats[1].labelKey)} value={stats[1].value} icon={BookOpen} tone="violet" />,
-                <NeuStatCard key="institutions" label={t(stats[2].labelKey)} value={stats[2].value} icon={GraduationCap} tone="coral" />,
-                <NeuStatCard key="completion" label={t(stats[3].labelKey)} value={stats[3].value} icon={Award} tone="amber" />,
-              ]}
+                { value: stats[0].value, labelKey: stats[0].labelKey, icon: Users,         bg: "from-badge-sky/20 to-badge-sky/5",     iconCls: "bg-badge-sky/15 text-badge-sky",     numCls: "text-badge-sky"     },
+                { value: stats[1].value, labelKey: stats[1].labelKey, icon: BookOpen,      bg: "from-badge-violet/20 to-badge-violet/5", iconCls: "bg-badge-violet/15 text-badge-violet", numCls: "text-badge-violet" },
+                { value: stats[2].value, labelKey: stats[2].labelKey, icon: GraduationCap, bg: "from-badge-coral/20 to-badge-coral/5",  iconCls: "bg-badge-coral/15 text-badge-coral",  numCls: "text-badge-coral"  },
+                { value: stats[3].value, labelKey: stats[3].labelKey, icon: Award,         bg: "from-badge-amber/20 to-badge-amber/5",  iconCls: "bg-badge-amber/15 text-badge-amber",  numCls: "text-badge-amber"  },
+              ].map((stat) => (
+                <div
+                  key={stat.labelKey}
+                  className={`rounded-card bg-gradient-to-br ${stat.bg} p-5 shadow-neu-extruded-sm`}
+                >
+                  <div className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl ${stat.iconCls}`}>
+                    <stat.icon className="h-5 w-5" aria-hidden />
+                  </div>
+                  <p className="font-body text-xs text-muted">{t(stat.labelKey)}</p>
+                  <p className={`mt-0.5 font-display text-2xl font-extrabold ${stat.numCls}`}>
+                    {stat.value}
+                  </p>
+                </div>
+              ))}
             </Stagger>
           </div>
           <Reveal delay={0.1}>

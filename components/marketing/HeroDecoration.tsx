@@ -20,12 +20,15 @@ export function HeroDecoration() {
       <div className="absolute inset-6 animate-blob rounded-[42%_58%_61%_39%/47%_42%_58%_53%] bg-gradient-to-br from-[#FFD7CE] via-[#FBC2D0] to-[#C9D6F7] opacity-90 md:inset-10" />
 
       {/* Central anchor card */}
-      <div className="absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-1 rounded-[2rem] bg-background shadow-neu-extruded md:h-40 md:w-40">
+      <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 rounded-[2rem] bg-background shadow-neu-extruded md:h-44 md:w-44">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent md:h-14 md:w-14">
           <GraduationCap className="h-6 w-6 md:h-7 md:w-7" />
         </div>
-        <p className="font-display text-xs font-bold text-foreground md:text-sm">
-          {t("landing.tagline")}
+        <p className="text-center font-display text-[11px] font-extrabold tracking-widest md:text-sm">
+          <span className="text-accent">LEARN.</span>{" "}
+          <span className="text-foreground">CREATE.</span>
+          <br />
+          <span className="text-sunset">SCALE.</span>
         </p>
       </div>
 
