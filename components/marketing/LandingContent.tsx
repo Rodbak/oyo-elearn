@@ -38,7 +38,7 @@ const logos = [
 ];
 
 const stats = [
-  { value: "10,000+", labelKey: "landing.stats.students"     },
+  { value: "1,000+", labelKey: "landing.stats.students"     },
   { value: "500+",    labelKey: "landing.stats.courses"      },
   { value: "120+",    labelKey: "landing.stats.institutions" },
   { value: "98%",     labelKey: "landing.stats.completion"   },
