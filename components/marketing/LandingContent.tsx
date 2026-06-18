@@ -412,7 +412,7 @@ export function LandingContent() {
         </div>
       </section>
 
-      {/* ── ABOUT ────────────────────────────────────────────────── */}
+            {/* ── ABOUT ────────────────────────────────────────────────── */}
       <section id="about" className="px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
@@ -435,7 +435,7 @@ export function LandingContent() {
                 </p>
               </div>
             </Reveal>
-
+            
             <Stagger className="grid grid-cols-2 gap-6" stagger={0.08}>
               {aboutCards.map((item) => (
                 <NeuCard key={item.titleKey}>
