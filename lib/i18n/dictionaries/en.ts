@@ -306,7 +306,7 @@ export const dictionary = {
     registerSubtitle:
       "Your account is saved locally in the database for future logins",
     registerAsLabel: "Register as",
-    signInAsLabel: "I am signing in as",
+    signInAsLabel: "Sign in as",
     creating: "Creating…",
     createBtn: "Create account",
     hasAccount: "Already have an account?",
@@ -318,8 +318,8 @@ export const dictionary = {
       "Enter your email and we will send a reset link via Resend.",
     sendReset: "Send reset link",
     backToSignIn: "Back to sign in",
-    portalLearner: "I want to take a course",
-    portalCreator: "I want to create a course",
+    portalLearner: "Student",
+    portalCreator: "Instructor",
     portalTeam: "I want to manage courses & learners",
     sessionFailed:
       "Session could not be created. Check database connection.",

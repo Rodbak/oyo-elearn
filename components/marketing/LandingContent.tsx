@@ -45,12 +45,12 @@ const stats = [
 ] as const;
 
 const featureItems = [
-  { icon: Video,    titleKey: "landing.features.mux.title",          descKey: "landing.features.mux.description"          },
-  { icon: Radio,    titleKey: "landing.features.live.title",         descKey: "landing.features.live.description"         },
-  { icon: Sparkles, titleKey: "landing.features.ai.title",           descKey: "landing.features.ai.description"           },
-  { icon: Award,    titleKey: "landing.features.certs.title",        descKey: "landing.features.certs.description"        },
-  { icon: Globe,    titleKey: "landing.features.integrations.title", descKey: "landing.features.integrations.description" },
-  { icon: Users,    titleKey: "landing.features.multiTenant.title",  descKey: "landing.features.multiTenant.description"  },
+  { icon: Video,    titleKey: "landing.features.mux.title",          descKey: "landing.features.mux.description",          iconCls: "bg-badge-sky/15 text-badge-sky",       bg: "from-badge-sky/8 to-transparent",     label: "Video"        },
+  { icon: Radio,    titleKey: "landing.features.live.title",         descKey: "landing.features.live.description",         iconCls: "bg-badge-coral/15 text-badge-coral",   bg: "from-badge-coral/8 to-transparent",   label: "Live"         },
+  { icon: Sparkles, titleKey: "landing.features.ai.title",           descKey: "landing.features.ai.description",           iconCls: "bg-badge-violet/15 text-badge-violet", bg: "from-badge-violet/8 to-transparent",  label: "AI"           },
+  { icon: Award,    titleKey: "landing.features.certs.title",        descKey: "landing.features.certs.description",        iconCls: "bg-badge-amber/15 text-badge-amber",   bg: "from-badge-amber/8 to-transparent",   label: "Certificates" },
+  { icon: Globe,    titleKey: "landing.features.integrations.title", descKey: "landing.features.integrations.description", iconCls: "bg-badge-mint/15 text-badge-mint",     bg: "from-badge-mint/8 to-transparent",    label: "Integrations" },
+  { icon: Users,    titleKey: "landing.features.multiTenant.title",  descKey: "landing.features.multiTenant.description",  iconCls: "bg-accent/10 text-accent",             bg: "from-accent/8 to-transparent",        label: "Multi-tenant" },
 ] as const;
 
 const howItWorksItems = [
@@ -351,17 +351,31 @@ export function LandingContent() {
               {t("landing.featuresSubtitle")}
             </p>
           </Reveal>
-          <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
-            {featureItems.map((f) => (
+          <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+            {featureItems.map((f, i) => (
               <NeuCard
                 key={f.titleKey}
-                className="group transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover"
+                className={cn(
+                  "group relative flex flex-col gap-4 overflow-hidden bg-gradient-to-br transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover",
+                  f.bg
+                )}
               >
-                <NeuWell className="mb-4 inline-flex p-3 transition-all duration-300 group-hover:shadow-neu-inset-deep">
-                  <f.icon className="h-6 w-6 text-accent" aria-hidden />
-                </NeuWell>
-                <h3 className="font-display text-xl font-bold text-foreground">{t(f.titleKey)}</h3>
-                <p className="mt-2 font-body text-muted">{t(f.descKey)}</p>
+                {/* Feature number */}
+                <span className="absolute right-4 top-4 font-display text-4xl font-extrabold text-black/4 select-none">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {/* Label chip */}
+                <span className={cn("inline-flex w-fit rounded-full px-2.5 py-0.5 font-body text-[10px] font-bold uppercase tracking-widest", f.iconCls)}>
+                  {f.label}
+                </span>
+                {/* Icon */}
+                <div className={cn("inline-flex h-14 w-14 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110", f.iconCls)}>
+                  <f.icon className="h-7 w-7" aria-hidden />
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-bold text-foreground">{t(f.titleKey)}</h3>
+                  <p className="mt-2 font-body text-muted leading-relaxed">{t(f.descKey)}</p>
+                </div>
               </NeuCard>
             ))}
           </Stagger>

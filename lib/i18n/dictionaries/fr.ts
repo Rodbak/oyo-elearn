@@ -306,7 +306,7 @@ export const dictionary = {
     registerSubtitle:
       "Votre compte est enregistré localement dans la base de données pour vos prochaines connexions",
     registerAsLabel: "S'inscrire en tant que",
-    signInAsLabel: "Je me connecte en tant que",
+    signInAsLabel: "Se connecter en tant que",
     creating: "Création…",
     createBtn: "Créer le compte",
     hasAccount: "Déjà un compte ?",
@@ -318,8 +318,8 @@ export const dictionary = {
       "Entrez votre e-mail et nous vous enverrons un lien via Resend.",
     sendReset: "Envoyer le lien",
     backToSignIn: "Retour à la connexion",
-    portalLearner: "Je veux suivre un cours",
-    portalCreator: "Je veux créer un cours",
+    portalLearner: "Étudiant",
+    portalCreator: "Instructeur",
     portalTeam: "Je veux gérer des cours et des apprenants",
     sessionFailed:
       "Impossible de créer la session. Vérifiez la connexion à la base de données.",

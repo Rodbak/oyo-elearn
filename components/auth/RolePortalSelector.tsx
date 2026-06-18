@@ -15,14 +15,14 @@ const portalOptions: {
   {
     id: "STUDENT",
     labelKey: "auth.portalLearner",
-    desc: "Take & track courses",
+    desc: "Access courses, track progress & earn certificates",
     icon: GraduationCap,
     iconStyle: "bg-badge-sky/15 text-badge-sky",
   },
   {
     id: "INSTRUCTOR",
     labelKey: "auth.portalCreator",
-    desc: "Build & teach courses",
+    desc: "Build courses, teach students & manage content",
     icon: Briefcase,
     iconStyle: "bg-badge-violet/15 text-badge-violet",
   },
