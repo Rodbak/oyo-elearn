@@ -11,7 +11,7 @@ export function Header() {
   const { t } = useLocale();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLLIElement>(null);
 
   // Close dropdown on outside click
   useEffect(() => {
