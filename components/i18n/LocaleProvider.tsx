@@ -1,81 +1,42 @@
 "use client";
 
-import {
-  createTranslator,
-  getDictionary,
-} from "@/lib/i18n/get-dictionary";
-import {
-  defaultLocale,
-  isValidLocale,
-  LOCALE_COOKIE,
-  type Dictionary,
-  type Locale,
-} from "@/lib/i18n/types";
-import { useRouter } from "next/navigation";
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from "react";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { cn } from "@/lib/utils";
+import type { Locale } from "@/lib/i18n/types";
 
-type TFunction = (key: string) => string;
+const options: { id: Locale; labelKey: string }[] = [
+  { id: "en", labelKey: "common.english" },
+  { id: "fr", labelKey: "common.french" },
+];
 
-interface LocaleContextValue {
-  locale: Locale;
-  dictionary: Dictionary;
-  t: TFunction;
-  setLocale: (locale: Locale) => Promise<void>;
-}
-
-const LocaleContext = createContext<LocaleContextValue | null>(null);
-
-export function LocaleProvider({
-  children,
-  initialLocale = defaultLocale,
-}: {
-  children: React.ReactNode;
-  initialLocale?: Locale;
-}) {
-  const router = useRouter();
-  const [locale, setLocaleState] = useState<Locale>(
-    isValidLocale(initialLocale) ? initialLocale : defaultLocale
-  );
-
-  const dictionary = useMemo(() => getDictionary(locale), [locale]);
-  const t = useMemo(() => createTranslator(dictionary), [dictionary]);
-
-  const setLocale = useCallback(
-    async (next: Locale) => {
-      setLocaleState(next);
-      document.documentElement.lang = next;
-      await fetch("/api/locale", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ locale: next }),
-      });
-      router.refresh();
-    },
-    [router]
-  );
-
-  const value = useMemo(
-    () => ({ locale, dictionary, t, setLocale }),
-    [locale, dictionary, t, setLocale]
-  );
+export function LanguageSwitcher({ className }: { className?: string }) {
+  const { locale, setLocale, t } = useLocale();
 
   return (
-    <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>
+    <div
+      className={cn(
+        "flex items-center gap-1 rounded-inner bg-transparent p-0",
+        className
+      )}
+      role="group"
+      aria-label={t("common.language")}
+    >
+      {options.map((opt) => (
+        <button
+          key={opt.id}
+          type="button"
+          onClick={() => setLocale(opt.id)}
+          className={cn(
+            "h-9 rounded-btn px-3 py-1.5 font-body text-xs font-semibold transition-all focus-neu",
+            locale === opt.id
+              ? "bg-accent text-white"
+              : "text-foreground hover:bg-neutral-50"
+          )}
+          aria-pressed={locale === opt.id}
+        >
+          {t(opt.labelKey)}
+        </button>
+      ))}
+    </div>
   );
 }
-
-export function useLocale() {
-  const ctx = useContext(LocaleContext);
-  if (!ctx) {
-    throw new Error("useLocale must be used within LocaleProvider");
-  }
-  return ctx;
-}
-
-export { LOCALE_COOKIE };
