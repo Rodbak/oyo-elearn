@@ -20,11 +20,13 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 px-4 py-3 md:px-8 backdrop-blur-sm">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between gap-6 rounded-card bg-white/95 border border-surface-border/60 px-4 py-3 shadow-sm md:px-6"
-        aria-label={t("nav.mainNav")}
-      >
+    <header className="sticky top-0 z-50 px-4 py-3 md:px-8">
+      {/* Gradient hairline border wrapper for the glass bar */}
+      <div className="mx-auto max-w-7xl rounded-card bg-gradient-to-r from-white/60 via-accent/30 to-sunset/40 p-px shadow-[0_10px_40px_-12px_rgba(76,70,200,0.25)]">
+        <nav
+          className="flex items-center justify-between gap-6 rounded-[14px] bg-white/55 px-4 py-3 backdrop-blur-2xl ring-1 ring-inset ring-white/60 supports-[backdrop-filter]:bg-white/45 md:px-6"
+          aria-label={t("nav.mainNav")}
+        >
         {/* Logo — larger */}
         <Link
           href="/"
@@ -73,10 +75,11 @@ export function Header() {
           </motion.button>
         </div>
       </nav>
+      </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="mx-auto mt-2 max-w-7xl rounded-card border border-surface-border bg-white p-6 shadow-neu-extruded md:hidden">
+        <div className="mx-auto mt-2 max-w-7xl rounded-card border border-white/60 bg-white/70 p-6 shadow-[0_10px_40px_-12px_rgba(76,70,200,0.25)] backdrop-blur-2xl md:hidden">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>

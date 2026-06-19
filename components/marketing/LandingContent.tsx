@@ -194,7 +194,7 @@ export function LandingContent() {
             </Reveal>
             {/* Stats row — restyled */}
             <Stagger
-              className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4"
+              className="mt-20 grid grid-cols-2 gap-4 sm:grid-cols-4"
               stagger={0.08}
             >
               {[
@@ -217,10 +217,10 @@ export function LandingContent() {
                 </div>
               ))}
             </Stagger>
-            {/* Hero feature card restored: globe + centered image */}
+            {/* Hero feature globe: floating sphere with a stock photo */}
             <Reveal>
               <div className="pointer-events-none">
-                <HeroFeatureCard className="hidden md:block absolute -right-8 top-24 lg:top-20" />
+                <HeroFeatureCard className="hidden md:block absolute -right-4 top-16 lg:top-12" />
               </div>
             </Reveal>
 
