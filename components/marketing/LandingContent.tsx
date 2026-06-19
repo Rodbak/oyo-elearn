@@ -127,6 +127,24 @@ const featuredCourseItems = [
     tone: "coral" as Tone,
     image: "/courses/uiux.svg",
   },
+  {
+    title: "Data Science Bootcamp",
+    instructor: "Yaa Mensah",
+    rating: 4.7,
+    free: false,
+    price: "$79",
+    tone: "violet" as Tone,
+    image: "/courses/data-science.svg",
+  },
+  {
+    title: "Cloud Foundations",
+    instructor: "Kojo Adjei",
+    rating: 4.6,
+    free: false,
+    price: "$59",
+    tone: "sky" as Tone,
+    image: "/courses/cloud.svg",
+  },
 ] as const;
 
 export function LandingContent() {
