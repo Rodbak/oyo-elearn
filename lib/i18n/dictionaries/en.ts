@@ -19,7 +19,7 @@ export const dictionary = {
   },
   landing: {
     tagline: "LEARN. CREATE. SCALE.",
-    heroTitle: "Launch courses, grow learners,",
+    heroTitle: "Launch courses, grow learners",
     heroTitleAccent: "and build your learning brand",
     heroSubtitle:
       "OYO-Elearner is a modern course platform for creators, teams, and learners who want to publish lessons, host live sessions, and deliver great learning experiences.",
@@ -121,7 +121,7 @@ export const dictionary = {
       step2: {
         title: "Upload your lessons",
         description:
-          "Add video lectures, quizzes, assignments, and live sessions — or let AI help you turn your topic into a course.",
+          "Add videos, quizzes, and live sessions quickly to start your course.",
       },
       step3: {
         title: "Learners start learning",
@@ -326,6 +326,11 @@ export const dictionary = {
     registerFailed: "Registration failed. Is the database running?",
     createdSignInFailed:
       "Account created but sign-in failed. Try logging in from the login page.",
+    signInTitle: "Sign in to your portal",
+    signInDescription:
+      "Need a demo account? Open the quick credentials panel below to copy test learners or instructors instantly.",
+    demoTitle: "Demo credentials",
+    demoSubtitle: "Preview the platform with prepared learner and instructor accounts.",
   },
   footer: {
     tagline:

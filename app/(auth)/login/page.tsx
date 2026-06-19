@@ -2,6 +2,7 @@
 
 import { RolePortalSelector } from "@/components/auth/RolePortalSelector";
 import { useLocale } from "@/components/i18n/LocaleProvider";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
 import { type AuthPortal, dashboardPathForPortal } from "@/lib/roles";
 import { AnimatePresence, motion } from "framer-motion";
@@ -9,7 +10,7 @@ import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, GraduationCap, Radio, Award, Sparkles } from "lucide-react";
 
 /* ── Demo accounts ─────────────────────────────────────────────── */
 const DEMO_ACCOUNTS = [
@@ -123,110 +124,193 @@ function LoginForm() {
       ? t("auth.portalLearner").toLowerCase()
       : t("auth.portalCreator").toLowerCase();
 
+  const highlights = [
+    { icon: GraduationCap, title: "Role-aware experience", body: "Students, instructors, and teams get the tools that matter most to them." },
+    { icon: Radio, title: "Live & on-demand", body: "Move smoothly between live sessions, lessons, and grading workflows." },
+    { icon: Award, title: "Verifiable certificates", body: "Issue and verify completion certificates with public codes." },
+  ];
+
   return (
-    <div className="space-y-4">
-      <NeuCard>
-        <h1 className="font-display text-3xl font-extrabold">{t("auth.welcomeBack")}</h1>
-        <p className="mt-2 font-body text-sm text-muted">{t("auth.signInSubtitle")}</p>
+    /* Full-bleed overlay so the split-screen ignores the centered auth layout */
+    <div className="fixed inset-0 z-50 flex overflow-y-auto bg-slate-50">
+      <div className="flex min-h-full w-full flex-col lg:flex-row">
 
-        <div className="mt-6">
-          <RolePortalSelector value={portal} onChange={setPortal} />
-        </div>
+        {/* ── Left: dark branding panel ─────────────────────────── */}
+        <aside className="relative hidden w-[44%] shrink-0 overflow-hidden bg-slate-950 p-12 text-white lg:flex lg:flex-col lg:justify-between">
+          {/* Ambient gradients */}
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,99,255,0.35),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(255,138,101,0.22),transparent_45%)]" />
 
-        <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-          <NeuInput
-            label={t("auth.email")}
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <NeuInput
-            label={t("auth.password")}
-            name="password"
-            type="password"
-            required
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {error && (
-            <p className="text-sm text-red-500" role="alert">{error}</p>
-          )}
-          <div className="flex justify-end">
-            <Link href="/forgot-password" className="text-sm text-accent hover:underline focus-neu">
-              {t("auth.forgotPassword")}
+          <div className="relative z-10">
+            <Link href="/" className="font-display text-2xl font-extrabold tracking-tight text-white">
+              OYO<span className="text-accent">-Elearner</span>
             </Link>
           </div>
-          <NeuButton type="submit" className="w-full" disabled={loading}>
-            {loading ? t("auth.signingIn") : t("auth.signIn")}
-          </NeuButton>
-        </form>
 
-        <NeuButton
-          variant="secondary"
-          className="mt-4 w-full"
-          type="button"
-          onClick={() => signIn("google", { callbackUrl: dashboardPathForPortal(portal) })}
-        >
-          {t("auth.continueGoogle")}
-        </NeuButton>
-
-        <p className="mt-6 text-center font-body text-sm text-muted">
-          {t("auth.noAccount")}{" "}
-          <Link href={`/register?portal=${portal}`} className="text-accent font-semibold focus-neu">
-            {t("auth.registerAs")} {portalName}
-          </Link>
-        </p>
-      </NeuCard>
-
-      {/* Demo accounts panel */}
-      <NeuCard className="shadow-neu-inset">
-        <button
-          type="button"
-          onClick={() => setShowDemo((v) => !v)}
-          className="flex w-full items-center justify-between focus-neu rounded-inner"
-        >
-          <div className="flex items-center gap-2">
-            <NeuWell className="inline-flex p-1.5">
-              <span className="text-base">🔑</span>
-            </NeuWell>
-            <p className="font-display text-sm font-bold text-foreground">
-              {t("landing.demo.title")}
+          <div className="relative z-10 max-w-md">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent">
+              {t("auth.welcomeBack")}
             </p>
-          </div>
-          <svg
-            className={`h-4 w-4 text-muted transition-transform duration-200 ${showDemo ? "rotate-180" : ""}`}
-            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
+            <h2 className="mt-6 font-display text-4xl font-extrabold leading-tight">
+              One secure login for learners, instructors, and teams.
+            </h2>
+            <p className="mt-5 text-base leading-7 text-slate-300">
+              Access courses, live sessions, grading, and administration from a single polished portal.
+            </p>
 
-        <AnimatePresence>
-          {showDemo && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="mt-4 space-y-2 overflow-hidden"
-            >
-              <p className="font-body text-xs text-muted mb-3">
-                {t("landing.demo.subtitle")}
-              </p>
-              {DEMO_ACCOUNTS.map((acc) => (
-                <DemoAccountCard key={acc.email} account={acc} onUse={fillDemo} />
+            <ul className="mt-10 space-y-4">
+              {highlights.map((h) => (
+                <li key={h.title} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/10 text-accent ring-1 ring-white/15">
+                    <h.icon className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="font-display text-sm font-bold text-white">{h.title}</p>
+                    <p className="mt-0.5 text-sm leading-6 text-slate-400">{h.body}</p>
+                  </div>
+                </li>
               ))}
-              <p className="font-body text-xs text-muted text-center pt-1">
-                Password for all accounts: <span className="font-semibold text-foreground">password123</span>
+            </ul>
+          </div>
+
+          <div className="relative z-10 flex items-center gap-2 text-xs text-slate-400">
+            <Sparkles className="h-3.5 w-3.5 text-accent" />
+            Built for creators, teams, and modern learning communities.
+          </div>
+        </aside>
+
+        {/* ── Right: clean form panel ───────────────────────────── */}
+        <main className="flex min-h-full w-full flex-1 flex-col px-5 py-8 sm:px-8 md:px-12">
+          {/* Top bar: mobile logo + language switcher */}
+          <div className="mb-8 flex items-center justify-between">
+            <Link href="/" className="font-display text-xl font-extrabold tracking-tight text-accent lg:opacity-0">
+              OYO<span className="text-foreground">-Elearner</span>
+            </Link>
+            <LanguageSwitcher />
+          </div>
+
+          <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center gap-8 py-4">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+                {t("auth.welcomeBack")}
               </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </NeuCard>
+              <h1 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">
+                {t("auth.signInTitle")}
+              </h1>
+              <p className="mt-3 font-body text-muted">
+                {t("auth.signInSubtitle")}
+              </p>
+            </div>
+
+            <RolePortalSelector value={portal} onChange={setPortal} />
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <NeuInput
+                label={t("auth.email")}
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <NeuInput
+                label={t("auth.password")}
+                name="password"
+                type="password"
+                required
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {error && (
+                <p className="text-sm text-red-500" role="alert">{error}</p>
+              )}
+              <div className="flex justify-end">
+                <Link href="/forgot-password" className="text-sm text-accent hover:underline focus-neu">
+                  {t("auth.forgotPassword")}
+                </Link>
+              </div>
+              <NeuButton type="submit" className="w-full" disabled={loading}>
+                {loading ? t("auth.signingIn") : t("auth.signIn")}
+              </NeuButton>
+            </form>
+
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center" aria-hidden>
+                <div className="w-full border-t border-surface-border" />
+              </div>
+            </div>
+
+            <NeuButton
+              variant="secondary"
+              className="w-full"
+              type="button"
+              onClick={() => signIn("google", { callbackUrl: dashboardPathForPortal(portal) })}
+            >
+              {t("auth.continueGoogle")}
+            </NeuButton>
+
+            <p className="text-center font-body text-sm text-muted">
+              {t("auth.noAccount")} {" "}
+              <Link href={`/register?portal=${portal}`} className="text-accent font-semibold focus-neu">
+                {t("auth.registerAs")} {portalName}
+              </Link>
+            </p>
+
+            {/* Demo credentials */}
+            <NeuCard className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 text-sm text-slate-600 shadow-neu-inset">
+              {t("auth.signInDescription")}
+              <button
+                type="button"
+                onClick={() => setShowDemo((v) => !v)}
+                className="mt-4 flex w-full items-center justify-between rounded-inner px-2 py-3 focus-neu"
+              >
+                <div className="flex items-center gap-3">
+                  <NeuWell className="inline-flex p-2">
+                    <span className="text-base">🔑</span>
+                  </NeuWell>
+                  <div className="text-left">
+                    <p className="font-display text-sm font-bold text-foreground">
+                      {t("auth.demoTitle")}
+                    </p>
+                    <p className="font-body text-xs text-muted">
+                      {t("auth.demoSubtitle")}
+                    </p>
+                  </div>
+                </div>
+                <svg
+                  className={`h-4 w-4 text-muted transition-transform duration-200 ${showDemo ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <AnimatePresence>
+                {showDemo && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="mt-4 space-y-3 overflow-hidden"
+                  >
+                    {DEMO_ACCOUNTS.map((acc) => (
+                      <DemoAccountCard key={acc.email} account={acc} onUse={fillDemo} />
+                    ))}
+                    <p className="font-body text-xs text-muted text-center">
+                      Password for all accounts: <span className="font-semibold text-foreground">password123</span>
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </NeuCard>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

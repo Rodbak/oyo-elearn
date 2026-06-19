@@ -3,43 +3,30 @@
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { NeuButton } from "@/components/neu";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 export function Header() {
   const { t } = useLocale();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [companyOpen, setCompanyOpen] = useState(false);
-  const dropdownRef = useRef<HTMLLIElement>(null);
 
-  // Close dropdown on outside click
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setCompanyOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
-
-  const standaloneLinks = [
+  const navLinks = [
     { href: "/#features", label: t("nav.features") },
     { href: "/#pricing",  label: t("nav.pricing")  },
-  ];
-
-  const companyLinks = [
-    { href: "/#about",   label: t("nav.about")   },
-    { href: "/#contact", label: t("nav.contact")  },
+    { href: "/#about",    label: t("nav.about")    },
+    { href: "/#contact",  label: t("nav.contact")  },
   ];
 
   return (
-    <header className="sticky top-0 z-50 px-4 py-4 md:px-8">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-card bg-white border border-surface-border px-6 py-4 shadow-neu-extruded md:px-8"
-        aria-label={t("nav.mainNav")}
-      >
+    <header className="sticky top-0 z-50 px-4 py-3 md:px-8">
+      {/* Gradient hairline border wrapper for the glass bar */}
+      <div className="mx-auto max-w-7xl rounded-card bg-gradient-to-r from-white/60 via-accent/30 to-sunset/40 p-px shadow-[0_10px_40px_-12px_rgba(76,70,200,0.25)]">
+        <nav
+          className="flex items-center justify-between gap-6 rounded-[14px] bg-white/55 px-4 py-3 backdrop-blur-2xl ring-1 ring-inset ring-white/60 supports-[backdrop-filter]:bg-white/45 md:px-6"
+          aria-label={t("nav.mainNav")}
+        >
         {/* Logo — larger */}
         <Link
           href="/"
@@ -50,47 +37,16 @@ export function Header() {
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-8 lg:flex">
-          {standaloneLinks.map((link) => (
+          {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="font-body text-sm font-medium text-muted transition-colors hover:text-foreground focus-neu rounded-inner px-2 py-1"
+                className="font-body text-sm font-medium text-muted transition-colors hover:text-foreground focus-neu rounded-inner px-3 py-2 hover:scale-[1.02]"
               >
                 {link.label}
               </Link>
             </li>
           ))}
-
-          {/* Company dropdown */}
-          <li ref={dropdownRef} className="relative">
-            <button
-              type="button"
-              onClick={() => setCompanyOpen((v) => !v)}
-              className="flex items-center gap-1 font-body text-sm font-medium text-muted transition-colors hover:text-foreground focus-neu rounded-inner px-2 py-1"
-            >
-              Company
-              <ChevronDown
-                className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  companyOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            {companyOpen && (
-              <div className="absolute left-1/2 top-full z-50 mt-2 w-40 -translate-x-1/2 overflow-hidden rounded-card border border-surface-border bg-white py-1 shadow-neu-extruded">
-                {companyLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setCompanyOpen(false)}
-                    className="block px-4 py-2.5 font-body text-sm text-muted transition-colors hover:bg-accent/5 hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </li>
         </ul>
 
         {/* Desktop right controls */}
@@ -99,30 +55,33 @@ export function Header() {
           <NeuButton variant="secondary" size="sm" asChild>
             <Link href="/login">{t("nav.login")}</Link>
           </NeuButton>
-          <NeuButton size="sm" asChild>
+          <NeuButton size="lg" className="shadow-neu-extruded" asChild>
             <Link href="/register">{t("nav.getStarted")}</Link>
           </NeuButton>
         </div>
 
         {/* Mobile hamburger */}
         <div className="flex items-center gap-2 md:hidden">
-          <button
+          <motion.button
             type="button"
             className="flex h-11 w-11 items-center justify-center rounded-btn border border-surface-border bg-white shadow-neu-extruded-sm focus-neu"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? t("nav.closeMenu") : t("nav.openMenu")}
             aria-expanded={mobileOpen}
+            animate={{ rotate: mobileOpen ? 90 : 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          </motion.button>
         </div>
       </nav>
+      </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="mx-auto mt-2 max-w-7xl rounded-card border border-surface-border bg-white p-6 shadow-neu-extruded md:hidden">
+        <div className="mx-auto mt-2 max-w-7xl rounded-card border border-white/60 bg-white/70 p-6 shadow-[0_10px_40px_-12px_rgba(76,70,200,0.25)] backdrop-blur-2xl md:hidden">
           <ul className="flex flex-col gap-4">
-            {[...standaloneLinks, ...companyLinks].map((link) => (
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

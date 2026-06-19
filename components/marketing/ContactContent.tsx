@@ -20,7 +20,7 @@ export function ContactContent() {
         <p className="mt-4 font-body text-muted">{t("contact.subtitle")}</p>
         <NeuCard className="mt-8">
           {sent ? (
-            <p className="font-body text-center text-accent-secondary" role="status">
+            <p className="font-body text-center text-accent" role="status">
               {t("contact.success")}
             </p>
           ) : (

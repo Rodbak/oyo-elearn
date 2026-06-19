@@ -17,7 +17,7 @@ const config: Config = {
           DEFAULT: "#6C63FF",
           light: "#8B84FF",
         },
-        "accent-secondary": "#38B2AC",
+        "accent-secondary": "#6C63FF",
         "surface-border": "#a0a0a0",
         // Warm highlight accent used for primary CTAs, search/notification dots,
         // and the energetic hero/illustration moments — complements the existing
@@ -34,7 +34,7 @@ const config: Config = {
           amber: "#FFB020",
           violet: "#8B5CF6",
           sky: "#3B82F6",
-          mint: "#38B2AC",
+          mint: "#6C63FF",
         },
       },
       borderRadius: {

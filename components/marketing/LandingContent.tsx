@@ -2,7 +2,7 @@
 
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { HeroDecoration } from "@/components/marketing/HeroDecoration";
-import { useCurrency } from "@/components/marketing/CurrencySwitcher";
+import HeroFeatureCard from "@/components/marketing/HeroFeatureCard";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
 import { NeuAvatar, NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
 import { cn } from "@/lib/utils";
@@ -27,15 +27,9 @@ import {
   Users,
   Video,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
-const logos = [
-  "Academic City University",
-  "Nairobi Tech",
-  "Accra Vocational",
-  "Cape University",
-];
 
 const stats = [
   { value: "1,000+", labelKey: "landing.stats.students"     },
@@ -49,7 +43,7 @@ const featureItems = [
   { icon: Radio,    titleKey: "landing.features.live.title",         descKey: "landing.features.live.description",         iconCls: "bg-badge-coral/15 text-badge-coral",   bg: "from-badge-coral/8 to-transparent",   label: "Live"         },
   { icon: Sparkles, titleKey: "landing.features.ai.title",           descKey: "landing.features.ai.description",           iconCls: "bg-badge-violet/15 text-badge-violet", bg: "from-badge-violet/8 to-transparent",  label: "AI"           },
   { icon: Award,    titleKey: "landing.features.certs.title",        descKey: "landing.features.certs.description",        iconCls: "bg-badge-amber/15 text-badge-amber",   bg: "from-badge-amber/8 to-transparent",   label: "Certificates" },
-  { icon: Globe,    titleKey: "landing.features.integrations.title", descKey: "landing.features.integrations.description", iconCls: "bg-badge-mint/15 text-badge-mint",     bg: "from-badge-mint/8 to-transparent",    label: "Integrations" },
+  { icon: Globe,    titleKey: "landing.features.integrations.title", descKey: "landing.features.integrations.description", iconCls: "bg-badge-violet/15 text-badge-violet", bg: "from-badge-violet/8 to-transparent", label: "Integrations" },
   { icon: Users,    titleKey: "landing.features.multiTenant.title",  descKey: "landing.features.multiTenant.description",  iconCls: "bg-accent/10 text-accent",             bg: "from-accent/8 to-transparent",        label: "Multi-tenant" },
 ] as const;
 
@@ -87,7 +81,7 @@ const toneBadge: Record<Tone, string> = {
   amber: "bg-badge-amber/10 text-badge-amber",
   violet: "bg-badge-violet/10 text-badge-violet",
   sky: "bg-badge-sky/10 text-badge-sky",
-  mint: "bg-badge-mint/10 text-badge-mint",
+  mint: "bg-badge-violet/10 text-badge-violet",
 };
 
 const toneThumb: Record<Tone, string> = {
@@ -95,7 +89,7 @@ const toneThumb: Record<Tone, string> = {
   amber: "bg-badge-amber/15 text-badge-amber",
   violet: "bg-badge-violet/15 text-badge-violet",
   sky: "bg-badge-sky/15 text-badge-sky",
-  mint: "bg-badge-mint/15 text-badge-mint",
+  mint: "bg-badge-violet/15 text-badge-violet",
 };
 
 const categoryItems = [
@@ -114,7 +108,7 @@ const featuredCourseItems = [
     rating: 4.8,
     free: true,
     tone: "sky" as Tone,
-    icon: Code,
+    image: "/courses/fullstack.svg",
   },
   {
     title: "Data Analysis with Python",
@@ -122,7 +116,7 @@ const featuredCourseItems = [
     rating: 4.7,
     free: true,
     tone: "violet" as Tone,
-    icon: Database,
+    image: "/courses/python.svg",
   },
   {
     title: "UI/UX Design Fundamentals",
@@ -131,19 +125,36 @@ const featuredCourseItems = [
     free: false,
     price: "$49",
     tone: "coral" as Tone,
-    icon: Palette,
+    image: "/courses/uiux.svg",
+  },
+  {
+    title: "Data Science Bootcamp",
+    instructor: "Yaa Mensah",
+    rating: 4.7,
+    free: false,
+    price: "$79",
+    tone: "violet" as Tone,
+    image: "/courses/data-science.svg",
+  },
+  {
+    title: "Cloud Foundations",
+    instructor: "Kojo Adjei",
+    rating: 4.6,
+    free: false,
+    price: "$59",
+    tone: "sky" as Tone,
+    image: "/courses/cloud.svg",
   },
 ] as const;
 
 export function LandingContent() {
   const { t, dictionary, locale } = useLocale();
-  const { currency } = useCurrency();
   const [contactSent, setContactSent] = useState(false);
 
   const tiers = [
-    { key: "free"       as const, price: `${currency.symbol}0`,      highlighted: false, href: "/register"           },
-    { key: "pro"        as const, price: currency.proPrice,           highlighted: true,  href: "/register?plan=pro"  },
-    { key: "enterprise" as const, price: dictionary.pricing.enterprise.custom, highlighted: false, href: "#contact"  },
+    { key: "free"       as const, price: "Free",                                      highlighted: false, href: "/register"           },
+    { key: "pro"        as const, price: "$49",                                      highlighted: true,  href: "/register?plan=pro"  },
+    { key: "enterprise" as const, price: dictionary.pricing.enterprise.custom,         highlighted: false, href: "#contact"            },
   ];
 
   return (
@@ -151,7 +162,7 @@ export function LandingContent() {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="px-4 py-16 md:px-8 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-          <div>
+          <div className="relative">
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-6">
                 <GraduationCap className="h-4 w-4 text-sunset" />
@@ -163,7 +174,7 @@ export function LandingContent() {
             <Reveal delay={0.05}>
               <h1 className="font-display text-5xl font-extrabold tracking-tight text-foreground md:text-7xl leading-tight">
                 {t("landing.heroTitle")}{" "}
-                <span className="text-accent-secondary">{t("landing.heroTitleAccent")}</span>
+                <span className="text-accent">{t("landing.heroTitleAccent")}</span>
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
@@ -183,7 +194,7 @@ export function LandingContent() {
             </Reveal>
             {/* Stats row — restyled */}
             <Stagger
-              className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4"
+              className="mt-20 grid grid-cols-2 gap-4 sm:grid-cols-4"
               stagger={0.08}
             >
               {[
@@ -206,29 +217,17 @@ export function LandingContent() {
                 </div>
               ))}
             </Stagger>
+            {/* Hero feature globe: floating sphere with a stock photo */}
+            <Reveal>
+              <div className="pointer-events-none">
+                <HeroFeatureCard className="hidden md:block absolute -right-4 top-16 lg:top-12" />
+              </div>
+            </Reveal>
+
           </div>
           <Reveal delay={0.1}>
             <HeroDecoration />
           </Reveal>
-        </div>
-      </section>
-
-      {/* ── TRUSTED BY ───────────────────────────────────────────── */}
-      <section className="px-4 py-8 md:px-8">
-        <div className="mx-auto max-w-7xl rounded-card bg-background p-8 shadow-neu-inset">
-          <p className="text-center font-body text-sm uppercase tracking-wider text-muted mb-6">
-            {t("landing.trustedBy")}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {logos.map((name) => (
-              <span
-                key={name}
-                className="rounded-2xl bg-background px-6 py-3 font-display font-bold text-muted shadow-neu-extruded-sm"
-              >
-                {name}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -279,14 +278,14 @@ export function LandingContent() {
       </section>
 
       {/* ── FEATURED COURSES ─────────────────────────────────────── */}
-      <section className="px-4 py-20 md:px-8">
+      <section className="bg-background/5 px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl rounded-card bg-banner-gradient p-8 md:p-12">
           <Reveal>
             <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
-                  <Video className="h-4 w-4 text-accent-secondary" />
-                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+                  <Video className="h-4 w-4 text-accent" />
+                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
                     {t("landing.featuredCourses.eyebrow")}
                   </span>
                 </div>
@@ -304,24 +303,28 @@ export function LandingContent() {
           <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
             {featuredCourseItems.map((course) => (
               <NeuCard
-                key={locale === "fr" ? (course.title === "Complete HTML, CSS & JavaScript" ? "HTML, CSS et JavaScript complet" : course.title === "Data Analysis with Python" ? "Analyse de données avec Python" : "Fondamentaux du design UI/UX") : course.title}
+                key={course.title}
                 className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover"
               >
-                <div className={cn("relative flex h-36 items-center justify-center", toneThumb[course.tone])}>
-                  <course.icon className="h-12 w-12 opacity-80" aria-hidden />
-                  <span className="absolute right-3 top-3 rounded-full bg-background px-3 py-1 font-display text-xs font-bold text-foreground shadow-neu-extruded-sm">
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={course.image}
+                    alt={course.title}
+                    fill
+                    unoptimized
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                  <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-950 shadow-neu-extruded-sm">
                     {course.free ? t("landing.featuredCourses.free") : course.price}
                   </span>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-lg font-bold leading-snug text-foreground">{locale === "fr" ? (course.title === "Complete HTML, CSS & JavaScript" ? "HTML, CSS et JavaScript complet" : course.title === "Data Analysis with Python" ? "Analyse de données avec Python" : "Fondamentaux du design UI/UX") : course.title}</h3>
-                  <div className="mt-3 flex items-center gap-2">
-                    <NeuAvatar name={course.instructor} />
-                    <p className="font-body text-sm text-muted">
-                      {t("landing.featuredCourses.by")} {course.instructor}
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center gap-1 border-t border-black/5 pt-4">
+                  <h3 className="font-display text-lg font-bold leading-snug text-foreground">{course.title}</h3>
+                  <p className="mt-3 font-body text-sm text-muted">{t("landing.featuredCourses.by")} {course.instructor}</p>
+                  <div className="mt-4 flex items-center gap-2">
                     <Star className="h-4 w-4 fill-badge-amber text-badge-amber" aria-hidden />
                     <span className="font-display text-sm font-bold text-foreground">{course.rating}</span>
                   </div>
@@ -333,13 +336,13 @@ export function LandingContent() {
       </section>
 
       {/* ── FEATURES ─────────────────────────────────────────────── */}
-      <section id="features" className="px-4 py-20 md:px-8">
+      <section id="features" className="bg-slate-50 px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <div className="text-center mb-4">
               <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
-                <BookOpen className="h-4 w-4 text-accent-secondary" />
-                <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+                <BookOpen className="h-4 w-4 text-accent" />
+                <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
                   {t("landing.platformFeatures")}
                 </span>
               </div>
@@ -413,14 +416,14 @@ export function LandingContent() {
       </section>
 
             {/* ── ABOUT ────────────────────────────────────────────────── */}
-      <section id="about" className="px-4 py-20 md:px-8">
+      <section id="about" className="bg-slate-50 px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <Reveal>
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-6">
-                  <GraduationCap className="h-4 w-4 text-accent-secondary" />
-                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+                  <GraduationCap className="h-4 w-4 text-accent" />
+                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
                     {t("about.title")}
                   </span>
                 </div>
@@ -452,7 +455,7 @@ export function LandingContent() {
       </section>
 
       {/* ── PRICING ──────────────────────────────────────────────── */}
-      <section id="pricing" className="px-4 py-20 md:px-8">
+      <section id="pricing" className="bg-slate-50 px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <div className="text-center mb-12">
@@ -466,12 +469,6 @@ export function LandingContent() {
                 {t("pricing.title")}
               </h2>
               <p className="mt-4 font-body text-lg text-muted">{t("pricing.subtitle")}</p>
-              {/* Currency indicator */}
-              <p className="mt-3 font-body text-sm text-muted">
-                {t("landing.currency.disclaimer")
-                  .replace("{currency}", t(`landing.currency.names.${currency.code}`))
-                  .replace("{code}", currency.code)}
-              </p>
             </div>
           </Reveal>
 
@@ -504,7 +501,7 @@ export function LandingContent() {
                   <ul className="mt-6 space-y-3 flex-1">
                     {featureList.map((f) => (
                       <li key={f} className="flex items-start gap-2 font-body text-sm">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-secondary" aria-hidden />
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
                         {f}
                       </li>
                     ))}
@@ -540,7 +537,7 @@ export function LandingContent() {
                     {([row.free, row.pro, row.enterprise] as boolean[]).map((val, i) => (
                       <td key={i} className="p-4 text-center text-muted">
                         {val ? (
-                          <Check className="mx-auto h-5 w-5 text-accent-secondary" />
+                          <Check className="mx-auto h-5 w-5 text-accent" />
                         ) : "—"}
                       </td>
                     ))}
@@ -554,7 +551,7 @@ export function LandingContent() {
       </section>
 
       {/* ── CONTACT ──────────────────────────────────────────────── */}
-      <section id="contact" className="px-4 py-20 md:px-8">
+      <section id="contact" className="bg-slate-50 px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 items-start">
             <Reveal>
@@ -592,7 +589,7 @@ export function LandingContent() {
               {contactSent ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
                   <NeuWell className="inline-flex p-4">
-                    <Check className="h-8 w-8 text-accent-secondary" />
+                    <Check className="h-8 w-8 text-accent" />
                   </NeuWell>
                   <p className="font-display text-xl font-bold text-foreground">
                     {t("landing.contactSection.receivedTitle")}
@@ -637,7 +634,7 @@ export function LandingContent() {
       </section>
 
       {/* ── FINAL CTA ────────────────────────────────────────────── */}
-      <section className="px-4 pb-20 md:px-8">
+      <section className="bg-background/5 px-4 pb-20 md:px-8">
         <Reveal>
         <div className="mx-auto max-w-7xl rounded-card bg-banner-gradient p-12 text-center shadow-neu-extruded">
           <NeuWell className="mx-auto inline-flex p-4 mb-6">

@@ -19,7 +19,7 @@ export const dictionary = {
   },
   landing: {
     tagline: "APPRENDRE. CRÉER. GRANDIR.",
-    heroTitle: "Lancez des cours, formez des apprenants,",
+    heroTitle: "Lancez des cours, formez des apprenants",
     heroTitleAccent: "et développez votre marque d'apprentissage",
     heroSubtitle:
       "OYO-Elearner est une plateforme moderne de cours pour les créateurs, les équipes et les apprenants qui veulent publier des leçons, organiser des sessions en direct et offrir de belles expériences d'apprentissage.",
@@ -121,7 +121,7 @@ export const dictionary = {
       step2: {
         title: "Ajoutez vos leçons",
         description:
-          "Ajoutez des vidéos, quiz, devoirs et sessions en direct — ou laissez l'IA transformer votre sujet en cours.",
+          "Ajoutez rapidement des vidéos, quiz et sessions en direct pour lancer votre cours.",
       },
       step3: {
         title: "Les apprenants commencent à apprendre",
@@ -327,6 +327,11 @@ export const dictionary = {
       "Échec de l'inscription. La base de données est-elle démarrée ?",
     createdSignInFailed:
       "Compte créé mais connexion échouée. Essayez depuis la page de connexion.",
+    signInTitle: "Connectez-vous à votre portail",
+    signInDescription:
+      "Besoin d'un compte de démonstration ? Ouvrez le panneau de renseignements rapides ci-dessous pour copier instantanément des comptes apprenant ou instructeur.",
+    demoTitle: "Identifiants de démonstration",
+    demoSubtitle: "Testez la plateforme avec des comptes apprenant et instructeur prêts à l'emploi.",
   },
   footer: {
     tagline:
