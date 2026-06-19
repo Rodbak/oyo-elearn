@@ -121,7 +121,7 @@ export const dictionary = {
       step2: {
         title: "Ajoutez vos leçons",
         description:
-          "Ajoutez des vidéos, quiz, devoirs et sessions en direct — ou laissez l'IA transformer votre sujet en cours.",
+          "Ajoutez rapidement des vidéos, quiz et sessions en direct pour lancer votre cours.",
       },
       step3: {
         title: "Les apprenants commencent à apprendre",

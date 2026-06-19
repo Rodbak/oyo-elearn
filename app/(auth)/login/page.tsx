@@ -124,109 +124,142 @@ function LoginForm() {
       : t("auth.portalCreator").toLowerCase();
 
   return (
-    <div className="space-y-4">
-      <NeuCard>
-        <h1 className="font-display text-3xl font-extrabold">{t("auth.welcomeBack")}</h1>
-        <p className="mt-2 font-body text-sm text-muted">{t("auth.signInSubtitle")}</p>
-
-        <div className="mt-6">
-          <RolePortalSelector value={portal} onChange={setPortal} />
-        </div>
-
-        <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-          <NeuInput
-            label={t("auth.email")}
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <NeuInput
-            label={t("auth.password")}
-            name="password"
-            type="password"
-            required
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {error && (
-            <p className="text-sm text-red-500" role="alert">{error}</p>
-          )}
-          <div className="flex justify-end">
-            <Link href="/forgot-password" className="text-sm text-accent hover:underline focus-neu">
-              {t("auth.forgotPassword")}
-            </Link>
-          </div>
-          <NeuButton type="submit" className="w-full" disabled={loading}>
-            {loading ? t("auth.signingIn") : t("auth.signIn")}
-          </NeuButton>
-        </form>
-
-        <NeuButton
-          variant="secondary"
-          className="mt-4 w-full"
-          type="button"
-          onClick={() => signIn("google", { callbackUrl: dashboardPathForPortal(portal) })}
-        >
-          {t("auth.continueGoogle")}
-        </NeuButton>
-
-        <p className="mt-6 text-center font-body text-sm text-muted">
-          {t("auth.noAccount")}{" "}
-          <Link href={`/register?portal=${portal}`} className="text-accent font-semibold focus-neu">
-            {t("auth.registerAs")} {portalName}
-          </Link>
-        </p>
-      </NeuCard>
-
-      {/* Demo accounts panel */}
-      <NeuCard className="shadow-neu-inset">
-        <button
-          type="button"
-          onClick={() => setShowDemo((v) => !v)}
-          className="flex w-full items-center justify-between focus-neu rounded-inner"
-        >
-          <div className="flex items-center gap-2">
-            <NeuWell className="inline-flex p-1.5">
-              <span className="text-base">🔑</span>
-            </NeuWell>
-            <p className="font-display text-sm font-bold text-foreground">
-              {t("landing.demo.title")}
+    <div className="min-h-screen bg-slate-50 py-12">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 md:px-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="hidden rounded-[2rem] bg-slate-950/95 p-10 text-white shadow-neu-extruded-sm lg:flex lg:flex-col lg:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent-secondary">
+              {t("auth.welcomeBack")}
+            </p>
+            <h2 className="mt-6 font-display text-4xl font-extrabold leading-tight">
+              Power your learning experience with one beautiful sign-in flow.
+            </h2>
+            <p className="mt-6 max-w-xl font-body text-base leading-7 text-slate-300">
+              Fast access for learners and instructors with a modern portal that feels intuitive and polished.
             </p>
           </div>
-          <svg
-            className={`h-4 w-4 text-muted transition-transform duration-200 ${showDemo ? "rotate-180" : ""}`}
-            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
+          <div className="space-y-5 rounded-[1.75rem] bg-slate-800/90 p-6">
+            <div>
+              <p className="text-sm uppercase tracking-[0.24em] text-accent-secondary">Quick access</p>
+              <p className="mt-3 text-sm leading-6 text-slate-300">
+                Sign in once and move seamlessly between your classes, grades, and admin tools.
+              </p>
+            </div>
+            <div>
+              <p className="text-sm uppercase tracking-[0.24em] text-accent-secondary">Role-based dashboard</p>
+              <p className="mt-3 text-sm leading-6 text-slate-300">
+                Choose the right portal for your role and get straight to the tools you need.
+              </p>
+            </div>
+          </div>
+        </div>
 
-        <AnimatePresence>
-          {showDemo && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="mt-4 space-y-2 overflow-hidden"
+        <div className="space-y-6">
+          <NeuCard className="p-8 shadow-neu-extruded-sm">
+            <h1 className="font-display text-3xl font-extrabold">{t("auth.welcomeBack")}</h1>
+            <p className="mt-2 font-body text-sm text-muted">{t("auth.signInSubtitle")}</p>
+
+            <div className="mt-6">
+              <RolePortalSelector value={portal} onChange={setPortal} />
+            </div>
+
+            <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+              <NeuInput
+                label={t("auth.email")}
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <NeuInput
+                label={t("auth.password")}
+                name="password"
+                type="password"
+                required
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {error && (
+                <p className="text-sm text-red-500" role="alert">{error}</p>
+              )}
+              <div className="flex justify-end">
+                <Link href="/forgot-password" className="text-sm text-accent hover:underline focus-neu">
+                  {t("auth.forgotPassword")}
+                </Link>
+              </div>
+              <NeuButton type="submit" className="w-full" disabled={loading}>
+                {loading ? t("auth.signingIn") : t("auth.signIn")}
+              </NeuButton>
+            </form>
+
+            <NeuButton
+              variant="secondary"
+              className="mt-4 w-full"
+              type="button"
+              onClick={() => signIn("google", { callbackUrl: dashboardPathForPortal(portal) })}
             >
-              <p className="font-body text-xs text-muted mb-3">
-                {t("landing.demo.subtitle")}
-              </p>
-              {DEMO_ACCOUNTS.map((acc) => (
-                <DemoAccountCard key={acc.email} account={acc} onUse={fillDemo} />
-              ))}
-              <p className="font-body text-xs text-muted text-center pt-1">
-                Password for all accounts: <span className="font-semibold text-foreground">password123</span>
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </NeuCard>
+              {t("auth.continueGoogle")}
+            </NeuButton>
+
+            <p className="mt-6 text-center font-body text-sm text-muted">
+              {t("auth.noAccount")} {" "}
+              <Link href={`/register?portal=${portal}`} className="text-accent font-semibold focus-neu">
+                {t("auth.registerAs")} {portalName}
+              </Link>
+            </p>
+          </NeuCard>
+
+          <NeuCard className="shadow-neu-inset p-6">
+            <button
+              type="button"
+              onClick={() => setShowDemo((v) => !v)}
+              className="flex w-full items-center justify-between rounded-inner px-3 py-4 focus-neu"
+            >
+              <div className="flex items-center gap-3">
+                <NeuWell className="inline-flex p-2">
+                  <span className="text-base">🔑</span>
+                </NeuWell>
+                <div>
+                  <p className="font-display text-sm font-bold text-foreground">
+                    {t("landing.demo.title")}
+                  </p>
+                  <p className="font-body text-xs text-muted">
+                    {t("landing.demo.subtitle")}
+                  </p>
+                </div>
+              </div>
+              <svg
+                className={`h-4 w-4 text-muted transition-transform duration-200 ${showDemo ? "rotate-180" : ""}`}
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <AnimatePresence>
+              {showDemo && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="mt-4 space-y-3 overflow-hidden"
+                >
+                  {DEMO_ACCOUNTS.map((acc) => (
+                    <DemoAccountCard key={acc.email} account={acc} onUse={fillDemo} />
+                  ))}
+                  <p className="font-body text-xs text-muted text-center">
+                    Password for all accounts: <span className="font-semibold text-foreground">password123</span>
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </NeuCard>
+        </div>
+      </div>
     </div>
   );
 }

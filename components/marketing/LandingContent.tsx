@@ -27,15 +27,9 @@ import {
   Users,
   Video,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
-const logos = [
-  "Academic City University",
-  "Nairobi Tech",
-  "Accra Vocational",
-  "Cape University",
-];
 
 const stats = [
   { value: "1,000+", labelKey: "landing.stats.students"     },
@@ -114,7 +108,7 @@ const featuredCourseItems = [
     rating: 4.8,
     free: true,
     tone: "sky" as Tone,
-    icon: Code,
+    image: "/courses/fullstack.jpg",
   },
   {
     title: "Data Analysis with Python",
@@ -122,7 +116,7 @@ const featuredCourseItems = [
     rating: 4.7,
     free: true,
     tone: "violet" as Tone,
-    icon: Database,
+    image: "/courses/python.jpg",
   },
   {
     title: "UI/UX Design Fundamentals",
@@ -131,7 +125,7 @@ const featuredCourseItems = [
     free: false,
     price: "$49",
     tone: "coral" as Tone,
-    icon: Palette,
+    image: "/courses/uiux.jpg",
   },
 ] as const;
 
@@ -213,25 +207,6 @@ export function LandingContent() {
         </div>
       </section>
 
-      {/* ── TRUSTED BY ───────────────────────────────────────────── */}
-      <section className="px-4 py-8 md:px-8">
-        <div className="mx-auto max-w-7xl rounded-card bg-background p-8 shadow-neu-inset">
-          <p className="text-center font-body text-sm uppercase tracking-wider text-muted mb-6">
-            {t("landing.trustedBy")}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {logos.map((name) => (
-              <span
-                key={name}
-                className="rounded-2xl bg-background px-6 py-3 font-display font-bold text-muted shadow-neu-extruded-sm"
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── POPULAR CATEGORIES ───────────────────────────────────── */}
       <section className="px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
@@ -279,7 +254,7 @@ export function LandingContent() {
       </section>
 
       {/* ── FEATURED COURSES ─────────────────────────────────────── */}
-      <section className="px-4 py-20 md:px-8">
+      <section className="bg-background/5 px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl rounded-card bg-banner-gradient p-8 md:p-12">
           <Reveal>
             <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
@@ -304,24 +279,25 @@ export function LandingContent() {
           <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
             {featuredCourseItems.map((course) => (
               <NeuCard
-                key={locale === "fr" ? (course.title === "Complete HTML, CSS & JavaScript" ? "HTML, CSS et JavaScript complet" : course.title === "Data Analysis with Python" ? "Analyse de données avec Python" : "Fondamentaux du design UI/UX") : course.title}
+                key={course.title}
                 className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover"
               >
-                <div className={cn("relative flex h-36 items-center justify-center", toneThumb[course.tone])}>
-                  <course.icon className="h-12 w-12 opacity-80" aria-hidden />
-                  <span className="absolute right-3 top-3 rounded-full bg-background px-3 py-1 font-display text-xs font-bold text-foreground shadow-neu-extruded-sm">
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={course.image}
+                    alt={course.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                  <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-950 shadow-neu-extruded-sm">
                     {course.free ? t("landing.featuredCourses.free") : course.price}
                   </span>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-lg font-bold leading-snug text-foreground">{locale === "fr" ? (course.title === "Complete HTML, CSS & JavaScript" ? "HTML, CSS et JavaScript complet" : course.title === "Data Analysis with Python" ? "Analyse de données avec Python" : "Fondamentaux du design UI/UX") : course.title}</h3>
-                  <div className="mt-3 flex items-center gap-2">
-                    <NeuAvatar name={course.instructor} />
-                    <p className="font-body text-sm text-muted">
-                      {t("landing.featuredCourses.by")} {course.instructor}
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center gap-1 border-t border-black/5 pt-4">
+                  <h3 className="font-display text-lg font-bold leading-snug text-foreground">{course.title}</h3>
+                  <p className="mt-3 font-body text-sm text-muted">{t("landing.featuredCourses.by")} {course.instructor}</p>
+                  <div className="mt-4 flex items-center gap-2">
                     <Star className="h-4 w-4 fill-badge-amber text-badge-amber" aria-hidden />
                     <span className="font-display text-sm font-bold text-foreground">{course.rating}</span>
                   </div>
@@ -333,7 +309,7 @@ export function LandingContent() {
       </section>
 
       {/* ── FEATURES ─────────────────────────────────────────────── */}
-      <section id="features" className="px-4 py-20 md:px-8">
+      <section id="features" className="bg-slate-50 px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <div className="text-center mb-4">
@@ -413,7 +389,7 @@ export function LandingContent() {
       </section>
 
             {/* ── ABOUT ────────────────────────────────────────────────── */}
-      <section id="about" className="px-4 py-20 md:px-8">
+      <section id="about" className="bg-slate-50 px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <Reveal>
@@ -452,7 +428,7 @@ export function LandingContent() {
       </section>
 
       {/* ── PRICING ──────────────────────────────────────────────── */}
-      <section id="pricing" className="px-4 py-20 md:px-8">
+      <section id="pricing" className="bg-slate-50 px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <div className="text-center mb-12">
@@ -554,7 +530,7 @@ export function LandingContent() {
       </section>
 
       {/* ── CONTACT ──────────────────────────────────────────────── */}
-      <section id="contact" className="px-4 py-20 md:px-8">
+      <section id="contact" className="bg-slate-50 px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 items-start">
             <Reveal>
@@ -637,7 +613,7 @@ export function LandingContent() {
       </section>
 
       {/* ── FINAL CTA ────────────────────────────────────────────── */}
-      <section className="px-4 pb-20 md:px-8">
+      <section className="bg-background/5 px-4 pb-20 md:px-8">
         <Reveal>
         <div className="mx-auto max-w-7xl rounded-card bg-banner-gradient p-12 text-center shadow-neu-extruded">
           <NeuWell className="mx-auto inline-flex p-4 mb-6">

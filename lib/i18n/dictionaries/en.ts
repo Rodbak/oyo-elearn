@@ -121,7 +121,7 @@ export const dictionary = {
       step2: {
         title: "Upload your lessons",
         description:
-          "Add video lectures, quizzes, assignments, and live sessions — or let AI help you turn your topic into a course.",
+          "Add videos, quizzes, and live sessions quickly to start your course.",
       },
       step3: {
         title: "Learners start learning",
