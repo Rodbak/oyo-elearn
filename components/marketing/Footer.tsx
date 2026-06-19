@@ -7,7 +7,7 @@ export function Footer() {
   const { t } = useLocale();
 
   return (
-    <footer className="mt-24 px-4 pb-12 md:px-8">
+    <footer className="mt-24 border-t border-gray-200 px-4 pt-16 pb-12 md:px-8">
       <div className="mx-auto max-w-7xl rounded-card bg-background p-8 shadow-neu-inset md:p-12">
         <div className="grid gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
@@ -50,7 +50,7 @@ export function Footer() {
               </li>
             </ul>
           </div>
-        </div>
+        </div><div className="mt-8"><h4 className="font-bold">Legal</h4><ul><li>Terms</li><li>Privacy</li></ul></div>
         <p className="mt-12 text-center font-body text-sm text-muted">
           © {new Date().getFullYear()} OYO-Elearner. {t("footer.copyright")}
         </p>

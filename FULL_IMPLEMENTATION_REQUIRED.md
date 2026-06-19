@@ -1,0 +1,1 @@
+Automated patch package created. Full component refactor still requires editing LandingContent.tsx and related components.
