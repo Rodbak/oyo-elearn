@@ -136,7 +136,7 @@ const featuredCourseItems = [
 ] as const;
 
 export function LandingContent() {
-  const { t, dictionary } = useLocale();
+  const { t, dictionary, locale } = useLocale();
   const { currency } = useCurrency();
   const [contactSent, setContactSent] = useState(false);
 
@@ -304,7 +304,7 @@ export function LandingContent() {
           <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
             {featuredCourseItems.map((course) => (
               <NeuCard
-                key={course.title}
+                key={locale === "fr" ? (course.title === "Complete HTML, CSS & JavaScript" ? "HTML, CSS et JavaScript complet" : course.title === "Data Analysis with Python" ? "Analyse de données avec Python" : "Fondamentaux du design UI/UX") : course.title}
                 className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover"
               >
                 <div className={cn("relative flex h-36 items-center justify-center", toneThumb[course.tone])}>
@@ -314,7 +314,7 @@ export function LandingContent() {
                   </span>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-lg font-bold leading-snug text-foreground">{course.title}</h3>
+                  <h3 className="font-display text-lg font-bold leading-snug text-foreground">{locale === "fr" ? (course.title === "Complete HTML, CSS & JavaScript" ? "HTML, CSS et JavaScript complet" : course.title === "Data Analysis with Python" ? "Analyse de données avec Python" : "Fondamentaux du design UI/UX") : course.title}</h3>
                   <div className="mt-3 flex items-center gap-2">
                     <NeuAvatar name={course.instructor} />
                     <p className="font-body text-sm text-muted">
@@ -405,7 +405,7 @@ export function LandingContent() {
                   <span className="font-display text-xl font-extrabold text-accent">{item.step}</span>
                 </NeuWell>
                 <h3 className="font-display text-xl font-bold text-foreground">{t(item.titleKey)}</h3>
-                <p className="mt-2 font-body text-muted">{t(item.descKey)}</p>
+                <p className="mt-2 text-sm font-body text-muted leading-5">{t(item.descKey)}</p>
               </NeuCard>
             ))}
           </Stagger>

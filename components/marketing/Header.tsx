@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "@/components/i18n/LocaleProvider";
-import { LocaleCurrencyBar } from "@/components/marketing/LocaleCurrencyBar";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { NeuButton } from "@/components/neu";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -95,7 +95,7 @@ export function Header() {
 
         {/* Desktop right controls */}
         <div className="hidden items-center gap-3 md:flex">
-          <LocaleCurrencyBar />
+          <LanguageSwitcher />
           <NeuButton variant="secondary" size="sm" asChild>
             <Link href="/login">{t("nav.login")}</Link>
           </NeuButton>
@@ -138,7 +138,7 @@ export function Header() {
                 <span className="font-body text-xs font-semibold uppercase text-muted">
                   Settings
                 </span>
-                <LocaleCurrencyBar />
+                <LanguageSwitcher />
               </div>
               <NeuButton variant="secondary" asChild>
                 <Link href="/login">{t("nav.login")}</Link>
