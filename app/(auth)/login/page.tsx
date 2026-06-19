@@ -5,7 +5,6 @@ import { useLocale } from "@/components/i18n/LocaleProvider";
 import { NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
 import { type AuthPortal, dashboardPathForPortal } from "@/lib/roles";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -125,54 +124,42 @@ function LoginForm() {
       : t("auth.portalCreator").toLowerCase();
 
   return (
-    <div className="min-h-screen bg-slate-100 py-10">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 md:px-8 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-accent via-violet-700 to-slate-950 text-white shadow-neu-extruded sm:p-12">
-          <div className="pointer-events-none absolute -right-16 top-10 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-          <div className="pointer-events-none absolute -left-16 bottom-10 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+    <div className="min-h-screen bg-slate-50 py-12">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 md:px-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="hidden overflow-hidden rounded-[2rem] bg-slate-950/95 p-10 text-white shadow-neu-extruded-sm lg:block">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(108,99,255,0.25),transparent_35%)]" />
           <div className="relative z-10 grid gap-8">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent">
                 {t("auth.welcomeBack")}
               </p>
-              <h1 className="mt-6 text-4xl font-display font-extrabold tracking-tight sm:text-5xl">
-                Secure access for learners, creators, and teams.
-              </h1>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200">
-                Sign in once and access classes, live sessions, grading tools, and course management from one polished portal.
+              <h2 className="mt-6 text-4xl font-display font-extrabold leading-tight">
+                One secure login for learners, instructors, and admins.
+              </h2>
+              <p className="mt-6 max-w-xl text-base leading-7 text-slate-300">
+                Access courses, live sessions, grading, and administration from a single polished portal.
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[1.75rem] border border-white/10 bg-white/10 p-5">
-                <p className="text-xs uppercase tracking-[0.28em] text-white/70">Fast access</p>
-                <p className="mt-3 text-sm leading-6 text-slate-100">
-                  Jump into your dashboard with one clean login flow.
+            <div className="space-y-4">
+              <div className="rounded-[1.75rem] bg-white/5 p-5">
+                <p className="text-xs uppercase tracking-[0.24em] text-slate-300">Role-aware experience</p>
+                <p className="mt-3 text-sm leading-6 text-slate-200">
+                  Students, instructors, and teams get the tools that matter most to them.
                 </p>
               </div>
-              <div className="rounded-[1.75rem] border border-white/10 bg-white/10 p-5">
-                <p className="text-xs uppercase tracking-[0.28em] text-white/70">Protected sessions</p>
-                <p className="mt-3 text-sm leading-6 text-slate-100">
-                  Credential security and redirects tailored to each role.
+              <div className="rounded-[1.75rem] bg-white/5 p-5">
+                <p className="text-xs uppercase tracking-[0.24em] text-slate-300">Quick access</p>
+                <p className="mt-3 text-sm leading-6 text-slate-200">
+                  Sign in once and move smoothly between your learning workflows.
                 </p>
               </div>
             </div>
-          </div>
-
-          <div className="relative mt-10 overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-4">
-            <Image
-              src="/hero-student.jpg"
-              alt="Student learning from a course"
-              width={1200}
-              height={800}
-              className="h-full w-full rounded-[1.5rem] object-cover"
-            />
-            <div className="pointer-events-none absolute inset-0 rounded-[1.5rem] bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
           </div>
         </div>
 
         <div className="space-y-6">
-          <div className="rounded-[2rem] bg-white p-8 shadow-neu-extruded sm:p-10">
+          <NeuCard className="rounded-[2rem] p-8 shadow-neu-extruded-sm">
             <div className="mb-8">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
                 {t("auth.welcomeBack")}
@@ -236,7 +223,7 @@ function LoginForm() {
                 {t("auth.registerAs")} {portalName}
               </Link>
             </p>
-          </div>
+          </NeuCard>
 
           <NeuCard className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 text-sm text-slate-600 shadow-neu-inset">
             {t("auth.signInDescription")}

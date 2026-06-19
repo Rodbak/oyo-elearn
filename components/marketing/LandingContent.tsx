@@ -285,6 +285,7 @@ export function LandingContent() {
                     src={course.image}
                     alt={course.title}
                     fill
+                    unoptimized
                     className="object-cover"
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     loading="lazy"

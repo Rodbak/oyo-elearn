@@ -14,6 +14,7 @@ export function HeroDecoration() {
           src="/hero-student.jpg"
           alt="Instructor creating a course"
           fill
+          unoptimized
           className="object-cover"
           sizes="(min-width: 768px) 420px, 100vw"
         />
