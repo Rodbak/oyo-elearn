@@ -11,7 +11,7 @@ export function HeroDecoration() {
 
       <div className="relative mx-auto h-full w-full overflow-hidden rounded-[2rem] border border-white/70 bg-white shadow-neu-extruded">
         <Image
-          src="/hero-student.jpg"
+          src="/hero-student.svg"
           alt="Instructor creating a course"
           fill
           unoptimized

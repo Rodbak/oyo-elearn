@@ -107,7 +107,7 @@ const featuredCourseItems = [
     rating: 4.8,
     free: true,
     tone: "sky" as Tone,
-    image: "/courses/fullstack.jpg",
+    image: "/courses/fullstack.svg",
   },
   {
     title: "Data Analysis with Python",
@@ -115,7 +115,7 @@ const featuredCourseItems = [
     rating: 4.7,
     free: true,
     tone: "violet" as Tone,
-    image: "/courses/python.jpg",
+    image: "/courses/python.svg",
   },
   {
     title: "UI/UX Design Fundamentals",
@@ -124,7 +124,7 @@ const featuredCourseItems = [
     free: false,
     price: "$49",
     tone: "coral" as Tone,
-    image: "/courses/uiux.jpg",
+    image: "/courses/uiux.svg",
   },
 ] as const;
 
