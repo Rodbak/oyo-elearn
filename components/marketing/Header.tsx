@@ -4,6 +4,7 @@ import { useLocale } from "@/components/i18n/LocaleProvider";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { NeuButton } from "@/components/neu";
 import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -19,9 +20,9 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 px-4 py-4 md:px-8">
+    <header className="sticky top-0 z-50 px-4 py-3 md:px-8 backdrop-blur-sm">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-card bg-white border border-surface-border px-6 py-4 shadow-neu-extruded md:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between gap-6 rounded-card bg-white/95 border border-surface-border/60 px-4 py-3 shadow-sm md:px-6"
         aria-label={t("nav.mainNav")}
       >
         {/* Logo — larger */}
@@ -38,7 +39,7 @@ export function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="font-body text-sm font-medium text-muted transition-colors hover:text-foreground focus-neu rounded-inner px-2 py-1"
+                className="font-body text-sm font-medium text-muted transition-colors hover:text-foreground focus-neu rounded-inner px-3 py-2 hover:scale-[1.02]"
               >
                 {link.label}
               </Link>
@@ -52,22 +53,24 @@ export function Header() {
           <NeuButton variant="secondary" size="sm" asChild>
             <Link href="/login">{t("nav.login")}</Link>
           </NeuButton>
-          <NeuButton size="sm" asChild>
+          <NeuButton size="lg" className="shadow-neu-extruded" asChild>
             <Link href="/register">{t("nav.getStarted")}</Link>
           </NeuButton>
         </div>
 
         {/* Mobile hamburger */}
         <div className="flex items-center gap-2 md:hidden">
-          <button
+          <motion.button
             type="button"
             className="flex h-11 w-11 items-center justify-center rounded-btn border border-surface-border bg-white shadow-neu-extruded-sm focus-neu"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? t("nav.closeMenu") : t("nav.openMenu")}
             aria-expanded={mobileOpen}
+            animate={{ rotate: mobileOpen ? 90 : 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          </motion.button>
         </div>
       </nav>
 

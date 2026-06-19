@@ -2,6 +2,7 @@
 
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { HeroDecoration } from "@/components/marketing/HeroDecoration";
+import HeroFeatureCard from "@/components/marketing/HeroFeatureCard";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
 import { NeuAvatar, NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
 import { cn } from "@/lib/utils";
@@ -143,7 +144,7 @@ export function LandingContent() {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="px-4 py-16 md:px-8 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-          <div>
+          <div className="relative">
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-6">
                 <GraduationCap className="h-4 w-4 text-sunset" />
@@ -198,6 +199,13 @@ export function LandingContent() {
                 </div>
               ))}
             </Stagger>
+            {/* Hero feature card restored: globe + centered image */}
+            <Reveal>
+              <div className="pointer-events-none">
+                <HeroFeatureCard className="hidden md:block absolute -right-8 top-24 lg:top-20" />
+              </div>
+            </Reveal>
+
           </div>
           <Reveal delay={0.1}>
             <HeroDecoration />
