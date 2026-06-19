@@ -326,6 +326,11 @@ export const dictionary = {
     registerFailed: "Registration failed. Is the database running?",
     createdSignInFailed:
       "Account created but sign-in failed. Try logging in from the login page.",
+    signInTitle: "Sign in to your portal",
+    signInDescription:
+      "Need a demo account? Open the quick credentials panel below to copy test learners or instructors instantly.",
+    demoTitle: "Demo credentials",
+    demoSubtitle: "Preview the platform with prepared learner and instructor accounts.",
   },
   footer: {
     tagline:

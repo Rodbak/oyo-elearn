@@ -125,98 +125,114 @@ function LoginForm() {
 
   return (
     <div className="min-h-screen bg-slate-50 py-12">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 md:px-8 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="hidden rounded-[2rem] bg-slate-950/95 p-10 text-white shadow-neu-extruded-sm lg:flex lg:flex-col lg:justify-between">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent-secondary">
-              {t("auth.welcomeBack")}
-            </p>
-            <h2 className="mt-6 font-display text-4xl font-extrabold leading-tight">
-              Power your learning experience with one beautiful sign-in flow.
-            </h2>
-            <p className="mt-6 max-w-xl font-body text-base leading-7 text-slate-300">
-              Fast access for learners and instructors with a modern portal that feels intuitive and polished.
-            </p>
-          </div>
-          <div className="space-y-5 rounded-[1.75rem] bg-slate-800/90 p-6">
-            <div>
-              <p className="text-sm uppercase tracking-[0.24em] text-accent-secondary">Quick access</p>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
-                Sign in once and move seamlessly between your classes, grades, and admin tools.
-              </p>
-            </div>
-            <div>
-              <p className="text-sm uppercase tracking-[0.24em] text-accent-secondary">Role-based dashboard</p>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
-                Choose the right portal for your role and get straight to the tools you need.
-              </p>
-            </div>
-          </div>
-        </div>
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="relative overflow-hidden rounded-[2rem] bg-white shadow-neu-extruded">
+          <div className="absolute inset-x-0 top-0 h-72 bg-gradient-to-br from-accent via-accent-light to-[#D6CEFF] opacity-95" />
+          <div className="absolute right-[-120px] top-6 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute left-[-100px] top-24 h-48 w-48 rounded-full bg-white/20 blur-3xl" />
 
-        <div className="space-y-6">
-          <NeuCard className="p-8 shadow-neu-extruded-sm">
-            <h1 className="font-display text-3xl font-extrabold">{t("auth.welcomeBack")}</h1>
-            <p className="mt-2 font-body text-sm text-muted">{t("auth.signInSubtitle")}</p>
-
-            <div className="mt-6">
-              <RolePortalSelector value={portal} onChange={setPortal} />
-            </div>
-
-            <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-              <NeuInput
-                label={t("auth.email")}
-                name="email"
-                type="email"
-                required
-                autoComplete="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <NeuInput
-                label={t("auth.password")}
-                name="password"
-                type="password"
-                required
-                autoComplete="current-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              {error && (
-                <p className="text-sm text-red-500" role="alert">{error}</p>
-              )}
-              <div className="flex justify-end">
-                <Link href="/forgot-password" className="text-sm text-accent hover:underline focus-neu">
-                  {t("auth.forgotPassword")}
-                </Link>
+          <div className="relative grid gap-10 px-4 py-10 md:px-8 md:py-12 lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="hidden rounded-[1.75rem] bg-slate-950/95 p-10 text-white shadow-neu-extruded-sm lg:flex lg:flex-col lg:justify-between">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent">
+                  {t("auth.welcomeBack")}
+                </p>
+                <h2 className="mt-6 font-display text-4xl font-extrabold leading-tight">
+                  Power your learning experience with one beautiful sign-in flow.
+                </h2>
+                <p className="mt-6 max-w-xl font-body text-base leading-7 text-slate-300">
+                  Fast access for learners and instructors with a modern portal that feels intuitive and polished.
+                </p>
               </div>
-              <NeuButton type="submit" className="w-full" disabled={loading}>
-                {loading ? t("auth.signingIn") : t("auth.signIn")}
+              <div className="space-y-5 rounded-[1.75rem] bg-slate-800/90 p-6">
+                <div>
+                  <p className="text-sm uppercase tracking-[0.24em] text-accent">Quick access</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">
+                    Sign in once and move seamlessly between your classes, grades, and admin tools.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm uppercase tracking-[0.24em] text-accent">Role-based dashboard</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">
+                    Choose the right portal for your role and get straight to the tools you need.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] bg-background p-8 shadow-neu-extruded-sm md:p-10">
+              <div className="mb-8">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+                  {t("auth.welcomeBack")}
+                </p>
+                <h1 className="mt-4 font-display text-4xl font-extrabold text-foreground">
+                  {t("auth.signInTitle")}
+                </h1>
+                <p className="mt-3 max-w-xl font-body text-muted">
+                  {t("auth.signInSubtitle")}
+                </p>
+              </div>
+
+              <div className="mt-2">
+                <RolePortalSelector value={portal} onChange={setPortal} />
+              </div>
+
+              <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+                <NeuInput
+                  label={t("auth.email")}
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <NeuInput
+                  label={t("auth.password")}
+                  name="password"
+                  type="password"
+                  required
+                  autoComplete="current-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                {error && (
+                  <p className="text-sm text-red-500" role="alert">{error}</p>
+                )}
+                <div className="flex justify-end">
+                  <Link href="/forgot-password" className="text-sm text-accent hover:underline focus-neu">
+                    {t("auth.forgotPassword")}
+                  </Link>
+                </div>
+                <NeuButton type="submit" className="w-full" disabled={loading}>
+                  {loading ? t("auth.signingIn") : t("auth.signIn")}
+                </NeuButton>
+              </form>
+
+              <NeuButton
+                variant="secondary"
+                className="mt-4 w-full"
+                type="button"
+                onClick={() => signIn("google", { callbackUrl: dashboardPathForPortal(portal) })}
+              >
+                {t("auth.continueGoogle")}
               </NeuButton>
-            </form>
 
-            <NeuButton
-              variant="secondary"
-              className="mt-4 w-full"
-              type="button"
-              onClick={() => signIn("google", { callbackUrl: dashboardPathForPortal(portal) })}
-            >
-              {t("auth.continueGoogle")}
-            </NeuButton>
+              <p className="mt-6 text-center font-body text-sm text-muted">
+                {t("auth.noAccount")} {" "}
+                <Link href={`/register?portal=${portal}`} className="text-accent font-semibold focus-neu">
+                  {t("auth.registerAs")} {portalName}
+                </Link>
+              </p>
+            </div>
+          </div>
 
-            <p className="mt-6 text-center font-body text-sm text-muted">
-              {t("auth.noAccount")} {" "}
-              <Link href={`/register?portal=${portal}`} className="text-accent font-semibold focus-neu">
-                {t("auth.registerAs")} {portalName}
-              </Link>
-            </p>
-          </NeuCard>
-
-          <NeuCard className="shadow-neu-inset p-6">
+          <NeuCard className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 text-sm text-slate-600 shadow-neu-inset">
+            {t("auth.signInDescription")}
             <button
               type="button"
               onClick={() => setShowDemo((v) => !v)}
-              className="flex w-full items-center justify-between rounded-inner px-3 py-4 focus-neu"
+              className="mt-6 flex w-full items-center justify-between rounded-inner px-3 py-4 focus-neu"
             >
               <div className="flex items-center gap-3">
                 <NeuWell className="inline-flex p-2">
@@ -224,16 +240,19 @@ function LoginForm() {
                 </NeuWell>
                 <div>
                   <p className="font-display text-sm font-bold text-foreground">
-                    {t("landing.demo.title")}
+                    {t("auth.demoTitle")}
                   </p>
                   <p className="font-body text-xs text-muted">
-                    {t("landing.demo.subtitle")}
+                    {t("auth.demoSubtitle")}
                   </p>
                 </div>
               </div>
               <svg
                 className={`h-4 w-4 text-muted transition-transform duration-200 ${showDemo ? "rotate-180" : ""}`}
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>

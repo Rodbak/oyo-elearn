@@ -327,6 +327,11 @@ export const dictionary = {
       "Échec de l'inscription. La base de données est-elle démarrée ?",
     createdSignInFailed:
       "Compte créé mais connexion échouée. Essayez depuis la page de connexion.",
+    signInTitle: "Connectez-vous à votre portail",
+    signInDescription:
+      "Besoin d'un compte de démonstration ? Ouvrez le panneau de renseignements rapides ci-dessous pour copier instantanément des comptes apprenant ou instructeur.",
+    demoTitle: "Identifiants de démonstration",
+    demoSubtitle: "Testez la plateforme avec des comptes apprenant et instructeur prêts à l'emploi.",
   },
   footer: {
     tagline:
