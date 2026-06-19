@@ -2,7 +2,6 @@
 
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { HeroDecoration } from "@/components/marketing/HeroDecoration";
-import { useCurrency } from "@/components/marketing/CurrencySwitcher";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
 import { NeuAvatar, NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
 import { cn } from "@/lib/utils";
@@ -131,13 +130,12 @@ const featuredCourseItems = [
 
 export function LandingContent() {
   const { t, dictionary, locale } = useLocale();
-  const { currency } = useCurrency();
   const [contactSent, setContactSent] = useState(false);
 
   const tiers = [
-    { key: "free"       as const, price: `${currency.symbol}0`,      highlighted: false, href: "/register"           },
-    { key: "pro"        as const, price: currency.proPrice,           highlighted: true,  href: "/register?plan=pro"  },
-    { key: "enterprise" as const, price: dictionary.pricing.enterprise.custom, highlighted: false, href: "#contact"  },
+    { key: "free"       as const, price: "Free",                                      highlighted: false, href: "/register"           },
+    { key: "pro"        as const, price: "$49",                                      highlighted: true,  href: "/register?plan=pro"  },
+    { key: "enterprise" as const, price: dictionary.pricing.enterprise.custom,         highlighted: false, href: "#contact"            },
   ];
 
   return (
@@ -157,7 +155,7 @@ export function LandingContent() {
             <Reveal delay={0.05}>
               <h1 className="font-display text-5xl font-extrabold tracking-tight text-foreground md:text-7xl leading-tight">
                 {t("landing.heroTitle")}{" "}
-                <span className="text-accent-secondary">{t("landing.heroTitleAccent")}</span>
+                <span className="text-accent">{t("landing.heroTitleAccent")}</span>
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
@@ -283,11 +281,12 @@ export function LandingContent() {
                 className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover"
               >
                 <div className="relative h-48 w-full overflow-hidden">
-                  <Image
+                  <img
                     src={course.image}
                     alt={course.title}
-                    fill
-                    className="object-cover"
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                   <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-950 shadow-neu-extruded-sm">
@@ -442,12 +441,6 @@ export function LandingContent() {
                 {t("pricing.title")}
               </h2>
               <p className="mt-4 font-body text-lg text-muted">{t("pricing.subtitle")}</p>
-              {/* Currency indicator */}
-              <p className="mt-3 font-body text-sm text-muted">
-                {t("landing.currency.disclaimer")
-                  .replace("{currency}", t(`landing.currency.names.${currency.code}`))
-                  .replace("{code}", currency.code)}
-              </p>
             </div>
           </Reveal>
 

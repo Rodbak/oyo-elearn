@@ -3,35 +3,19 @@
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { NeuButton } from "@/components/neu";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 export function Header() {
   const { t } = useLocale();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [companyOpen, setCompanyOpen] = useState(false);
-  const dropdownRef = useRef<HTMLLIElement>(null);
 
-  // Close dropdown on outside click
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setCompanyOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
-
-  const standaloneLinks = [
+  const navLinks = [
     { href: "/#features", label: t("nav.features") },
     { href: "/#pricing",  label: t("nav.pricing")  },
-  ];
-
-  const companyLinks = [
-    { href: "/#about",   label: t("nav.about")   },
-    { href: "/#contact", label: t("nav.contact")  },
+    { href: "/#about",    label: t("nav.about")    },
+    { href: "/#contact",  label: t("nav.contact")  },
   ];
 
   return (
@@ -50,7 +34,7 @@ export function Header() {
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-8 lg:flex">
-          {standaloneLinks.map((link) => (
+          {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
@@ -60,37 +44,6 @@ export function Header() {
               </Link>
             </li>
           ))}
-
-          {/* Company dropdown */}
-          <li ref={dropdownRef} className="relative">
-            <button
-              type="button"
-              onClick={() => setCompanyOpen((v) => !v)}
-              className="flex items-center gap-1 font-body text-sm font-medium text-muted transition-colors hover:text-foreground focus-neu rounded-inner px-2 py-1"
-            >
-              Company
-              <ChevronDown
-                className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  companyOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            {companyOpen && (
-              <div className="absolute left-1/2 top-full z-50 mt-2 w-40 -translate-x-1/2 overflow-hidden rounded-card border border-surface-border bg-white py-1 shadow-neu-extruded">
-                {companyLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setCompanyOpen(false)}
-                    className="block px-4 py-2.5 font-body text-sm text-muted transition-colors hover:bg-accent/5 hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </li>
         </ul>
 
         {/* Desktop right controls */}
@@ -122,7 +75,7 @@ export function Header() {
       {mobileOpen && (
         <div className="mx-auto mt-2 max-w-7xl rounded-card border border-surface-border bg-white p-6 shadow-neu-extruded md:hidden">
           <ul className="flex flex-col gap-4">
-            {[...standaloneLinks, ...companyLinks].map((link) => (
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

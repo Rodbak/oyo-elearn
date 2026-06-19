@@ -19,7 +19,7 @@ export const dictionary = {
   },
   landing: {
     tagline: "LEARN. CREATE. SCALE.",
-    heroTitle: "Launch courses, grow learners,",
+    heroTitle: "Launch courses, grow learners",
     heroTitleAccent: "and build your learning brand",
     heroSubtitle:
       "OYO-Elearner is a modern course platform for creators, teams, and learners who want to publish lessons, host live sessions, and deliver great learning experiences.",
