@@ -1,42 +1,39 @@
 "use client";
 
-import { useLocale } from "@/components/i18n/LocaleProvider";
-import { cn } from "@/lib/utils";
-import type { Locale } from "@/lib/i18n/types";
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-const options: { id: Locale; labelKey: string }[] = [
-  { id: "en", labelKey: "common.english" },
-  { id: "fr", labelKey: "common.french" },
-];
+export type Locale = "en" | "fr";
 
-export function LanguageSwitcher({ className }: { className?: string }) {
-  const { locale, setLocale, t } = useLocale();
+type LocaleContextType = {
+  locale: Locale;
+  setLocale: (locale: Locale) => void;
+  t: (key: string) => string;
+};
 
-  return (
-    <div
-      className={cn(
-        "flex items-center gap-1 rounded-inner bg-transparent p-0",
-        className
-      )}
-      role="group"
-      aria-label={t("common.language")}
-    >
-      {options.map((opt) => (
-        <button
-          key={opt.id}
-          type="button"
-          onClick={() => setLocale(opt.id)}
-          className={cn(
-            "h-9 rounded-btn px-3 py-1.5 font-body text-xs font-semibold transition-all focus-neu",
-            locale === opt.id
-              ? "bg-accent text-white"
-              : "text-foreground hover:bg-neutral-50"
-          )}
-          aria-pressed={locale === opt.id}
-        >
-          {t(opt.labelKey)}
-        </button>
-      ))}
-    </div>
-  );
+const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
+
+export function LocaleProvider({ children }: { children: React.ReactNode }) {
+  const [locale, setLocaleState] = useState<Locale>("en");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("lang") as Locale | null;
+    if (saved === "en" || saved === "fr") setLocaleState(saved);
+  }, []);
+
+  const setLocale = (next: Locale) => {
+    localStorage.setItem("lang", next);
+    setLocaleState(next);
+  };
+
+  const t = (key: string) => key;
+
+  const value = useMemo(() => ({ locale, setLocale, t }), [locale]);
+
+  return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;
+}
+
+export function useLocale() {
+  const ctx = useContext(LocaleContext);
+  if (!ctx) throw new Error("useLocale must be used within LocaleProvider");
+  return ctx;
 }
