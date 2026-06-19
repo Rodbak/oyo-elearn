@@ -1,39 +1,29 @@
+
 "use client";
+import React,{createContext,useContext,useState,useEffect} from "react";
 
-import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+export type Locale="en"|"fr";
 
-export type Locale = "en" | "fr";
+const LocaleContext=createContext<any>(null);
 
-type LocaleContextType = {
-  locale: Locale;
-  setLocale: (locale: Locale) => void;
-  t: (key: string) => string;
+export const LocaleProvider=({children}:{children:React.ReactNode})=>{
+ const [locale,setLocaleState]=useState<Locale>("en");
+ useEffect(()=>{
+   const saved=typeof window!=="undefined"?localStorage.getItem("lang"):null;
+   if(saved==="en"||saved==="fr") setLocaleState(saved);
+ },[]);
+ const setLocale=(l:Locale)=>{
+   localStorage.setItem("lang",l);
+   setLocaleState(l);
+ };
+ const t=(key:string)=>key;
+ return <LocaleContext.Provider value={{locale,setLocale,t}}>{children}</LocaleContext.Provider>;
 };
 
-const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
+export const useLocale=()=>{
+ const ctx=useContext(LocaleContext);
+ if(!ctx){ return {locale:"en", setLocale:()=>{}, t:(k:string)=>k}; }
+ return ctx;
+};
 
-export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as Locale | null;
-    if (saved === "en" || saved === "fr") setLocaleState(saved);
-  }, []);
-
-  const setLocale = (next: Locale) => {
-    localStorage.setItem("lang", next);
-    setLocaleState(next);
-  };
-
-  const t = (key: string) => key;
-
-  const value = useMemo(() => ({ locale, setLocale, t }), [locale]);
-
-  return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;
-}
-
-export function useLocale() {
-  const ctx = useContext(LocaleContext);
-  if (!ctx) throw new Error("useLocale must be used within LocaleProvider");
-  return ctx;
-}
+export default LocaleProvider;
