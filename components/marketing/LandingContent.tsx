@@ -42,7 +42,7 @@ const featureItems = [
   { icon: Radio,    titleKey: "landing.features.live.title",         descKey: "landing.features.live.description",         iconCls: "bg-badge-coral/15 text-badge-coral",   bg: "from-badge-coral/8 to-transparent",   label: "Live"         },
   { icon: Sparkles, titleKey: "landing.features.ai.title",           descKey: "landing.features.ai.description",           iconCls: "bg-badge-violet/15 text-badge-violet", bg: "from-badge-violet/8 to-transparent",  label: "AI"           },
   { icon: Award,    titleKey: "landing.features.certs.title",        descKey: "landing.features.certs.description",        iconCls: "bg-badge-amber/15 text-badge-amber",   bg: "from-badge-amber/8 to-transparent",   label: "Certificates" },
-  { icon: Globe,    titleKey: "landing.features.integrations.title", descKey: "landing.features.integrations.description", iconCls: "bg-badge-mint/15 text-badge-mint",     bg: "from-badge-mint/8 to-transparent",    label: "Integrations" },
+  { icon: Globe,    titleKey: "landing.features.integrations.title", descKey: "landing.features.integrations.description", iconCls: "bg-badge-violet/15 text-badge-violet", bg: "from-badge-violet/8 to-transparent", label: "Integrations" },
   { icon: Users,    titleKey: "landing.features.multiTenant.title",  descKey: "landing.features.multiTenant.description",  iconCls: "bg-accent/10 text-accent",             bg: "from-accent/8 to-transparent",        label: "Multi-tenant" },
 ] as const;
 
@@ -80,7 +80,7 @@ const toneBadge: Record<Tone, string> = {
   amber: "bg-badge-amber/10 text-badge-amber",
   violet: "bg-badge-violet/10 text-badge-violet",
   sky: "bg-badge-sky/10 text-badge-sky",
-  mint: "bg-badge-mint/10 text-badge-mint",
+  mint: "bg-badge-violet/10 text-badge-violet",
 };
 
 const toneThumb: Record<Tone, string> = {
@@ -88,7 +88,7 @@ const toneThumb: Record<Tone, string> = {
   amber: "bg-badge-amber/15 text-badge-amber",
   violet: "bg-badge-violet/15 text-badge-violet",
   sky: "bg-badge-sky/15 text-badge-sky",
-  mint: "bg-badge-mint/15 text-badge-mint",
+  mint: "bg-badge-violet/15 text-badge-violet",
 };
 
 const categoryItems = [
@@ -258,8 +258,8 @@ export function LandingContent() {
             <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
-                  <Video className="h-4 w-4 text-accent-secondary" />
-                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+                  <Video className="h-4 w-4 text-accent" />
+                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
                     {t("landing.featuredCourses.eyebrow")}
                   </span>
                 </div>
@@ -281,12 +281,13 @@ export function LandingContent() {
                 className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover"
               >
                 <div className="relative h-48 w-full overflow-hidden">
-                  <img
+                  <Image
                     src={course.image}
                     alt={course.title}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     loading="lazy"
-                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                   <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-950 shadow-neu-extruded-sm">
@@ -313,8 +314,8 @@ export function LandingContent() {
           <Reveal>
             <div className="text-center mb-4">
               <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-4">
-                <BookOpen className="h-4 w-4 text-accent-secondary" />
-                <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+                <BookOpen className="h-4 w-4 text-accent" />
+                <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
                   {t("landing.platformFeatures")}
                 </span>
               </div>
@@ -394,8 +395,8 @@ export function LandingContent() {
             <Reveal>
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 shadow-neu-extruded-sm mb-6">
-                  <GraduationCap className="h-4 w-4 text-accent-secondary" />
-                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+                  <GraduationCap className="h-4 w-4 text-accent" />
+                  <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
                     {t("about.title")}
                   </span>
                 </div>
@@ -473,7 +474,7 @@ export function LandingContent() {
                   <ul className="mt-6 space-y-3 flex-1">
                     {featureList.map((f) => (
                       <li key={f} className="flex items-start gap-2 font-body text-sm">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-secondary" aria-hidden />
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
                         {f}
                       </li>
                     ))}
@@ -509,7 +510,7 @@ export function LandingContent() {
                     {([row.free, row.pro, row.enterprise] as boolean[]).map((val, i) => (
                       <td key={i} className="p-4 text-center text-muted">
                         {val ? (
-                          <Check className="mx-auto h-5 w-5 text-accent-secondary" />
+                          <Check className="mx-auto h-5 w-5 text-accent" />
                         ) : "—"}
                       </td>
                     ))}
@@ -561,7 +562,7 @@ export function LandingContent() {
               {contactSent ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
                   <NeuWell className="inline-flex p-4">
-                    <Check className="h-8 w-8 text-accent-secondary" />
+                    <Check className="h-8 w-8 text-accent" />
                   </NeuWell>
                   <p className="font-display text-xl font-bold text-foreground">
                     {t("landing.contactSection.receivedTitle")}

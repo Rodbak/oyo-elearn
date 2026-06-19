@@ -53,7 +53,7 @@ export function PricingContent() {
                 {featureList.map((f) => (
                   <li key={f} className="flex items-start gap-2 font-body text-sm">
                     <Check
-                      className="mt-0.5 h-4 w-4 shrink-0 text-accent-secondary"
+                      className="mt-0.5 h-4 w-4 shrink-0 text-accent"
                       aria-hidden
                     />
                     {f}
@@ -91,7 +91,7 @@ export function PricingContent() {
                 {[row.free, row.pro, row.enterprise].map((val, i) => (
                   <td key={i} className="p-4 text-center text-muted">
                     {val ? (
-                      <Check className="mx-auto h-5 w-5 text-accent-secondary" />
+                      <Check className="mx-auto h-5 w-5 text-accent" />
                     ) : (
                       "—"
                     )}
