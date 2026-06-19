@@ -125,8 +125,8 @@ function LoginForm() {
 
   return (
     <div className="min-h-screen bg-slate-50 py-12">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 md:px-8 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="hidden overflow-hidden rounded-[2rem] bg-slate-950/95 p-10 text-white shadow-neu-extruded-sm lg:block">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 md:px-8 lg:grid-cols-[1.1fr_0.95fr]">
+        <div className="relative hidden min-h-[42rem] overflow-hidden rounded-[2rem] bg-slate-950/95 p-12 pt-14 pb-14 text-white shadow-neu-extruded-sm lg:block">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(108,99,255,0.25),transparent_35%)]" />
           <div className="relative z-10 grid gap-8">
             <div>
@@ -158,7 +158,7 @@ function LoginForm() {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-8 lg:pt-6">
           <NeuCard className="rounded-[2rem] p-8 shadow-neu-extruded-sm">
             <div className="mb-8">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
