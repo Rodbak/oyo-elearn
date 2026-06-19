@@ -5,6 +5,7 @@ import { useLocale } from "@/components/i18n/LocaleProvider";
 import { NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
 import { type AuthPortal, dashboardPathForPortal } from "@/lib/roles";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -124,107 +125,117 @@ function LoginForm() {
       : t("auth.portalCreator").toLowerCase();
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <div className="relative overflow-hidden rounded-[2rem] bg-white shadow-neu-extruded">
-          <div className="absolute inset-x-0 top-0 h-72 bg-gradient-to-br from-accent via-accent-light to-[#D6CEFF] opacity-95" />
-          <div className="absolute right-[-120px] top-6 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-          <div className="absolute left-[-100px] top-24 h-48 w-48 rounded-full bg-white/20 blur-3xl" />
-
-          <div className="relative grid gap-10 px-4 py-10 md:px-8 md:py-12 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="hidden rounded-[1.75rem] bg-slate-950/95 p-10 text-white shadow-neu-extruded-sm lg:flex lg:flex-col lg:justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent">
-                  {t("auth.welcomeBack")}
-                </p>
-                <h2 className="mt-6 font-display text-4xl font-extrabold leading-tight">
-                  Power your learning experience with one beautiful sign-in flow.
-                </h2>
-                <p className="mt-6 max-w-xl font-body text-base leading-7 text-slate-300">
-                  Fast access for learners and instructors with a modern portal that feels intuitive and polished.
-                </p>
-              </div>
-              <div className="space-y-5 rounded-[1.75rem] bg-slate-800/90 p-6">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.24em] text-accent">Quick access</p>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">
-                    Sign in once and move seamlessly between your classes, grades, and admin tools.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm uppercase tracking-[0.24em] text-accent">Role-based dashboard</p>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">
-                    Choose the right portal for your role and get straight to the tools you need.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-[2rem] bg-background p-8 shadow-neu-extruded-sm md:p-10">
-              <div className="mb-8">
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
-                  {t("auth.welcomeBack")}
-                </p>
-                <h1 className="mt-4 font-display text-4xl font-extrabold text-foreground">
-                  {t("auth.signInTitle")}
-                </h1>
-                <p className="mt-3 max-w-xl font-body text-muted">
-                  {t("auth.signInSubtitle")}
-                </p>
-              </div>
-
-              <div className="mt-2">
-                <RolePortalSelector value={portal} onChange={setPortal} />
-              </div>
-
-              <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-                <NeuInput
-                  label={t("auth.email")}
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <NeuInput
-                  label={t("auth.password")}
-                  name="password"
-                  type="password"
-                  required
-                  autoComplete="current-password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                {error && (
-                  <p className="text-sm text-red-500" role="alert">{error}</p>
-                )}
-                <div className="flex justify-end">
-                  <Link href="/forgot-password" className="text-sm text-accent hover:underline focus-neu">
-                    {t("auth.forgotPassword")}
-                  </Link>
-                </div>
-                <NeuButton type="submit" className="w-full" disabled={loading}>
-                  {loading ? t("auth.signingIn") : t("auth.signIn")}
-                </NeuButton>
-              </form>
-
-              <NeuButton
-                variant="secondary"
-                className="mt-4 w-full"
-                type="button"
-                onClick={() => signIn("google", { callbackUrl: dashboardPathForPortal(portal) })}
-              >
-                {t("auth.continueGoogle")}
-              </NeuButton>
-
-              <p className="mt-6 text-center font-body text-sm text-muted">
-                {t("auth.noAccount")} {" "}
-                <Link href={`/register?portal=${portal}`} className="text-accent font-semibold focus-neu">
-                  {t("auth.registerAs")} {portalName}
-                </Link>
+    <div className="min-h-screen bg-slate-100 py-10">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 md:px-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-accent via-violet-700 to-slate-950 text-white shadow-neu-extruded sm:p-12">
+          <div className="pointer-events-none absolute -right-16 top-10 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+          <div className="pointer-events-none absolute -left-16 bottom-10 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+          <div className="relative z-10 grid gap-8">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">
+                {t("auth.welcomeBack")}
+              </p>
+              <h1 className="mt-6 text-4xl font-display font-extrabold tracking-tight sm:text-5xl">
+                Secure access for learners, creators, and teams.
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200">
+                Sign in once and access classes, live sessions, grading tools, and course management from one polished portal.
               </p>
             </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-[1.75rem] border border-white/10 bg-white/10 p-5">
+                <p className="text-xs uppercase tracking-[0.28em] text-white/70">Fast access</p>
+                <p className="mt-3 text-sm leading-6 text-slate-100">
+                  Jump into your dashboard with one clean login flow.
+                </p>
+              </div>
+              <div className="rounded-[1.75rem] border border-white/10 bg-white/10 p-5">
+                <p className="text-xs uppercase tracking-[0.28em] text-white/70">Protected sessions</p>
+                <p className="mt-3 text-sm leading-6 text-slate-100">
+                  Credential security and redirects tailored to each role.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative mt-10 overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-4">
+            <Image
+              src="/hero-student.jpg"
+              alt="Student learning from a course"
+              width={1200}
+              height={800}
+              className="h-full w-full rounded-[1.5rem] object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 rounded-[1.5rem] bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          <div className="rounded-[2rem] bg-white p-8 shadow-neu-extruded sm:p-10">
+            <div className="mb-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+                {t("auth.welcomeBack")}
+              </p>
+              <h1 className="mt-4 font-display text-4xl font-extrabold text-foreground">
+                {t("auth.signInTitle")}
+              </h1>
+              <p className="mt-3 max-w-xl font-body text-muted">
+                {t("auth.signInSubtitle")}
+              </p>
+            </div>
+
+            <div className="mt-2">
+              <RolePortalSelector value={portal} onChange={setPortal} />
+            </div>
+
+            <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+              <NeuInput
+                label={t("auth.email")}
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <NeuInput
+                label={t("auth.password")}
+                name="password"
+                type="password"
+                required
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {error && (
+                <p className="text-sm text-red-500" role="alert">{error}</p>
+              )}
+              <div className="flex justify-end">
+                <Link href="/forgot-password" className="text-sm text-accent hover:underline focus-neu">
+                  {t("auth.forgotPassword")}
+                </Link>
+              </div>
+              <NeuButton type="submit" className="w-full" disabled={loading}>
+                {loading ? t("auth.signingIn") : t("auth.signIn")}
+              </NeuButton>
+            </form>
+
+            <NeuButton
+              variant="secondary"
+              className="mt-4 w-full"
+              type="button"
+              onClick={() => signIn("google", { callbackUrl: dashboardPathForPortal(portal) })}
+            >
+              {t("auth.continueGoogle")}
+            </NeuButton>
+
+            <p className="mt-6 text-center font-body text-sm text-muted">
+              {t("auth.noAccount")} {" "}
+              <Link href={`/register?portal=${portal}`} className="text-accent font-semibold focus-neu">
+                {t("auth.registerAs")} {portalName}
+              </Link>
+            </p>
           </div>
 
           <NeuCard className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 text-sm text-slate-600 shadow-neu-inset">
