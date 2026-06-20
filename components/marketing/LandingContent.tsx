@@ -2,7 +2,6 @@
 
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { HeroDecoration } from "@/components/marketing/HeroDecoration";
-import HeroFeatureCard from "@/components/marketing/HeroFeatureCard";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
 import { NeuAvatar, NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
 import { cn } from "@/lib/utils";
@@ -217,13 +216,6 @@ export function LandingContent() {
                 </div>
               ))}
             </Stagger>
-            {/* Molten floating globe beside the title */}
-            <Reveal>
-              <div className="pointer-events-none">
-                <HeroFeatureCard className="hidden md:block absolute -right-4 top-16 lg:top-12" />
-              </div>
-            </Reveal>
-
           </div>
           <Reveal delay={0.1}>
             <HeroDecoration />

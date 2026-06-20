@@ -75,10 +75,10 @@ function LoginForm() {
 
   return (
     <div className="fixed inset-0 z-50 flex overflow-y-auto bg-slate-50">
-      <div className="flex min-h-screen w-full flex-col lg:flex-row">
+      <div className="flex min-h-screen w-full flex-col lg:grid lg:grid-cols-2">
 
         {/* Left: dark branding panel (visible on lg+) */}
-        <aside className="relative hidden lg:flex lg:min-h-screen lg:w-1/2 shrink-0 overflow-hidden bg-slate-950 p-12 text-white lg:flex-col lg:justify-between xl:p-16">
+        <aside className="relative hidden lg:flex lg:min-h-screen h-full overflow-hidden bg-slate-950 p-12 text-white lg:flex-col lg:justify-between xl:p-16">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,99,255,0.35),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(255,138,101,0.22),transparent_45%)]" />
 
           <div className="relative z-10">
@@ -119,7 +119,7 @@ function LoginForm() {
         </aside>
 
         {/* Right: form panel */}
-        <main className="flex min-h-screen w-full flex-1 flex-col px-5 py-8 sm:px-8 md:px-12">
+        <main className="flex min-h-screen w-full flex-col px-5 py-8 sm:px-8 md:px-12">
           <div className="mb-8 flex items-center justify-between">
             <Link href="/" className="font-display text-xl font-extrabold tracking-tight text-accent lg:opacity-0">OYO<span className="text-foreground">-Elearner</span></Link>
             <LanguageSwitcher />
