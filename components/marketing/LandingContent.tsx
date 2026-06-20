@@ -217,7 +217,7 @@ export function LandingContent() {
                 </div>
               ))}
             </Stagger>
-            {/* Hero feature globe: floating sphere with a stock photo */}
+            {/* Molten floating globe beside the title */}
             <Reveal>
               <div className="pointer-events-none">
                 <HeroFeatureCard className="hidden md:block absolute -right-4 top-16 lg:top-12" />

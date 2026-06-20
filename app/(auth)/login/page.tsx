@@ -78,16 +78,21 @@ function LoginForm() {
       <div className="flex min-h-screen w-full flex-col lg:flex-row">
 
         {/* Left: dark branding panel (visible on lg+) */}
-        <aside className="relative hidden lg:flex lg:min-h-screen w-[48%] shrink-0 overflow-hidden bg-slate-950 p-12 text-white lg:flex-col lg:justify-between">
+        <aside className="relative hidden lg:flex lg:min-h-screen lg:w-1/2 shrink-0 overflow-hidden bg-slate-950 p-12 text-white lg:flex-col lg:justify-between xl:p-16">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,99,255,0.35),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(255,138,101,0.22),transparent_45%)]" />
 
           <div className="relative z-10">
-            <Link href="/" className="font-display text-2xl font-extrabold tracking-tight text-white">
-              OYO<span className="text-accent">-Elearner</span>
+            <Link href="/" className="inline-flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15 text-accent ring-1 ring-white/15">
+                <GraduationCap className="h-5 w-5" />
+              </span>
+              <span className="font-display text-2xl font-extrabold tracking-tight text-white">
+                OYO<span className="text-accent">-Elearner</span>
+              </span>
             </Link>
           </div>
 
-          <div className="relative z-10 max-w-md">
+          <div className="relative z-10 max-w-lg">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent">{t("auth.welcomeBack")}</p>
             <h2 className="mt-6 font-display text-4xl font-extrabold leading-tight">One secure login for learners, instructors, and teams.</h2>
             <p className="mt-5 text-base leading-7 text-slate-300">Access courses, live sessions, grading, and administration from a single polished portal.</p>
