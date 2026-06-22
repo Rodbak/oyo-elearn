@@ -173,36 +173,39 @@ export function LandingContent() {
                 </NeuButton>
               </div>
             </Reveal>
-            {/* Stats row — restyled */}
-            <Stagger
-              className="mt-20 grid grid-cols-2 gap-4 sm:grid-cols-4"
-              stagger={0.08}
-            >
-              {[
-                { value: stats[0].value, labelKey: stats[0].labelKey, icon: Users,         bg: "from-badge-sky/20 to-badge-sky/5",     iconCls: "bg-badge-sky/15 text-badge-sky",     numCls: "text-badge-sky"     },
-                { value: stats[1].value, labelKey: stats[1].labelKey, icon: BookOpen,      bg: "from-badge-violet/20 to-badge-violet/5", iconCls: "bg-badge-violet/15 text-badge-violet", numCls: "text-badge-violet" },
-                { value: stats[2].value, labelKey: stats[2].labelKey, icon: GraduationCap, bg: "from-badge-coral/20 to-badge-coral/5",  iconCls: "bg-badge-coral/15 text-badge-coral",  numCls: "text-badge-coral"  },
-                { value: stats[3].value, labelKey: stats[3].labelKey, icon: Award,         bg: "from-badge-amber/20 to-badge-amber/5",  iconCls: "bg-badge-amber/15 text-badge-amber",  numCls: "text-badge-amber"  },
-              ].map((stat) => (
-                <div
-                  key={stat.labelKey}
-                  className={`rounded-card bg-gradient-to-br ${stat.bg} p-5 shadow-neu-extruded-sm`}
-                >
-                  <div className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl ${stat.iconCls}`}>
-                    <stat.icon className="h-5 w-5" aria-hidden />
-                  </div>
-                  <p className="font-body text-xs text-muted">{t(stat.labelKey)}</p>
-                  <p className={`mt-0.5 font-display text-2xl font-extrabold ${stat.numCls}`}>
-                    {stat.value}
-                  </p>
-                </div>
-              ))}
-            </Stagger>
           </div>
           <Reveal delay={0.1}>
             <HeroDecoration />
           </Reveal>
         </div>
+      </section>
+
+      {/* ── STATS ────────────────────────────────────────────────── */}
+      <section className="px-4 pb-10 md:px-8 md:pb-14">
+        <Stagger
+          className="mx-auto grid max-w-7xl grid-cols-2 gap-4 sm:grid-cols-4"
+          stagger={0.08}
+        >
+          {[
+            { value: stats[0].value, labelKey: stats[0].labelKey, icon: Users,         bg: "from-badge-sky/20 to-badge-sky/5",     iconCls: "bg-badge-sky/15 text-badge-sky",     numCls: "text-badge-sky"     },
+            { value: stats[1].value, labelKey: stats[1].labelKey, icon: BookOpen,      bg: "from-badge-violet/20 to-badge-violet/5", iconCls: "bg-badge-violet/15 text-badge-violet", numCls: "text-badge-violet" },
+            { value: stats[2].value, labelKey: stats[2].labelKey, icon: GraduationCap, bg: "from-badge-coral/20 to-badge-coral/5",  iconCls: "bg-badge-coral/15 text-badge-coral",  numCls: "text-badge-coral"  },
+            { value: stats[3].value, labelKey: stats[3].labelKey, icon: Award,         bg: "from-badge-amber/20 to-badge-amber/5",  iconCls: "bg-badge-amber/15 text-badge-amber",  numCls: "text-badge-amber"  },
+          ].map((stat) => (
+            <div
+              key={stat.labelKey}
+              className={`rounded-card bg-gradient-to-br ${stat.bg} p-5 shadow-neu-extruded-sm`}
+            >
+              <div className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl ${stat.iconCls}`}>
+                <stat.icon className="h-5 w-5" aria-hidden />
+              </div>
+              <p className="font-body text-xs text-muted">{t(stat.labelKey)}</p>
+              <p className={`mt-0.5 font-display text-2xl font-extrabold ${stat.numCls}`}>
+                {stat.value}
+              </p>
+            </div>
+          ))}
+        </Stagger>
       </section>
 
       {/* ── POPULAR CATEGORIES ───────────────────────────────────── */}
@@ -291,7 +294,6 @@ export function LandingContent() {
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                   <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-950">
                     {course.free ? t("landing.featuredCourses.free") : course.price}
                   </span>
