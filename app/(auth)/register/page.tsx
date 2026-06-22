@@ -1,7 +1,7 @@
 "use client";
 
 import { RolePortalSelector } from "@/components/auth/RolePortalSelector";
-import { useLocale } from "@/components/i18n/LocaleProvider";
+import { useLocale } from "@/components/i18n";
 import { NeuButton, NeuCard, NeuInput } from "@/components/neu";
 import {
   type AuthPortal,

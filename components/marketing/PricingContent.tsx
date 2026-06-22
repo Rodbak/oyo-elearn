@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/components/i18n/LocaleProvider";
+import { useLocale } from "@/components/i18n";
 import { NeuButton, NeuCard } from "@/components/neu";
 import { Check } from "lucide-react";
 import Link from "next/link";

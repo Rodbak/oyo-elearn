@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/components/i18n/LocaleProvider";
+import { useLocale } from "@/components/i18n";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { NeuButton } from "@/components/neu";
 import { Menu, X } from "lucide-react";

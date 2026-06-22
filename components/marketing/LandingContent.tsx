@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/components/i18n/LocaleProvider";
+import { useLocale } from "@/components/i18n";
 import { HeroDecoration } from "@/components/marketing/HeroDecoration";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
 import { NeuAvatar, NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
@@ -396,10 +396,10 @@ export function LandingContent() {
                   {t("landing.about.title")}
                 </h2>
                 <p className="mt-6 font-body text-lg text-muted leading-relaxed">
-                  OYO-Elearner brings world-class course delivery to creators, coaches, and institutions — without the LMS complexity.
+                  {t("landing.about.intro1")}
                 </p>
                 <p className="mt-4 font-body text-muted leading-relaxed">
-                  One clean platform to publish lessons, run live classes, track progress, and grow your learning community.
+                  {t("landing.about.intro2")}
                 </p>
               </div>
             </Reveal>

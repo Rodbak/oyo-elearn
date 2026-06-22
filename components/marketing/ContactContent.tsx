@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/components/i18n/LocaleProvider";
+import { useLocale } from "@/components/i18n";
 import { NeuButton, NeuCard, NeuInput } from "@/components/neu";
 import { useState } from "react";
 

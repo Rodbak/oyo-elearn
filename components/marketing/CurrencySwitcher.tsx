@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/components/i18n/LocaleProvider";
+import { useLocale } from "@/components/i18n";
 import { createContext, useContext, useState } from "react";
 
 export type CurrencyCode = "GHS" | "USD" | "NGN" | "KES" | "EUR" | "GBP";
