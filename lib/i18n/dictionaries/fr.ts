@@ -21,8 +21,8 @@ export const dictionary = {
   },
   landing: {
     tagline: "APPRENDRE. CRÉER. GRANDIR.",
-    heroTitle: "Lancez des cours, formez des apprenants",
-    heroTitleAccent: "et développez votre marque d'apprentissage",
+    heroTitle: "Lancez des cours,",
+    heroTitleAccent: "développez votre marque",
     heroSubtitle:
       "OYO-Elearner est une plateforme moderne de cours pour les créateurs, les équipes et les apprenants qui veulent publier des leçons, organiser des sessions en direct et offrir de belles expériences d'apprentissage.",
     startFree: "Commencer gratuitement",

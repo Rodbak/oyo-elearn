@@ -36,11 +36,26 @@ export function Header() {
       }`}
     >
       <nav
-        className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 py-3 md:px-8"
+        className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 md:px-8"
         aria-label={t("nav.mainNav")}
       >
-        {/* Left: desktop nav links */}
-        <ul className="hidden items-center gap-1 justify-self-start lg:flex">
+        {/* Left: logo with mark */}
+        <Link
+          href="/"
+          className="flex shrink-0 items-center rounded-btn focus-neu"
+        >
+          <span className="flex items-center gap-2.5 rounded-xl bg-accent px-3 py-2 shadow-sm">
+            <span className="flex h-6 w-6 items-center justify-center text-white">
+              <GraduationCap className="h-5 w-5" />
+            </span>
+            <span className="font-display text-xl font-extrabold tracking-tight text-white">
+              OYO<span className="text-white/80">-Elearner</span>
+            </span>
+          </span>
+        </Link>
+
+        {/* Center: desktop nav links */}
+        <ul className="hidden flex-1 items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
@@ -53,21 +68,8 @@ export function Header() {
           ))}
         </ul>
 
-        {/* Center: logo with mark */}
-        <Link
-          href="/"
-          className="col-start-2 flex shrink-0 items-center gap-2.5 justify-self-center rounded-btn focus-neu"
-        >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-white shadow-sm">
-            <GraduationCap className="h-5 w-5" />
-          </span>
-          <span className="font-display text-xl font-extrabold tracking-tight text-accent">
-            OYO<span className="text-foreground">-Elearner</span>
-          </span>
-        </Link>
-
         {/* Right: controls + mobile hamburger */}
-        <div className="flex items-center justify-self-end">
+        <div className="ml-auto flex items-center">
           <div className="hidden items-center gap-3 md:flex">
             <LanguageSwitcher className="border border-surface-border/60 bg-white/70" />
             <NeuButton variant="secondary" size="sm" asChild>
