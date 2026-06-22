@@ -13,7 +13,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
-import { useLocale } from "@/components/i18n";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import { DashboardShell, type NavItem } from "@/components/dashboard/DashboardShell";
 
 export type DashboardRole = "student" | "instructor" | "admin" | "superadmin";

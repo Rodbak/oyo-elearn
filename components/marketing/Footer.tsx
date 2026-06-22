@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/components/i18n";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import Link from "next/link";
 
 export function Footer() {
@@ -48,12 +48,12 @@ export function Footer() {
               </li>
               <li>
                 <a href="#" className="hover:text-white focus-neu">
-                  {t("footer.terms")}
+                  Terms
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white focus-neu">
-                  {t("footer.privacy")}
+                  Privacy
                 </a>
               </li>
             </ul>

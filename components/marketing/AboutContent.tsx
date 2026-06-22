@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/components/i18n";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import { NeuCard } from "@/components/neu";
 
 export function AboutContent() {

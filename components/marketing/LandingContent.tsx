@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/components/i18n";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import { HeroDecoration } from "@/components/marketing/HeroDecoration";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
 import { NeuAvatar, NeuButton, NeuCard, NeuInput, NeuWell } from "@/components/neu";
@@ -117,6 +117,33 @@ const featuredCourseItems = [
     tone: "violet" as Tone,
     image: "/courses/python.svg",
   },
+  {
+    title: "UI/UX Design Fundamentals",
+    instructor: "Naledi Dube",
+    rating: 4.9,
+    free: false,
+    price: "$49",
+    tone: "coral" as Tone,
+    image: "/courses/uiux.svg",
+  },
+  {
+    title: "Data Science Bootcamp",
+    instructor: "Yaa Mensah",
+    rating: 4.7,
+    free: false,
+    price: "$79",
+    tone: "violet" as Tone,
+    image: "/courses/data-science.svg",
+  },
+  {
+    title: "Cloud Foundations",
+    instructor: "Kojo Adjei",
+    rating: 4.6,
+    free: false,
+    price: "$59",
+    tone: "sky" as Tone,
+    image: "/courses/cloud.svg",
+  },
 ] as const;
 
 export function LandingContent() {
@@ -166,7 +193,7 @@ export function LandingContent() {
             </Reveal>
             {/* Stats row — restyled */}
             <Stagger
-              className="mt-28 grid grid-cols-2 gap-4 sm:grid-cols-4"
+              className="mt-20 grid grid-cols-2 gap-4 sm:grid-cols-4"
               stagger={0.08}
             >
               {[
@@ -177,7 +204,7 @@ export function LandingContent() {
               ].map((stat) => (
                 <div
                   key={stat.labelKey}
-                  className={`rounded-card bg-gradient-to-br ${stat.bg} p-5 shadow-neu-extruded-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover`}
+                  className={`rounded-card bg-gradient-to-br ${stat.bg} p-5 shadow-neu-extruded-sm`}
                 >
                   <div className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl ${stat.iconCls}`}>
                     <stat.icon className="h-5 w-5" aria-hidden />
@@ -269,7 +296,7 @@ export function LandingContent() {
             {featuredCourseItems.map((course) => (
               <NeuCard
                 key={course.title}
-                className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-1 shadow-none"
+                className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover"
               >
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
@@ -396,10 +423,10 @@ export function LandingContent() {
                   {t("landing.about.title")}
                 </h2>
                 <p className="mt-6 font-body text-lg text-muted leading-relaxed">
-                  {t("landing.about.intro1")}
+                  OYO-Elearner brings world-class course delivery to creators, coaches, and institutions — without the LMS complexity.
                 </p>
                 <p className="mt-4 font-body text-muted leading-relaxed">
-                  {t("landing.about.intro2")}
+                  One clean platform to publish lessons, run live classes, track progress, and grow your learning community.
                 </p>
               </div>
             </Reveal>

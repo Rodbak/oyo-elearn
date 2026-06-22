@@ -74,14 +74,6 @@ export const dictionary = {
       institutions: "Learning teams",
       completion: "Completion rate",
     },
-    hero: {
-      studyHours: "Study hours",
-      learningNow: "learning now",
-      streak: "12-day streak",
-      keepGoing: "Keep it going",
-      liveClassroom: "Live classroom",
-      learnerTrack: "Frontend Development track",
-    },
     categories: {
       eyebrow: "Popular categories",
       title: "Explore courses by category",
@@ -345,8 +337,6 @@ export const dictionary = {
       "A modern course platform for creators, teams, and learners who want to launch and grow great learning experiences.",
     product: "Product",
     company: "Company",
-    terms: "Terms",
-    privacy: "Privacy",
     copyright: "All rights reserved.",
   },
   dashboard: {

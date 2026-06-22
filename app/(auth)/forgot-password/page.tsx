@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/components/i18n";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import { NeuButton, NeuCard, NeuInput } from "@/components/neu";
 import Link from "next/link";
 

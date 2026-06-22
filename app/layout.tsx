@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
-import { LocaleProvider } from "@/components/i18n";
+import { LocaleProvider } from "@/components/i18n/LocaleProvider";
 import { SessionProvider } from "@/components/providers/SessionProvider";
 import { getServerLocale } from "@/lib/i18n/server";
 import "./globals.css";

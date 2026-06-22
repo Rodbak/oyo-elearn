@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/components/i18n";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import type { AuthPortal } from "@/lib/roles";
 import { GraduationCap, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";

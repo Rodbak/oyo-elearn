@@ -74,14 +74,6 @@ export const dictionary = {
       institutions: "Institutions",
       completion: "Taux de réussite",
     },
-    hero: {
-      studyHours: "Heures d'étude",
-      learningNow: "apprennent maintenant",
-      streak: "Série de 12 jours",
-      keepGoing: "Continuez comme ça",
-      liveClassroom: "Classe en direct",
-      learnerTrack: "Parcours Développement Frontend",
-    },
     categories: {
       eyebrow: "Catégories populaires",
       title: "Explorez les cours par catégorie",
@@ -146,25 +138,25 @@ export const dictionary = {
       mission1:
         "Notre mission : rendre l'apprentissage de qualité accessible à tous — d'un seul atelier à un programme scolaire complet.",
       cards: {
-        creators: {
-          title: "Créateurs de cours",
+        school: {
+          title: "Écoles K-12",
           description:
-            "Lancez des leçons, développez votre audience et enseignez grâce à une expérience de cours propre et engageante.",
+            "Visibilité pour les parents, alertes de présence et outils adaptés à l'âge.",
         },
-        courses: {
-          title: "Équipes pédagogiques",
+        university: {
+          title: "Universités",
           description:
-            "Organisez des programmes de formation, des sessions en direct et des parcours d'apprentissage sans configuration LMS complexe.",
+            "Intégration LMS complète, LTI 1.3 et prise en charge SCORM pour les flux académiques.",
         },
-        learning: {
-          title: "Communautés apprenantes",
+        vocational: {
+          title: "Centres de formation professionnelle",
           description:
-            "Gardez les apprenants engagés grâce au suivi de progression, aux certificats et aux moments d'apprentissage interactifs.",
+            "Certificats basés sur les compétences et suivi pour des résultats adaptés à l'emploi.",
         },
-        teams: {
-          title: "Équipes & marques",
+        platform: {
+          title: "Opérateurs de plateforme",
           description:
-            "Créez un espace d'apprentissage personnalisé pour vos cours, cohortes ou formations internes.",
+            "Outils SuperAdmin pour gérer plusieurs institutions depuis un seul tableau de bord.",
         },
       },
     },
@@ -346,8 +338,6 @@ export const dictionary = {
       "Une plateforme moderne de cours pour les créateurs, les équipes et les apprenants qui veulent lancer et développer de belles expériences d'apprentissage.",
     product: "Produit",
     company: "Entreprise",
-    terms: "Conditions",
-    privacy: "Confidentialité",
     copyright: "Tous droits réservés.",
   },
   dashboard: {

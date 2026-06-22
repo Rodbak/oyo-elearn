@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Bell, LogOut, Menu, User, X } from "lucide-react";
 import { useState } from "react";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
-import { useLocale } from "@/components/i18n";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import { NeuAvatar } from "@/components/neu";
 import { cn } from "@/lib/utils";
 
