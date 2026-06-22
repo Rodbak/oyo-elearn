@@ -102,7 +102,7 @@ const categoryItems = [
 
 const featuredCourseItems = [
   {
-    title: "Complete HTML, CSS & JavaScript",
+    titleKey: "landing.featuredCourses.items.fullstack",
     instructor: "Amara Boateng",
     rating: 4.8,
     free: true,
@@ -110,7 +110,7 @@ const featuredCourseItems = [
     image: "/courses/fullstack.svg",
   },
   {
-    title: "Data Analysis with Python",
+    titleKey: "landing.featuredCourses.items.python",
     instructor: "Kwame Asante",
     rating: 4.7,
     free: true,
@@ -118,31 +118,13 @@ const featuredCourseItems = [
     image: "/courses/python.svg",
   },
   {
-    title: "UI/UX Design Fundamentals",
+    titleKey: "landing.featuredCourses.items.uiux",
     instructor: "Naledi Dube",
     rating: 4.9,
     free: false,
     price: "$49",
     tone: "coral" as Tone,
     image: "/courses/uiux.svg",
-  },
-  {
-    title: "Data Science Bootcamp",
-    instructor: "Yaa Mensah",
-    rating: 4.7,
-    free: false,
-    price: "$79",
-    tone: "violet" as Tone,
-    image: "/courses/data-science.svg",
-  },
-  {
-    title: "Cloud Foundations",
-    instructor: "Kojo Adjei",
-    rating: 4.6,
-    free: false,
-    price: "$59",
-    tone: "sky" as Tone,
-    image: "/courses/cloud.svg",
   },
 ] as const;
 
@@ -151,7 +133,7 @@ export function LandingContent() {
   const [contactSent, setContactSent] = useState(false);
 
   const tiers = [
-    { key: "free"       as const, price: "Free",                                      highlighted: false, href: "/register"           },
+    { key: "free"       as const, price: t("common.free"),                            highlighted: false, href: "/register"           },
     { key: "pro"        as const, price: "$49",                                      highlighted: true,  href: "/register?plan=pro"  },
     { key: "enterprise" as const, price: dictionary.pricing.enterprise.custom,         highlighted: false, href: "#contact"            },
   ];
@@ -187,7 +169,7 @@ export function LandingContent() {
                   <Link href="/register">{t("landing.startFree")}</Link>
                 </NeuButton>
                 <NeuButton variant="secondary" size="lg" asChild>
-                  <Link href="#features">{t("landing.viewPricing")}</Link>
+                  <Link href="#pricing">{t("landing.viewPricing")}</Link>
                 </NeuButton>
               </div>
             </Reveal>
@@ -241,7 +223,7 @@ export function LandingContent() {
                 <p className="mt-3 max-w-xl font-body text-muted">{t("landing.categories.subtitle")}</p>
               </div>
               <NeuButton variant="secondary" asChild>
-                <Link href="#pricing">{t("landing.categories.viewAll")}</Link>
+                <Link href="/register">{t("landing.categories.viewAll")}</Link>
               </NeuButton>
             </div>
           </Reveal>
@@ -295,13 +277,14 @@ export function LandingContent() {
           <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
             {featuredCourseItems.map((course) => (
               <NeuCard
-                key={course.title}
-                className="overflow-hidden p-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-extruded-hover"
+                key={course.titleKey}
+                hover={false}
+                className="overflow-hidden p-0 shadow-none border border-surface-border/60 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
                     src={course.image}
-                    alt={course.title}
+                    alt={t(course.titleKey)}
                     fill
                     unoptimized
                     className="object-cover"
@@ -309,12 +292,12 @@ export function LandingContent() {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-                  <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-950 shadow-neu-extruded-sm">
+                  <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-950">
                     {course.free ? t("landing.featuredCourses.free") : course.price}
                   </span>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-lg font-bold leading-snug text-foreground">{course.title}</h3>
+                  <h3 className="font-display text-lg font-bold leading-snug text-foreground">{t(course.titleKey)}</h3>
                   <p className="mt-3 font-body text-sm text-muted">{t("landing.featuredCourses.by")} {course.instructor}</p>
                   <div className="mt-4 flex items-center gap-2">
                     <Star className="h-4 w-4 fill-badge-amber text-badge-amber" aria-hidden />
@@ -423,10 +406,10 @@ export function LandingContent() {
                   {t("landing.about.title")}
                 </h2>
                 <p className="mt-6 font-body text-lg text-muted leading-relaxed">
-                  OYO-Elearner brings world-class course delivery to creators, coaches, and institutions — without the LMS complexity.
+                  {t("landing.about.intro1")}
                 </p>
                 <p className="mt-4 font-body text-muted leading-relaxed">
-                  One clean platform to publish lessons, run live classes, track progress, and grow your learning community.
+                  {t("landing.about.intro2")}
                 </p>
               </div>
             </Reveal>

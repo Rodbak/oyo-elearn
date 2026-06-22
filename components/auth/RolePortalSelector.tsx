@@ -8,21 +8,21 @@ import { cn } from "@/lib/utils";
 const portalOptions: {
   id: AuthPortal;
   labelKey: string;
-  desc: string;
+  descKey: string;
   icon: React.ElementType;
   iconStyle: string;
 }[] = [
   {
     id: "STUDENT",
     labelKey: "auth.portalLearner",
-    desc: "Access courses, track progress & earn certificates",
+    descKey: "auth.portalLearnerDesc",
     icon: GraduationCap,
     iconStyle: "bg-badge-sky/15 text-badge-sky",
   },
   {
     id: "INSTRUCTOR",
     labelKey: "auth.portalCreator",
-    desc: "Build courses, teach students & manage content",
+    descKey: "auth.portalCreatorDesc",
     icon: Briefcase,
     iconStyle: "bg-badge-violet/15 text-badge-violet",
   },
@@ -87,7 +87,7 @@ export function RolePortalSelector({
                   {t(option.labelKey)}
                 </p>
                 <p className="mt-0.5 font-body text-xs leading-snug text-muted">
-                  {option.desc}
+                  {t(option.descKey)}
                 </p>
               </div>
             </button>

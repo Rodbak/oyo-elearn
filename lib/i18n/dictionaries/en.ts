@@ -5,6 +5,8 @@ export const dictionary = {
     french: "French",
     loading: "Loading…",
     free: "Free",
+    settings: "Settings",
+    or: "or",
   },
   nav: {
     features: "Features",
@@ -96,6 +98,21 @@ export const dictionary = {
       viewAll: "All courses",
       free: "Free",
       by: "by",
+      items: {
+        fullstack: "Complete HTML, CSS & JavaScript",
+        python: "Data Analysis with Python",
+        uiux: "UI/UX Design Fundamentals",
+        dataScience: "Data Science Bootcamp",
+        cloud: "Cloud Foundations",
+      },
+    },
+    heroDecoration: {
+      track: "Frontend Development track",
+      studyHours: "Study hours",
+      streak: "12-day streak",
+      streakSub: "Keep it going",
+      liveClassroom: "Live classroom",
+      learningNow: "learning now",
     },
     demo: {
       title: "Ready to try it?",
@@ -331,6 +348,26 @@ export const dictionary = {
       "Need a demo account? Open the quick credentials panel below to copy test learners or instructors instantly.",
     demoTitle: "Demo credentials",
     demoSubtitle: "Preview the platform with prepared learner and instructor accounts.",
+    portalLearnerDesc: "Access courses, track progress & earn certificates",
+    portalCreatorDesc: "Build courses, teach students & manage content",
+    brandHeading: "One secure login for learners, instructors, and teams.",
+    brandSubtitle:
+      "Access courses, live sessions, grading, and administration from a single polished portal.",
+    brandFooter: "Built for creators, teams, and modern learning communities.",
+    highlights: {
+      roleAware: {
+        title: "Role-aware experience",
+        body: "Students, instructors, and teams get the tools that matter most to them.",
+      },
+      liveOnDemand: {
+        title: "Live & on-demand",
+        body: "Move smoothly between live sessions, lessons, and grading workflows.",
+      },
+      certificates: {
+        title: "Verifiable certificates",
+        body: "Issue and verify completion certificates with public codes.",
+      },
+    },
   },
   footer: {
     tagline:
@@ -338,6 +375,8 @@ export const dictionary = {
     product: "Product",
     company: "Company",
     copyright: "All rights reserved.",
+    terms: "Terms",
+    privacy: "Privacy",
   },
   dashboard: {
     student: "Learner",

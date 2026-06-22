@@ -1,6 +1,7 @@
 "use client";
 
 import { FloatingShape } from "@/components/motion/FloatingShape";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import { Flame, Radio, TrendingUp } from "lucide-react";
 
 /* Weekly study-hours data for the chart (today highlighted) */
@@ -23,6 +24,7 @@ const AVATARS = [
 ];
 
 export function HeroDecoration() {
+  const { t } = useLocale();
   return (
     <div className="relative mx-auto h-[420px] w-full max-w-md md:h-[480px]" aria-hidden>
       {/* Soft organic backdrop */}
@@ -38,7 +40,7 @@ export function HeroDecoration() {
           </div>
           <div>
             <p className="font-display text-sm font-bold text-foreground">Amara&nbsp;O.</p>
-            <p className="font-body text-[11px] text-muted">Frontend Development track</p>
+            <p className="font-body text-[11px] text-muted">{t("landing.heroDecoration.track")}</p>
           </div>
         </div>
 
@@ -46,7 +48,7 @@ export function HeroDecoration() {
         <div className="rounded-2xl bg-gradient-to-b from-slate-50 to-white p-4 shadow-neu-inset">
           <div className="mb-3 flex items-end justify-between">
             <div>
-              <p className="font-body text-[11px] font-medium text-muted">Study hours</p>
+              <p className="font-body text-[11px] font-medium text-muted">{t("landing.heroDecoration.studyHours")}</p>
               <p className="font-display text-xl font-extrabold text-foreground">
                 14.5<span className="ml-0.5 text-xs font-bold text-muted">h</span>
               </p>
@@ -94,7 +96,7 @@ export function HeroDecoration() {
             </div>
           </div>
           <p className="font-body text-[11px] font-medium text-muted">
-            <span className="font-display font-bold text-foreground">2.4k</span> learning now
+            <span className="font-display font-bold text-foreground">2.4k</span> {t("landing.heroDecoration.learningNow")}
           </p>
         </div>
       </div>
@@ -106,8 +108,8 @@ export function HeroDecoration() {
             <Flame className="h-4 w-4" />
           </div>
           <div>
-            <p className="font-display text-xs font-bold text-foreground">12-day streak</p>
-            <p className="font-body text-[10px] text-muted">Keep it going</p>
+            <p className="font-display text-xs font-bold text-foreground">{t("landing.heroDecoration.streak")}</p>
+            <p className="font-body text-[10px] text-muted">{t("landing.heroDecoration.streakSub")}</p>
           </div>
         </div>
       </FloatingShape>
@@ -121,7 +123,7 @@ export function HeroDecoration() {
           <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-badge-coral/12 text-badge-coral">
             <Radio className="h-4 w-4" />
           </div>
-          <p className="font-display text-xs font-bold text-foreground">Live classroom</p>
+          <p className="font-display text-xs font-bold text-foreground">{t("landing.heroDecoration.liveClassroom")}</p>
         </div>
       </FloatingShape>
     </div>

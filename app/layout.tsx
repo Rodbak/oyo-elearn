@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: appUrl,
     siteName: "OYO-Elearner",
-    title: "OYO-Elearner — Where Proffessionals Teach, Students Grow",
+    title: "OYO-Elearner — Where Professionals Teach, Students Grow",
     description:
-      "The eLearning platform built for schools, universities, and proffessionals across Africa and beyond.",
+      "The eLearning platform built for schools, universities, and professionals across Africa and beyond.",
     images: [
       {
         url: "/og-image.png",
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OYO-Elearner — Where Proffessionals Teach, Students Grow",
+    title: "OYO-Elearner — Where Professionals Teach, Students Grow",
     description:
-      "The institutional eLearning platform built for schools, universities, and proffessionals across Africa and beyond.",
+      "The institutional eLearning platform built for schools, universities, and professionals across Africa and beyond.",
     images: ["/og-image.png"],
   },
   robots: {

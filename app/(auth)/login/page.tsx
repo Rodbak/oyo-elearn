@@ -68,9 +68,9 @@ function LoginForm() {
       : t("auth.portalCreator").toLowerCase();
 
   const highlights = [
-    { icon: GraduationCap, title: "Role-aware experience", body: "Students, instructors, and teams get the tools that matter most to them." },
-    { icon: Radio, title: "Live & on-demand", body: "Move smoothly between live sessions, lessons, and grading workflows." },
-    { icon: Award, title: "Verifiable certificates", body: "Issue and verify completion certificates with public codes." },
+    { icon: GraduationCap, title: t("auth.highlights.roleAware.title"), body: t("auth.highlights.roleAware.body") },
+    { icon: Radio, title: t("auth.highlights.liveOnDemand.title"), body: t("auth.highlights.liveOnDemand.body") },
+    { icon: Award, title: t("auth.highlights.certificates.title"), body: t("auth.highlights.certificates.body") },
   ];
 
   return (
@@ -94,8 +94,8 @@ function LoginForm() {
 
           <div className="relative z-10 max-w-lg">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent">{t("auth.welcomeBack")}</p>
-            <h2 className="mt-6 font-display text-4xl font-extrabold leading-tight">One secure login for learners, instructors, and teams.</h2>
-            <p className="mt-5 text-base leading-7 text-slate-300">Access courses, live sessions, grading, and administration from a single polished portal.</p>
+            <h2 className="mt-6 font-display text-4xl font-extrabold leading-tight">{t("auth.brandHeading")}</h2>
+            <p className="mt-5 text-base leading-7 text-slate-300">{t("auth.brandSubtitle")}</p>
 
             <ul className="mt-10 space-y-4">
               {highlights.map((h) => (
@@ -114,7 +114,7 @@ function LoginForm() {
 
           <div className="relative z-10 flex items-center gap-2 text-xs text-slate-400">
             <Sparkles className="h-3.5 w-3.5 text-accent" />
-            Built for creators, teams, and modern learning communities.
+            {t("auth.brandFooter")}
           </div>
         </aside>
 
@@ -147,6 +147,11 @@ function LoginForm() {
             <div className="relative">
               <div className="absolute inset-0 flex items-center" aria-hidden>
                 <div className="w-full border-t border-surface-border" />
+              </div>
+              <div className="relative flex justify-center">
+                <span className="bg-slate-50 px-3 font-body text-xs uppercase tracking-widest text-muted">
+                  {t("common.or")}
+                </span>
               </div>
             </div>
 

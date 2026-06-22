@@ -5,6 +5,8 @@ export const dictionary = {
     french: "Français",
     loading: "Chargement…",
     free: "Gratuit",
+    settings: "Paramètres",
+    or: "ou",
   },
   nav: {
     features: "Fonctionnalités",
@@ -96,6 +98,21 @@ export const dictionary = {
       viewAll: "Tous les cours",
       free: "Gratuit",
       by: "par",
+      items: {
+        fullstack: "HTML, CSS & JavaScript complet",
+        python: "Analyse de données avec Python",
+        uiux: "Fondamentaux du design UI/UX",
+        dataScience: "Bootcamp science des données",
+        cloud: "Fondamentaux du cloud",
+      },
+    },
+    heroDecoration: {
+      track: "Parcours développement front-end",
+      studyHours: "Heures d'étude",
+      streak: "Série de 12 jours",
+      streakSub: "Continuez ainsi",
+      liveClassroom: "Classe en direct",
+      learningNow: "en train d'apprendre",
     },
     demo: {
       title: "Prêt à l'essayer ?",
@@ -138,25 +155,25 @@ export const dictionary = {
       mission1:
         "Notre mission : rendre l'apprentissage de qualité accessible à tous — d'un seul atelier à un programme scolaire complet.",
       cards: {
-        school: {
-          title: "Écoles K-12",
+        creators: {
+          title: "Créateurs de cours",
           description:
-            "Visibilité pour les parents, alertes de présence et outils adaptés à l'âge.",
+            "Lancez des leçons, développez votre audience et enseignez avec une expérience de cours claire et engageante.",
         },
-        university: {
-          title: "Universités",
+        courses: {
+          title: "Équipes de formation",
           description:
-            "Intégration LMS complète, LTI 1.3 et prise en charge SCORM pour les flux académiques.",
+            "Animez des programmes de formation, des sessions en direct et des parcours sans configurer un LMS lourd.",
         },
-        vocational: {
-          title: "Centres de formation professionnelle",
+        learning: {
+          title: "Communautés d'apprentissage",
           description:
-            "Certificats basés sur les compétences et suivi pour des résultats adaptés à l'emploi.",
+            "Gardez les apprenants engagés grâce au suivi de progression, aux certificats et à des moments d'apprentissage interactifs.",
         },
-        platform: {
-          title: "Opérateurs de plateforme",
+        teams: {
+          title: "Équipes & marques",
           description:
-            "Outils SuperAdmin pour gérer plusieurs institutions depuis un seul tableau de bord.",
+            "Créez un espace d'apprentissage personnalisé pour vos cours, cohortes ou formations internes.",
         },
       },
     },
@@ -332,6 +349,26 @@ export const dictionary = {
       "Besoin d'un compte de démonstration ? Ouvrez le panneau de renseignements rapides ci-dessous pour copier instantanément des comptes apprenant ou instructeur.",
     demoTitle: "Identifiants de démonstration",
     demoSubtitle: "Testez la plateforme avec des comptes apprenant et instructeur prêts à l'emploi.",
+    portalLearnerDesc: "Accédez aux cours, suivez vos progrès et obtenez des certificats",
+    portalCreatorDesc: "Créez des cours, enseignez et gérez votre contenu",
+    brandHeading: "Une connexion sécurisée pour les apprenants, les formateurs et les équipes.",
+    brandSubtitle:
+      "Accédez aux cours, sessions en direct, notations et à l'administration depuis un portail unique et soigné.",
+    brandFooter: "Conçu pour les créateurs, les équipes et les communautés d'apprentissage modernes.",
+    highlights: {
+      roleAware: {
+        title: "Expérience adaptée au rôle",
+        body: "Étudiants, formateurs et équipes obtiennent les outils les plus utiles pour eux.",
+      },
+      liveOnDemand: {
+        title: "En direct et à la demande",
+        body: "Passez facilement des sessions en direct aux leçons et aux flux de notation.",
+      },
+      certificates: {
+        title: "Certificats vérifiables",
+        body: "Émettez et vérifiez des certificats d'achèvement avec des codes publics.",
+      },
+    },
   },
   footer: {
     tagline:
@@ -339,6 +376,8 @@ export const dictionary = {
     product: "Produit",
     company: "Entreprise",
     copyright: "Tous droits réservés.",
+    terms: "Conditions",
+    privacy: "Confidentialité",
   },
   dashboard: {
     student: "Élève",
