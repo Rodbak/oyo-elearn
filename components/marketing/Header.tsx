@@ -36,26 +36,24 @@ export function Header() {
       }`}
     >
       <nav
-        className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 md:px-8"
+        className="relative mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 md:px-8"
         aria-label={t("nav.mainNav")}
       >
         {/* Left: logo with mark */}
         <Link
           href="/"
-          className="flex shrink-0 items-center rounded-btn focus-neu"
+          className="flex shrink-0 items-center gap-2.5 rounded-btn focus-neu"
         >
-          <span className="flex items-center gap-2.5 rounded-xl bg-accent px-3 py-2 shadow-sm">
-            <span className="flex h-6 w-6 items-center justify-center text-white">
-              <GraduationCap className="h-5 w-5" />
-            </span>
-            <span className="font-display text-xl font-extrabold tracking-tight text-white">
-              OYO<span className="text-white/80">-Elearner</span>
-            </span>
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-white shadow-sm">
+            <GraduationCap className="h-5 w-5" />
+          </span>
+          <span className="font-display text-xl font-extrabold tracking-tight text-accent">
+            OYO<span className="text-foreground">-Elearner</span>
           </span>
         </Link>
 
-        {/* Center: desktop nav links */}
-        <ul className="hidden flex-1 items-center gap-1 lg:flex">
+        {/* Center: nav links pinned to the absolute middle of the bar */}
+        <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
