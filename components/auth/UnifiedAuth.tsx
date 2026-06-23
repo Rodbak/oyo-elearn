@@ -50,6 +50,10 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
           position: relative;
           overflow-x: hidden;
         }
+        .auth-page.register-mode {
+          background: linear-gradient(125deg, #1a1530 0%, #1f1a38 48%, #1a2040 78%, #151a35 100%);
+          background-attachment: fixed;
+        }
         .auth-blob-1 {
           position: fixed;
           top: -160px;
@@ -471,29 +475,46 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
             font-size: 26px;
           }
         }
+        .register-mode .auth-h1 {
+          color: white;
+        }
+        .register-mode .auth-subtitle {
+          color: #c4c0d8;
+        }
+        .register-mode .auth-eyebrow {
+          background: rgba(255,255,255,0.08);
+          color: #f0947e;
+        }
+        .register-mode .auth-lang-select {
+          background: #1f1a38;
+          border-color: #3a3555;
+          color: #e4e2f0;
+        }
       `}</style>
 
-      <div className="auth-page">
+      <div className={`auth-page ${!isLogin ? "register-mode" : ""}`}>
         <div className="auth-blob-1" />
         <div className="auth-blob-2" />
 
         <header className="auth-header">
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div className="auth-logo-pill">
-              <div className="auth-logo-diamond" />
-              <div className="auth-logo-bar" />
+          {isLogin && (
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div className="auth-logo-pill">
+                <div className="auth-logo-diamond" />
+                <div className="auth-logo-bar" />
+              </div>
+              <span
+                style={{
+                  fontFamily: "var(--font-poppins)",
+                  fontWeight: 800,
+                  fontSize: 20,
+                  color: "#1B1830",
+                }}
+              >
+                OYO<span style={{ color: "#6A5AF0" }}>-Elearner</span>
+              </span>
             </div>
-            <span
-              style={{
-                fontFamily: "var(--font-poppins)",
-                fontWeight: 800,
-                fontSize: 20,
-                color: "#1B1830",
-              }}
-            >
-              OYO<span style={{ color: "#6A5AF0" }}>-Elearner</span>
-            </span>
-          </div>
+          )}
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <select
               className="auth-lang-select"
@@ -503,13 +524,15 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
               <option value="en">English</option>
               <option value="fr">Français</option>
             </select>
-            <button
-              type="button"
-              className={`auth-nav-btn ${isLogin ? "primary" : "secondary"}`}
-              onClick={toggleMode}
-            >
-              {isLogin ? t("auth.getStarted") : t("auth.backToLogin")}
-            </button>
+            {isLogin && (
+              <button
+                type="button"
+                className="auth-nav-btn primary"
+                onClick={toggleMode}
+              >
+                {t("auth.getStarted")}
+              </button>
+            )}
           </div>
         </header>
 

@@ -1,4 +1,3 @@
-import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { FloatingShape } from "@/components/motion/FloatingShape";
 import { Reveal } from "@/components/motion/Reveal";
 import Link from "next/link";
@@ -23,9 +22,6 @@ export default function AuthLayout({
         yOffset={12}
       />
 
-      <div className="relative right-4 top-4 mb-4 self-end md:absolute md:right-8 md:top-8">
-        <LanguageSwitcher />
-      </div>
       <Link
         href="/"
         className="relative mb-8 font-display text-2xl font-extrabold text-accent focus-neu"
@@ -36,4 +32,3 @@ export default function AuthLayout({
     </div>
   );
 }
-
