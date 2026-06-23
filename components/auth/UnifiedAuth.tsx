@@ -475,6 +475,10 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
             font-size: 26px;
           }
         }
+        .register-mode .auth-blob-1,
+        .register-mode .auth-blob-2 {
+          display: none;
+        }
         .register-mode .auth-h1 {
           color: white;
         }
