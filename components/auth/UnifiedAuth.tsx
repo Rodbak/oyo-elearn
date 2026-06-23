@@ -439,26 +439,6 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
           background-repeat: no-repeat;
           background-position: right 8px center;
         }
-        .auth-nav-btn {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 13.5px;
-          font-weight: 600;
-          padding: 10px 18px;
-          border-radius: 12px;
-          cursor: pointer;
-          transition: all 0.15s ease;
-          border: none;
-        }
-        .auth-nav-btn.primary {
-          background: linear-gradient(135deg, #7B6CF6, #6A5AF0);
-          color: white;
-          box-shadow: 0 4px 12px -4px rgba(106,90,240,0.6);
-        }
-        .auth-nav-btn.secondary {
-          background: white;
-          color: #1B1830;
-          border: 1px solid #ECE9F6;
-        }
         @media (max-width: 520px) {
           .auth-header {
             padding: 16px 18px;
@@ -503,13 +483,6 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
               <option value="en">English</option>
               <option value="fr">Français</option>
             </select>
-            <button
-              type="button"
-              className={`auth-nav-btn ${isLogin ? "primary" : "secondary"}`}
-              onClick={toggleMode}
-            >
-              {isLogin ? t("auth.getStarted") : t("auth.backToLogin")}
-            </button>
           </div>
         </header>
 

@@ -9,7 +9,7 @@ export default function AuthLayout({
 }) {
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 py-12">
-      <div className="bg-hero-gradient pointer-events-none absolute inset-0" aria-hidden />
+      <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(125deg, #1a1530 0%, #1f1a38 48%, #1a2040 78%, #151a35 100%)" }} aria-hidden />
       <FloatingShape
         className="left-[8%] top-[12%] h-24 w-24 rounded-[40%_60%_60%_40%/50%_40%_60%_50%] bg-badge-sky/20 md:h-32 md:w-32"
         duration={8}
