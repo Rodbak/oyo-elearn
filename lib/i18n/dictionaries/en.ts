@@ -320,8 +320,7 @@ export const dictionary = {
     register: "Register",
     registerAs: "Register as",
     createAccount: "Create account",
-    registerSubtitle:
-      "Your account is saved locally in the database for future logins",
+    registerSubtitle: "Create your account to access your dashboard.",
     registerAsLabel: "Register as",
     signInAsLabel: "Sign in as",
     creating: "Creating…",
@@ -350,6 +349,12 @@ export const dictionary = {
     demoSubtitle: "Preview the platform with prepared learner and instructor accounts.",
     portalLearnerDesc: "Access courses, track progress & earn certificates",
     portalCreatorDesc: "Build courses, teach students & manage content",
+    fullNameRequired: "Name must be at least 2 characters",
+    emailRequired: "Enter a valid email address",
+    passwordRequired: "Password must be at least 8 characters",
+    passwordWeak: "Weak",
+    passwordMedium: "Medium strength",
+    passwordStrong: "Strong",
     brandHeading: "One secure login for learners, instructors, and teams.",
     brandSubtitle:
       "Access courses, live sessions, grading, and administration from a single polished portal.",

@@ -120,8 +120,7 @@ function LoginForm() {
 
         {/* Right: form panel */}
         <main className="flex min-h-screen w-full flex-col px-5 py-8 sm:px-8 md:px-12">
-          <div className="mb-8 flex items-center justify-between">
-            <Link href="/" className="font-display text-xl font-extrabold tracking-tight text-accent lg:opacity-0">OYO<span className="text-foreground">-Elearner</span></Link>
+          <div className="mb-8 flex items-center justify-end">
             <LanguageSwitcher />
           </div>
 

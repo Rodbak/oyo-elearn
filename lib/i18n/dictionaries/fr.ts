@@ -320,8 +320,7 @@ export const dictionary = {
     register: "S'inscrire",
     registerAs: "S'inscrire en tant que",
     createAccount: "Créer un compte",
-    registerSubtitle:
-      "Votre compte est enregistré localement dans la base de données pour vos prochaines connexions",
+    registerSubtitle: "Créez votre compte pour accéder à votre tableau de bord.",
     registerAsLabel: "S'inscrire en tant que",
     signInAsLabel: "Se connecter en tant que",
     creating: "Création…",
@@ -351,6 +350,12 @@ export const dictionary = {
     demoSubtitle: "Testez la plateforme avec des comptes apprenant et instructeur prêts à l'emploi.",
     portalLearnerDesc: "Accédez aux cours, suivez vos progrès et obtenez des certificats",
     portalCreatorDesc: "Créez des cours, enseignez et gérez votre contenu",
+    fullNameRequired: "Le nom doit contenir au moins 2 caractères",
+    emailRequired: "Veuillez saisir une adresse e-mail valide",
+    passwordRequired: "Le mot de passe doit contenir au moins 8 caractères",
+    passwordWeak: "Faible",
+    passwordMedium: "Moyen",
+    passwordStrong: "Fort",
     brandHeading: "Une connexion sécurisée pour les apprenants, les formateurs et les équipes.",
     brandSubtitle:
       "Accédez aux cours, sessions en direct, notations et à l'administration depuis un portail unique et soigné.",

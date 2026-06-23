@@ -53,6 +53,7 @@ export function RolePortalSelector({
             <button
               key={option.id}
               type="button"
+              aria-pressed={isActive}
               onClick={() => onChange(option.id)}
               className={cn(
                 "relative flex flex-col items-center gap-3 rounded-card border-2 p-4 text-center transition-all duration-200 focus-neu",
