@@ -132,7 +132,7 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
           border: 1px solid #F0EEF8;
           border-radius: 24px;
           padding: 30px;
-          box-shadow: 0 2px 4px rgba(27,24,48,0.03), 0 26px 60px -30px rgba(106,90,240,0.4);
+          box-shadow: 0 2px 4px rgba(27,24,48,0.03);
         }
         .auth-role-label {
           font-family: var(--font-poppins), sans-serif;
