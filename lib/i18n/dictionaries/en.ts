@@ -374,7 +374,17 @@ export const dictionary = {
     loginReassurance: "Your workspace stays secure. By continuing you agree to our",
     newAccount: "Create an account",
     backToLogin: "Log in",
-    highlights: {
+    showcaseLoginHeadline: "Welcome back to your learning journey",
+    showcaseRegisterHeadline: "Create your future through learning",
+    showcaseSubtitle: "Access courses, track progress, earn certificates, and collaborate with instructors from anywhere.",
+    stat1Label: "Learners enrolled",
+    stat1Value: "1,000+",
+    stat2Label: "Courses live",
+    stat2Value: "500+",
+    stat3Label: "Learning teams",
+    stat3Value: "120+",
+    stat4Label: "Completion rate",
+    stat4Value: "98%",    highlights: {
       roleAware: {
         title: "Role-aware experience",
         body: "Students, instructors, and teams get the tools that matter most to them.",

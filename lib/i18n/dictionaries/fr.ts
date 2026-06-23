@@ -375,7 +375,17 @@ export const dictionary = {
     loginReassurance: "Votre espace de travail reste sécurisé. En continuant, vous acceptez nos",
     newAccount: "Créer un compte",
     backToLogin: "Se connecter",
-    highlights: {
+    showcaseLoginHeadline: "Bon retour dans votre parcours d'apprentissage",
+    showcaseRegisterHeadline: "Créez votre avenir par l'apprentissage",
+    showcaseSubtitle: "Accédez aux cours, suivez vos progrès, obtenez des certificats et collaborez avec les instructeurs depuis n'importe où.",
+    stat1Label: "Apprenants inscrits",
+    stat1Value: "1 000+",
+    stat2Label: "Cours en direct",
+    stat2Value: "500+",
+    stat3Label: "Équipes d'apprentissage",
+    stat3Value: "120+",
+    stat4Label: "Taux d'achèvement",
+    stat4Value: "98%",    highlights: {
       roleAware: {
         title: "Expérience adaptée au rôle",
         body: "Étudiants, formateurs et équipes obtiennent les outils les plus utiles pour eux.",
