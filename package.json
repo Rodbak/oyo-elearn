@@ -1,5 +1,5 @@
 {
-  "name": "oyo-elearner",
+  "name": "oyo-elearning",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -70,3 +70,4 @@
     "vitest": "^2.1.8"
   }
 }
+

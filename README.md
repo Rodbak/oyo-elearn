@@ -1,4 +1,4 @@
-# OYO-Elearner
+# oyo-elearning
 
 **Africa's institutional eLearning platform** — built for K-12 schools, universities, and vocational centres. Combines the best of Coursera-style course delivery with deep school management system integrations.
 
@@ -169,4 +169,5 @@ npm run lint             # Run ESLint
 
 ## License
 
-Proprietary — OYO-Elearner © 2025
+Proprietary — oyo-elearning © 2025
+

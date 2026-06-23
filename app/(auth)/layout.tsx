@@ -30,9 +30,10 @@ export default function AuthLayout({
         href="/"
         className="relative mb-8 font-display text-2xl font-extrabold text-accent focus-neu"
       >
-        OYO<span className="text-foreground">-Elearner</span>
+        OYO<span className="text-foreground">-Elearning</span>
       </Link>
       <Reveal className="relative w-full max-w-md">{children}</Reveal>
     </div>
   );
 }
+

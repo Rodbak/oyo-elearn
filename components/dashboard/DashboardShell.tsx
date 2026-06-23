@@ -82,7 +82,7 @@ export function DashboardShell({
         {/* Brand */}
         <div className="flex items-center justify-between border-b border-black/5 px-5 py-4">
           <Link href="/" className="font-display text-xl font-extrabold tracking-tight text-accent focus-neu rounded-sm">
-            OYO<span className="text-foreground">-Elearner</span>
+            OYO<span className="text-foreground">-Elearning</span>
           </Link>
           <button
             type="button"
@@ -233,3 +233,4 @@ export function DashboardShell({
     </div>
   );
 }
+

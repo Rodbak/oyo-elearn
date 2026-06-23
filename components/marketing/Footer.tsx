@@ -11,7 +11,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
         <div className="grid gap-10 lg:grid-cols-3">
           <div className="space-y-4">
-            <p className="font-display text-2xl font-extrabold text-white">OYO-Elearner</p>
+            <p className="font-display text-2xl font-extrabold text-white">OYO-Elearning</p>
             <p className="max-w-md font-body text-sm text-slate-300">{t("footer.tagline")}</p>
           </div>
           <div>
@@ -60,9 +60,10 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} OYO-Elearner. {t("footer.copyright")}
+          © {new Date().getFullYear()} OYO-Elearning. {t("footer.copyright")}
         </div>
       </div>
     </footer>
   );
 }
+

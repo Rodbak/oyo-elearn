@@ -18,7 +18,7 @@ export default function VerifyCertificatePage({
         <p className="mt-1 font-body text-sm text-muted">May 1, 2026</p>
         <NeuBadge className="mt-6">Code: {params.code}</NeuBadge>
         <p className="mt-8 font-body text-xs text-muted">
-          Lagos Academy · OYO-Elearner
+          Lagos Academy · OYO-Elearning
         </p>
       </NeuCard>
     </div>

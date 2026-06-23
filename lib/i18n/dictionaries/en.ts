@@ -24,7 +24,7 @@ export const dictionary = {
     heroTitle: "Launch courses,",
     heroTitleAccent: "grow your brand",
     heroSubtitle:
-      "OYO-Elearner is a modern course platform for creators, teams, and learners who want to publish lessons, host live sessions, and deliver great learning experiences.",
+      "oyo-elearning is a modern course platform for creators, teams, and learners who want to publish lessons, host live sessions, and deliver great learning experiences.",
     startFree: "Start free",
     viewPricing: "View pricing",
     featuresTitle: "Everything you need to launch and grow courses",
@@ -149,7 +149,7 @@ export const dictionary = {
     about: {
       title: "Built for creators, teams, and modern learning communities",
       intro1:
-        "OYO-Elearner brings world-class course delivery to creators, coaches, and institutions — without the LMS complexity.",
+        "oyo-elearning brings world-class course delivery to creators, coaches, and institutions — without the LMS complexity.",
       intro2:
         "One clean platform to publish lessons, run live classes, track progress, and grow your learning community.",
       mission1:
@@ -285,9 +285,9 @@ export const dictionary = {
     },
   },
   about: {
-    title: "About OYO-Elearner",
+    title: "About oyo-elearning",
     intro:
-      "OYO-Elearner was created to bring world-class course delivery — inspired by Coursera — into the institutional workflows that African schools and global campuses already trust.",
+      "oyo-elearning was created to bring world-class course delivery — inspired by Coursera — into the institutional workflows that African schools and global campuses already trust.",
     missionTitle: "Our mission",
     mission:
       "Empower every institution to onboard students, deliver blended learning, track attendance, award verifiable certificates, and integrate with existing school management systems — under a fair freemium model.",
@@ -320,7 +320,7 @@ export const dictionary = {
     register: "Register",
     registerAs: "Register as",
     createAccount: "Create account",
-    registerSubtitle: "Create your account to access your dashboard.",
+    registerSubtitle: "Your account is saved for future logins. By continuing you agree to our",
     registerAsLabel: "Register as",
     signInAsLabel: "Sign in as",
     creating: "Creating…",
@@ -359,6 +359,21 @@ export const dictionary = {
     brandSubtitle:
       "Access courses, live sessions, grading, and administration from a single polished portal.",
     brandFooter: "Built for creators, teams, and modern learning communities.",
+    getStarted: "Get started",
+    signInToYour: "Sign in to your",
+    createYour: "Create your",
+    portalInPlace: "portal",
+    accountInPlace: "account",
+    pickPortalSubtitle: "Pick the portal that matches your role and start in minutes.",
+    portalStudent: "Student",
+    portalInstructor: "Instructor",
+    portalStudentDesc: "Access courses, track progress and earn certificates",
+    portalInstructorDesc: "Build courses, teach students and manage content",
+    showPassword: "Show password",
+    hidePassword: "Hide password",
+    loginReassurance: "Your workspace stays secure. By continuing you agree to our",
+    newAccount: "Create an account",
+    backToLogin: "Log in",
     highlights: {
       roleAware: {
         title: "Role-aware experience",
@@ -409,3 +424,4 @@ export const dictionary = {
     mobileNav: "Mobile navigation",
   },
 } as const;
+

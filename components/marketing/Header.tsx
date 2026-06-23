@@ -48,7 +48,7 @@ export function Header() {
             <GraduationCap className="h-5 w-5" />
           </span>
           <span className="font-display text-xl font-extrabold tracking-tight text-accent">
-            OYO<span className="text-foreground">-Elearner</span>
+            OYO<span className="text-foreground">-Elearning</span>
           </span>
         </Link>
 
@@ -127,3 +127,4 @@ export function Header() {
     </header>
   );
 }
+

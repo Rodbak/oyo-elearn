@@ -24,7 +24,7 @@ export const dictionary = {
     heroTitle: "Lancez des cours,",
     heroTitleAccent: "développez votre marque",
     heroSubtitle:
-      "OYO-Elearner est une plateforme moderne de cours pour les créateurs, les équipes et les apprenants qui veulent publier des leçons, organiser des sessions en direct et offrir de belles expériences d'apprentissage.",
+      "oyo-elearning est une plateforme moderne de cours pour les créateurs, les équipes et les apprenants qui veulent publier des leçons, organiser des sessions en direct et offrir de belles expériences d'apprentissage.",
     startFree: "Commencer gratuitement",
     viewPricing: "Voir les tarifs",
     featuresTitle: "Tout ce dont vous avez besoin pour lancer et développer vos cours",
@@ -149,7 +149,7 @@ export const dictionary = {
     about: {
       title: "Conçu pour l'éducation africaine — et au-delà",
       intro1:
-        "OYO-Elearner apporte une diffusion de cours de classe mondiale aux créateurs, coachs et institutions — sans la complexité d'un LMS traditionnel.",
+        "oyo-elearning apporte une diffusion de cours de classe mondiale aux créateurs, coachs et institutions — sans la complexité d'un LMS traditionnel.",
       intro2:
         "Une seule plateforme pour publier des cours, organiser des classes en direct, suivre la progression et développer votre communauté apprenante.",
       mission1:
@@ -285,9 +285,9 @@ export const dictionary = {
     },
   },
   about: {
-    title: "À propos d'OYO-Elearner",
+    title: "À propos d'oyo-elearning",
     intro:
-      "OYO-Elearner a été créé pour offrir une diffusion de cours de classe mondiale — inspirée de Coursera — dans les flux institutionnels des écoles africaines et des campus internationaux.",
+      "oyo-elearning a été créé pour offrir une diffusion de cours de classe mondiale — inspirée de Coursera — dans les flux institutionnels des écoles africaines et des campus internationaux.",
     missionTitle: "Notre mission",
     mission:
       "Permettre à chaque institution d'inscrire des élèves, dispenser un apprentissage mixte, suivre la présence, délivrer des certificats vérifiables et s'intégrer aux systèmes scolaires existants — avec un modèle freemium équitable.",
@@ -320,7 +320,7 @@ export const dictionary = {
     register: "S'inscrire",
     registerAs: "S'inscrire en tant que",
     createAccount: "Créer un compte",
-    registerSubtitle: "Créez votre compte pour accéder à votre tableau de bord.",
+    registerSubtitle: "Votre compte est enregistré pour vos prochaines connexions. En continuant, vous acceptez nos",
     registerAsLabel: "S'inscrire en tant que",
     signInAsLabel: "Se connecter en tant que",
     creating: "Création…",
@@ -360,6 +360,21 @@ export const dictionary = {
     brandSubtitle:
       "Accédez aux cours, sessions en direct, notations et à l'administration depuis un portail unique et soigné.",
     brandFooter: "Conçu pour les créateurs, les équipes et les communautés d'apprentissage modernes.",
+    getStarted: "Commencer",
+    signInToYour: "Connectez-vous à votre",
+    createYour: "Créez votre",
+    portalInPlace: "portail",
+    accountInPlace: "compte",
+    pickPortalSubtitle: "Choisissez le portail correspondant à votre rôle et démarrez en quelques minutes.",
+    portalStudent: "Étudiant",
+    portalInstructor: "Instructeur",
+    portalStudentDesc: "Accédez aux cours, suivez vos progrès et obtenez des certificats",
+    portalInstructorDesc: "Créez des cours, enseignez et gérez votre contenu",
+    showPassword: "Afficher le mot de passe",
+    hidePassword: "Masquer le mot de passe",
+    loginReassurance: "Votre espace de travail reste sécurisé. En continuant, vous acceptez nos",
+    newAccount: "Créer un compte",
+    backToLogin: "Se connecter",
     highlights: {
       roleAware: {
         title: "Expérience adaptée au rôle",
@@ -410,3 +425,4 @@ export const dictionary = {
     mobileNav: "Navigation mobile",
   },
 };
+

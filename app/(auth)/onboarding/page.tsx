@@ -35,7 +35,7 @@ export default function OnboardingPage() {
         <>
           <h1 className="font-display text-2xl font-extrabold">Choose your role</h1>
           <p className="mt-2 font-body text-sm text-muted">
-            How will you use OYO-Elearner?
+            How will you use oyo-elearning?
           </p>
           <div className="mt-6">
             <RolePortalSelector
@@ -125,3 +125,4 @@ export default function OnboardingPage() {
     </NeuCard>
   );
 }
+
