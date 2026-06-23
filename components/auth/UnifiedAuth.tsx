@@ -54,28 +54,6 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
           background: linear-gradient(125deg, #1a1530 0%, #1f1a38 48%, #1a2040 78%, #151a35 100%);
           background-attachment: fixed;
         }
-        .auth-blob-1 {
-          position: fixed;
-          top: -160px;
-          right: -120px;
-          width: 460px;
-          height: 460px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(106,90,240,0.10) 0%, transparent 70%);
-          pointer-events: none;
-          z-index: 0;
-        }
-        .auth-blob-2 {
-          position: fixed;
-          bottom: -180px;
-          left: -140px;
-          width: 480px;
-          height: 480px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(240,97,74,0.08) 0%, transparent 70%);
-          pointer-events: none;
-          z-index: 0;
-        }
         .auth-header {
           max-width: 1180px;
           width: 100%;
@@ -86,37 +64,6 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
           justify-content: space-between;
           position: relative;
           z-index: 10;
-        }
-        .auth-logo-pill {
-          width: 40px;
-          height: 40px;
-          border-radius: 12px;
-          background: linear-gradient(150deg, #7B6CF6, #6A5AF0);
-          box-shadow: 0 6px 16px -6px rgba(106,90,240,0.7);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          flex-shrink: 0;
-        }
-        .auth-logo-diamond {
-          width: 14px;
-          height: 14px;
-          background: white;
-          clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-          position: relative;
-          z-index: 2;
-        }
-        .auth-logo-bar {
-          position: absolute;
-          bottom: -2px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 16px;
-          height: 6px;
-          background: white;
-          border-radius: 0 0 4px 4px;
-          z-index: 1;
         }
         .auth-center {
           flex: 1;
@@ -475,10 +422,6 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
             font-size: 26px;
           }
         }
-        .register-mode .auth-blob-1,
-        .register-mode .auth-blob-2 {
-          display: none;
-        }
         .register-mode .auth-h1 {
           color: white;
         }
@@ -497,28 +440,8 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
       `}</style>
 
       <div className={`auth-page ${!isLogin ? "register-mode" : ""}`}>
-        <div className="auth-blob-1" />
-        <div className="auth-blob-2" />
 
         <header className="auth-header">
-          {isLogin && (
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div className="auth-logo-pill">
-                <div className="auth-logo-diamond" />
-                <div className="auth-logo-bar" />
-              </div>
-              <span
-                style={{
-                  fontFamily: "var(--font-poppins)",
-                  fontWeight: 800,
-                  fontSize: 20,
-                  color: "#1B1830",
-                }}
-              >
-                OYO<span style={{ color: "#6A5AF0" }}>-Elearner</span>
-              </span>
-            </div>
-          )}
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <select
               className="auth-lang-select"
@@ -528,15 +451,6 @@ export default function UnifiedAuth({ initialMode }: { initialMode: Mode }) {
               <option value="en">English</option>
               <option value="fr">Français</option>
             </select>
-            {isLogin && (
-              <button
-                type="button"
-                className="auth-nav-btn primary"
-                onClick={toggleMode}
-              >
-                {t("auth.getStarted")}
-              </button>
-            )}
           </div>
         </header>
 
